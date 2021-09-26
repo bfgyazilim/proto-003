@@ -20,12 +20,4 @@ public class TargetCollision : MonoBehaviour
 
         Debug.Log("Collision");
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Prisoner")
-        {
-            onCollisionEvent.Invoke();
-        }
-    }
 }
