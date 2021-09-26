@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveUpAndDown : MonoBehaviour
 {
     public float speed, distance;
+    [SerializeField]
     private float minZ, maxZ;
 
     public bool right, dontMove;

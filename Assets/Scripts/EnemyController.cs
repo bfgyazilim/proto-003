@@ -32,6 +32,7 @@ public class EnemyController : MonoBehaviour
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
         }
     }
+
     /// <summary>
     /// 
     /// </summary>
@@ -48,6 +49,15 @@ public class EnemyController : MonoBehaviour
         }
 
         Instantiate(collectiblePrefabs[index], spawnPos, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// Return if died true, else false...
+    /// </summary>
+    /// <returns></returns>
+    public bool GetState()
+    {
+        return !died;
     }
 
     public void Die()
@@ -85,7 +95,7 @@ public class EnemyController : MonoBehaviour
 
         foreach (Rigidbody rigidbody in rigidbodies)
         {
-            rigidbody.AddExplosionForce(500f, transform.position, 50f);
+            rigidbody.AddExplosionForce(1500f, transform.position, 50f);
         }
 
         GetComponent<Animator>().enabled = false;
