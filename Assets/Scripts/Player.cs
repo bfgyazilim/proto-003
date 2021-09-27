@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour
     public SphereCollider sphereCollider;
     public static Player instance;
     public bool playerWin;
-    public bool levelFailed;
+    public bool levelFailed, levelFinished, levelStarted;
 
     // Sound variables
     AudioSource m_AudioSource;
@@ -53,7 +54,36 @@ public class Player : MonoBehaviour
     // User specific variables
     protected Joystick joystick;
 
-    
+    // Cinemashine variables
+    [SerializeField]
+    private CinemachineVirtualCamera cinemachineVirtualCamera;
+    CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin;
+    [SerializeField]
+    float shakeTimer;
+
+    // State of the player
+    bool died;
+    bool hit = false;
+    float hitCount = 0;
+
+    // Invincible options
+    public float invincibleLength = 2f;
+    private float invincCounter;
+    [SerializeField]
+    GameObject playerModel;
+
+    // Stacking variables
+    [SerializeField]
+    GameObject[] crate;
+    GameObject go;
+    [SerializeField]
+    float offset;
+
+    // Text stacking variables
+    string temp;
+    bool textHit;
+    string old;
+
     /// <summary>
     /// 
     /// </summary>
@@ -366,5 +396,131 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         App_Initialize.instance.RestartGame();
+    }
+
+    // new functions here
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public int GetChildCount()
+    {
+        return transform.GetChild(0).childCount;
+    }
+
+    public void DieCameraAnimation()
+    {
+        // Set player state to die
+        died = true;
+
+        // Set Shake timer and start to decrement in Update in this interval
+        shakeTimer = 5f;
+        // Stop following we're gonna move em.
+        cinemachineVirtualCamera.Follow = null;
+
+        // Fall apart player we died!!!
+        transform.Rotate(new Vector3(90, 0, 30));
+
+    }
+    /// <summary>
+    /// Handle the pickup logic in player
+    /// </summary>
+    /// <param name="collectible"></param>
+    void HandleStacking(Collectible collectible)
+    {
+        int childCount = transform.GetChild(0).childCount;
+        int index = 0;
+
+        if (collectible.gameObject.name.StartsWith("Tex"))
+        {
+            index = 0;
+            temp = collectible.capitalText.text;
+            textHit = true;
+        }
+        else if (collectible.gameObject.name.StartsWith("Ca"))
+        {
+            index = 1;
+        }
+        else if (collectible.gameObject.name.StartsWith("Ic"))
+        {
+            index = 2;
+        }
+
+        // Get First Child (Handler), and Instantiate the new Crate in it as sub-object
+        go = Instantiate(crate[index], transform.GetChild(0), false);
+
+        // Assign collected object's inside text property to the Crate's text property...
+        if (textHit)
+        {
+            go.GetComponentInChildren<Crate>().capitalText.text = collectible.capitalText.text;
+            textHit = false;
+            //ReorderCrateText();
+        }
+
+        float newY = childCount * offset;
+
+        if (hit)
+        {
+            hitCount++;
+            hit = false;
+        }
+        go.transform.localPosition = new Vector3(0, newY + (hitCount * offset), 0);
+        //Debug.Log(go.transform.localPosition);        
+    }
+
+    /// <summary>
+    /// Register to the event on Collectible
+    /// </summary>
+    public void RegisterToSpawnedObjects()
+    {
+
+        //foreach (var collectible in _gatherables)
+        //    collectible.OnPickup += HandleStacking; // Registering for the OnPickup event on Collectible
+        // Registering for the OnPickup event on Collectible (getting it from the ObjectSpawner's List)
+        if (ObjectSpawner.instance != null)
+        {
+            // Collectibles registering to Events
+            Debug.Log("Gatherables count: " + ObjectSpawner.instance._gatherables.Count);
+            foreach (var collectible in ObjectSpawner.instance._gatherables)
+            {
+                // If the collectible is a coin, HandleScore otherwise HandleStackin, add logic here for event registering accordingly Jewels...
+                if (collectible.gameObject.name.StartsWith("Jew"))
+                {
+                    collectible.OnPickup += UIManager.instance.HandleCoinPickup;
+                }
+                else
+                {
+                    collectible.OnPickup += HandleStacking; // Registering for the OnPickup event on Collectible
+                }
+                collectible.OnPickup += FXManager.instance.HandleFeedbackParticles; // Register FXManager to the Onpickup event on Collectible
+                //Debug.Log("Registered to collectible: OnPickup " + collectible.name);
+            }
+            Crate.OnHit += HandleHit;
+            Crate.OnHit += FXManager.instance.HandleHitFeedbackParticles; // Register FXManager to the OnHit event on Crate(Player)
+        }
+        else
+        {
+            Debug.Log("ObjectSpawner NULL");
+        }
+    }
+
+    /// <summary>
+    /// Enables us to be aware of that the Crate was hit by an Enemy
+    /// </summary>
+    void HandleHit()
+    {
+        Debug.Log("Handle Hit");
+        // Until invincibility counter is less then 0, then we can get hurt
+        if (invincCounter <= 0)
+        {
+            invincCounter = invincibleLength;
+            if (playerModel != null)
+            {
+                playerModel.SetActive(false);
+            }
+        }
+
+        hit = true;
     }
 }

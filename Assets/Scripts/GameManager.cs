@@ -282,6 +282,129 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void StartGame()
+    {
+        // Set UI Views state to START!
+        UIManager.instance.ResetViewsToStart();
+        // Allow Player to move
+        Player.instance.levelStarted = true;
+    }
+
+    /// <summary>
+    /// Wait for the given amount of seconds
+    /// </summary>
+    /// <param name="f"></param>
+    /// <returns></returns>
+    public IEnumerator WaitForGivenTime(float f)
+    {
+        // Move the main character to the end point to show success, and zoom in, or slow time, whatever
+        //aicommandTimeline.SetActive(true);
+        //ActivateTimeline();
+
+        // Wait 3 seconds for animation to finish
+        yield return new WaitForSeconds(2f);
+
+        // Now that you have waited, turn on the WinView to go to the next level prompt.
+        UIManager.instance.ResetViewsToWin();
+
+        // Show how many coins collected in this level +XXX
+
+        //currentScoreUI.text = "+" + Score.instance.score.ToString();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="waitTime"></param>
+    /// <returns></returns>
+    IEnumerator StartGame(float waitTime)
+    {
+        // If your game has levels
+        //TinySauce.OnGameStarted(levelNumber: GameManager.instance.GetLevelNo().ToString());
+
+        // Disable hand object and text at start
+        //GameManager.instance.RemoveUI();
+
+        // Set UI Views state to START!
+        UIManager.instance.ResetViewsToStart();
+
+        // Player change state to running
+        //Player.instance.ChangePlayerStateToRun();
+
+        yield return new WaitForSeconds(waitTime);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void GameOver()
+    {
+
+        // If you want to track if the user was able to finish the level of the game
+
+        //TinySauce.OnGameFinished(levelNumber: GameManager.instance.GetLevelNo().ToString(), false, Score.instance.score);
+
+        //player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+
+        // Set player state to levelFailed!
+        Player.instance.levelFailed = true;
+
+        // Set UI Views state to LOSE!
+        UIManager.instance.ResetViewsToLose();
+
+        //Debug.Log("Game Over");
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void RestartGame()
+    {
+        // If WIN the game get new scene, or If FAILED get the old scene...
+        if (Player.instance.levelFailed == false)
+        {
+            // After moving to the next timeline, make sure that you save the new level, and the last active timelines,
+            // to the PlayerPrefbs (device), and reset the Remaining enemy count and such values related to THAT timeline specific.
+            level++;
+
+            // Increase level, add to PlayerPrefbs (save to device)
+            PlayerPrefs.SetInt("Level", level);
+
+            // Reset UI Progress Bar on new level
+            UIManager.instance.IncreaseInGameProgressBar(0f);
+            // Update level numbers on Progress Bar left and right
+            UIManager.instance.SetNewLevelUI(level);
+            // Add coins to the total!
+            UIManager.instance.AddCoinsToInGameView(1);
+            // Save collected coins
+            UIManager.instance.SaveCoins();
+
+            // TinySauce send level and score values
+            //TinySauce.OnGameFinished(true, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
+
+            //reloads the scene scene if WIN
+            SceneManager.LoadScene(GetLevelScene());
+
+        }
+        else
+        {
+            // Save the last active Timeline to PlayerPrefs for later loading fro where you left of...
+            //PlayerPrefs.SetInt("lastActiveTimelineIndex", lastActiveTimelineIndex);
+
+            // Set the level you are on, so that after scene reload, It knows where you left of.
+            PlayerPrefs.SetInt("Level", level);
+
+            // TinySauce send level and score values
+            //TinySauce.OnGameFinished(false, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
+
+            // Ah, I failed, reload the scene again (Same Scene in this prototype)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 }
     // end runner code
 

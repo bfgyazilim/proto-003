@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 700866118561150674}
   - component: {fileID: 700866118561150675}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Playerold
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1643,13 +1643,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 20
-  m_Animator: {fileID: 700866118561150669}
+  anim: {fileID: 0}
   isAttacking: 0
   hitEnemy: 0
   killedEnemy: 0
+  playerSpeed: 3
   sphereCollider: {fileID: 0}
+  playerWin: 0
+  levelFailed: 0
+  levelFinished: 0
+  levelStarted: 0
   m_AudioSourceAttack: {fileID: 0}
   m_AudioSourceHit: {fileID: 0}
+  sceneManager: {fileID: 0}
+  helicopter: {fileID: 0}
+  scoreUp: {fileID: 0}
+  damage: {fileID: 0}
+  PlayerWin: 0
+  scoreParticles: []
+  currentScoreUI: {fileID: 0}
+  rescueText: {fileID: 0}
+  coins: []
+  RescuedPrisoners: 0
+  cinemachineVirtualCamera: {fileID: 0}
+  shakeTimer: 0
+  invincibleLength: 2
+  playerModel: {fileID: 0}
+  crate: []
+  offset: 0
 --- !u!95 &700866118561150669
 Animator:
   serializedVersion: 3

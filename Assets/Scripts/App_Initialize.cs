@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 
 // Include Facebook namespace
-using Facebook.Unity;
+//using Facebook.Unity;
 
 public class App_Initialize : MonoBehaviour {
 
@@ -29,6 +29,7 @@ public class App_Initialize : MonoBehaviour {
 
     void Awake()
     {
+        /*
         if (!FB.IsInitialized)
         {
             // Initialize the Facebook SDK
@@ -39,13 +40,14 @@ public class App_Initialize : MonoBehaviour {
             // Already initialized, signal an app activation App Event
             FB.ActivateApp();
         }
-
+        */
         instance = this;
         Shader.SetGlobalFloat("_Curvature", 2.0f);
         Shader.SetGlobalFloat("_Trimming", 0.1f);
         Application.targetFrameRate = 60;
     }
 
+    /*
     private void InitCallback()
     {
         if (FB.IsInitialized)
@@ -60,7 +62,7 @@ public class App_Initialize : MonoBehaviour {
             Debug.Log("Failed to Initialize the Facebook SDK");
         }
     }
-
+    */
     private void OnHideUnity(bool isGameShown)
     {
         if (!isGameShown)
