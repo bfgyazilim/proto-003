@@ -18,32 +18,11 @@ public class Collectible : MonoBehaviour
         //textobj = this.gameObject.transform.GetChild(0).gameObject;
         //capitalText = textobj.GetComponent<TextMeshPro>();
     }
-    /*
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        var player = other.GetComponent<Player>();
-        if (player != null)
-        {
-            OnPickup?.Invoke(this);
 
-            gameObject.SetActive(false);
-        }
-    }
-    
     void OnTriggerEnter(Collider other)
     {
-        var player = other.GetComponent<Player>();
-        if (player != null)
-        {
-            OnPickup?.Invoke(this);
-
-            gameObject.SetActive(false);
-        }
-    }
-    */
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Crate" && other.gameObject.tag == "Player")
+        //if (other.gameObject.tag == "Crate" && other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player")
         {
             // UI Manager registers to the OnDie event via inGameView Canvas to
             // show feedback on screen...
@@ -55,5 +34,7 @@ public class Collectible : MonoBehaviour
 
             Debug.Log("Crate Invoked Collectible->OnTriggerEnter");
         }
+
+        Debug.Log("Collectible collided with: " + other.gameObject.name);
     }
 }

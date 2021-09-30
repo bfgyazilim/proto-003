@@ -123,9 +123,11 @@ public class GameManager : MonoBehaviour
             */
         }
 
+        #if(!UNITY_EDITOR)
         // Set Up Voodoo Tiny Sauce at Start!
+        if()
         TinySauce.OnGameStarted(levelNumber: level.ToString());
-
+        #endif
 
         // Set the active level remaining enemy on less or more than levelCount levels
         // If more than levelCount, it will repeat levels, so the remaining enemies to match that
@@ -380,9 +382,10 @@ public class GameManager : MonoBehaviour
             // Save collected coins
             UIManager.instance.SaveCoins();
 
+            #if (!UNITY_EDITOR)
             // TinySauce send level and score values
             TinySauce.OnGameFinished(true, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
-
+            #endif
             //reloads the scene scene if WIN
             SceneManager.LoadScene(GetLevelScene());
 
@@ -395,8 +398,10 @@ public class GameManager : MonoBehaviour
             // Set the level you are on, so that after scene reload, It knows where you left of.
             PlayerPrefs.SetInt("Level", level);
 
+            #if (!UNITY_EDITOR)
             // TinySauce send level and score values
             TinySauce.OnGameFinished(false, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
+            #endif
 
             // Ah, I failed, reload the scene again (Same Scene in this prototype)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

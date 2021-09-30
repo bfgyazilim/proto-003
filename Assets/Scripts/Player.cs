@@ -52,7 +52,8 @@ public class Player : MonoBehaviour
     // Joystick controls
 
     // User specific variables
-    protected Joystick joystick;
+    [SerializeField]
+    VariableJoystick joystick;
 
     // Cinemashine variables
     [SerializeField]
@@ -100,9 +101,7 @@ public class Player : MonoBehaviour
         // initialize character controller
         controller = gameObject.GetComponent<CharacterController>();
 
-        // Initialize joystick
-        joystick = FindObjectOfType<Joystick>();
-
+        // initialize animator
         anim = GetComponent<Animator>();
         anim.SetBool("isGrounded", true);
         m_AudioSource = GetComponent<AudioSource>();
@@ -486,7 +485,7 @@ public class Player : MonoBehaviour
                     collectible.OnPickup += HandleStacking; // Registering for the OnPickup event on Collectible
                 }
                 collectible.OnPickup += FXManager.instance.HandleFeedbackParticles; // Register FXManager to the Onpickup event on Collectible
-                //Debug.Log("Registered to collectible: OnPickup " + collectible.name);
+                Debug.Log("Registered to collectible: OnPickup " + collectible.name);
             }
             Crate.OnHit += HandleHit;
             Crate.OnHit += FXManager.instance.HandleHitFeedbackParticles; // Register FXManager to the OnHit event on Crate(Player)
