@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1339571887039352782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339571887039352783}
+  - component: {fileID: 1339571887039352780}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339571887039352783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339571887039352782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 99.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339571887039352780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339571887039352782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1bd4a61f6414968bbdbff0762f5f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  trianglePrefabs: []
+  enemyPrefabs:
+  - {fileID: 4315705598265740151, guid: 5506a355c262f4e6e93d30c0e93eb7ed, type: 3}
+  - {fileID: 7271857224228812071, guid: 3fbae5e6beb984f0ab7ac4c62be72525, type: 3}
+  - {fileID: 7778430326254520260, guid: 98317adaa385e4410b4c537be944f807, type: 3}
+  - {fileID: 7271857224228812071, guid: 3fbae5e6beb984f0ab7ac4c62be72525, type: 3}
+  - {fileID: 4315705598265740151, guid: 5506a355c262f4e6e93d30c0e93eb7ed, type: 3}
+  - {fileID: 5939296184073436714, guid: 2918cb637be2644cd95cbc1c039bed13, type: 3}
+  - {fileID: 2277284470823505132, guid: 20527ecf066344753a51c1e939aef34e, type: 3}
+  - {fileID: 2277284470823505132, guid: 20527ecf066344753a51c1e939aef34e, type: 3}
+  otherPrefabs:
+  - {fileID: 1281178183476150392, guid: 5a1f20b06b3204837acd41f3d728232d, type: 3}
+  - {fileID: 1127013549361082, guid: 784e35ed9f27aa744b517ad20f9078d6, type: 3}
+  - {fileID: 1127013549361082, guid: 784e35ed9f27aa744b517ad20f9078d6, type: 3}
+  - {fileID: 1281178183476150392, guid: f724fc0fc34f44aedb3ab66e4dc134bd, type: 3}
+  - {fileID: 1127013549361082, guid: 784e35ed9f27aa744b517ad20f9078d6, type: 3}
+  - {fileID: 1127013549361082, guid: 784e35ed9f27aa744b517ad20f9078d6, type: 3}
+  otherOffset:
+  - {x: -6, y: -2.5, z: 20}
+  - {x: -3, y: -3, z: 2}
+  - {x: -3, y: -3, z: 8}
+  - {x: -6, y: -2.5, z: 20}
+  - {x: -3, y: -3, z: 5}
+  - {x: -3, y: -3, z: 12}
+  otherRotation:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 90, z: 0}
+  - {x: 0, y: 90, z: 0}
+  - {x: 0, y: 180, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 90, z: 0}
+  isOtherActive: 0000000000000000
+  dressPrefabs: []
+  collectiblePrefabs:
+  - {fileID: 2419629350036485424, guid: cc9a00259298a49d4969c6c5de6cad68, type: 3}
+  - {fileID: 8185384617335836161, guid: 426b6bbffbb86410e9e9a1afc64f80c4, type: 3}
+  - {fileID: 4146014604552161046, guid: 750006e1e1c154309bd165ba903f5705, type: 3}
+  - {fileID: 2419629350036485424, guid: cc9a00259298a49d4969c6c5de6cad68, type: 3}
+  - {fileID: 2419629350036485424, guid: cc9a00259298a49d4969c6c5de6cad68, type: 3}
+  - {fileID: 2419629350036485424, guid: cc9a00259298a49d4969c6c5de6cad68, type: 3}
+  - {fileID: 2419629350036485424, guid: cc9a00259298a49d4969c6c5de6cad68, type: 3}
+  - {fileID: 7239818655047160343, guid: 1ceb37712159f4c88a570c18d8982601, type: 3}
+  - {fileID: 2419629350036485424, guid: cc9a00259298a49d4969c6c5de6cad68, type: 3}
+  - {fileID: 2419629350036485424, guid: cc9a00259298a49d4969c6c5de6cad68, type: 3}
+  triangleOffset: []
+  enemyOffset:
+  - {x: 0.5, y: 1, z: 0}
+  - {x: 0, y: 1.2, z: 0}
+  - {x: 0.7, y: 1.02, z: -2}
+  - {x: 0, y: 1.2, z: 0}
+  - {x: -1, y: 1, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 1, y: 1.5, z: 0}
+  dressOffset: []
+  collectibleOffset:
+  - {x: 0, y: 1, z: 0}
+  - {x: -0.5, y: 1.3, z: 0}
+  - {x: 1, y: 1.3, z: 0}
+  - {x: -0.5, y: 1, z: 0}
+  - {x: 0.5, y: 1, z: 0}
+  - {x: 0.5, y: 1, z: 0}
+  - {x: 0.5, y: 1, z: 0}
+  - {x: 0.5, y: 1.3, z: 0}
+  - {x: 0.5, y: 1, z: 0}
+  - {x: 0.5, y: 1, z: 0}
+  sidePrefabs:
+  - {fileID: 100002, guid: 371d3425353fbd74f927b386d74d4eff, type: 3}
+  sideOffset:
+  - {x: -3.3, y: -2.9, z: 0}
+  sideRotation:
+  - {x: 0, y: 0, z: 0}
+  fixedSideObjects: 0
+  sideObjectMax: 3
+  spawnedObjectCount: 0
+  decorationPrefabs:
+  - {fileID: 1443104016154582, guid: da39b72aa18fa5e48b10d7ec95000d35, type: 3}
+  decorationOffset:
+  - {x: 0, y: 0.8, z: 0}
+  spawnRange: 37
+  currentPos: 2
+  collectibleSpawnRange: 2
+  triangleSpacing: 0
+  enemySpacing: 1
+  dressSpacing: 5
+  otherSpacing: 0
+  objectSpacing: 5
+  objectSpacingLeft: 0
+  collectibleSpacing: 0
+  decorationSpacing: 0
+  minSpawnToPlayer: 100
+  platformHalfLength: 80
+  triangleSpacingIncrement: 20
+  enemySpacingIncrement: 5
+  dressSpacingIncrement: 5
+  collectibleSpacingIncrement: 4
+  objectSpacingIncrement: 5
+  objectSpacingLeftIncrement: 20
+  decorationSpacingIncrement: 5
+  otherSpacingIncrement: 0
+  spawnLeft: 0
+  _gatherables: []
+  _sideObjects: []
+  spawnedQuestion: 
+  spawnedAnswer: 

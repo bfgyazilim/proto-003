@@ -7,8 +7,9 @@ using Cinemachine;
 
 public class Player : MonoBehaviour
 {
-    public float turnSpeed = 20f;
+    public static Player instance;
 
+    public float turnSpeed = 20f;
     public Animator anim;
     Rigidbody m_Rigidbody;
     Vector3 m_Movement;
@@ -24,8 +25,7 @@ public class Player : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
 
-    public SphereCollider sphereCollider;
-    public static Player instance;
+    public SphereCollider sphereCollider;    
     public bool playerWin;
     public bool levelFailed, levelFinished, levelStarted;
 
@@ -432,11 +432,11 @@ public class Player : MonoBehaviour
         int childCount = transform.GetChild(0).childCount;
         int index = 0;
 
-        if (collectible.gameObject.name.StartsWith("Tex"))
+        // Crate Pickup Collided
+        if (collectible.gameObject.name.StartsWith("Cr"))
         {
             index = 0;
-            temp = collectible.capitalText.text;
-            textHit = true;
+            Debug.Log("Pickup Crate trigger enter");
         }
         else if (collectible.gameObject.name.StartsWith("Ca"))
         {
@@ -449,14 +449,6 @@ public class Player : MonoBehaviour
 
         // Get First Child (Handler), and Instantiate the new Crate in it as sub-object
         go = Instantiate(crate[index], transform.GetChild(0), false);
-
-        // Assign collected object's inside text property to the Crate's text property...
-        if (textHit)
-        {
-            go.GetComponentInChildren<Crate>().capitalText.text = collectible.capitalText.text;
-            textHit = false;
-            //ReorderCrateText();
-        }
 
         float newY = childCount * offset;
 

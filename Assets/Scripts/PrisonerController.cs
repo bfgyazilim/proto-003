@@ -10,33 +10,73 @@ public class PrisonerController : MonoBehaviour
     public Transform[] waypoints;
     int m_CurrentWaypointIndex;
     bool died;
-    public bool followPlayer;
+    public bool followPlayer, prepareLevelEnding;
     //public GameObject observerCone;
+    Animator anim;
+    /// <summary>
+    /// 
+    /// </summary>
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         navMeshAgent.SetDestination(waypoints[0].position);
         SetRigidbodyState(true);
         SetColliderState(false);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     // Update is called once per frame
     void Update()
     {
-        if(!followPlayer)
+        // If reached the level end point, stop the prisoner...
+        if(prepareLevelEnding)
         {
             if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
             {
-                m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
-                navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+                navMeshAgent.isStopped = true;
+                anim.SetTrigger("Dance");
+
+            }
+            else
+            {
+                navMeshAgent.speed += 1f;
             }
         }
         else
         {
-            navMeshAgent.SetDestination(player.transform.position);
+            if (!followPlayer)
+            {
+                if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+                {
+                    m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+                    navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+                }
+            }
+            else
+            {
+                navMeshAgent.SetDestination(player.transform.position);
+            }
+
         }
     }
 
+    /// <summary>
+    /// Set Destination to the given waypoint
+    /// </summary>
+    /// <param name="waypoint"></param>
+    public void ChangeDestination(Transform waypoint)
+    {
+        navMeshAgent.SetDestination(waypoint.transform.position);
+        prepareLevelEnding = true;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public void Die()
     {
         // Stuff that happens when enemy dies
@@ -52,6 +92,9 @@ public class PrisonerController : MonoBehaviour
         Explode();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     void Explode()
     {
         Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
@@ -62,6 +105,10 @@ public class PrisonerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="state"></param>
     void SetRigidbodyState(bool state)
     {
         Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
@@ -74,6 +121,10 @@ public class PrisonerController : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = !state;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="state"></param>
     void SetColliderState(bool state)
     {
         Collider[] colliders = GetComponentsInChildren<Collider>();

@@ -55,7 +55,7 @@ public class ObjectSpawner : MonoBehaviour {
     public float decorationSpacing;
     public float minSpawnToPlayer;
     public float platformHalfLength;
-    private float counter;
+    private float counter, counterMax = 40;
 
     // Spacing Increments
     [SerializeField]
@@ -108,20 +108,16 @@ public class ObjectSpawner : MonoBehaviour {
         SpawnOther();
 
         // Spawn Text Capitals of the spawnquestion(Country) in order to make sure all getc chance to fill the answer!!!
-        SpawnCollectiblesAllText();
+        //SpawnCollectiblesAllText();
 
         //if (distanceToPlayer < minSpawnToPlayer && currentPos + counter < currentPos + spawnRange)
-        while (currentPos + counter < currentPos + spawnRange)
+        while (counter < counterMax)
         {
             Debug.Log("Spawner ------------ " +
             currentPos + " " + objectSpacing + " < " + currentPos + " " + spawnRange + "Counter:" + counter);
             //SpawnTriangles();
-
-
-            SpawnCollectibles();
-            
+            SpawnCollectibles();            
             SpawnEnemies();
-
             //SpawnDresses();
 
             // Spawn rotated and offseted objects , or fixed objects...
@@ -133,39 +129,21 @@ public class ObjectSpawner : MonoBehaviour {
             else
             {
                 SpawnSideObjects();
-            }
-            
+            }            
             //SpawnDecorationObjects();
 
             // general increment on the map
-            counter += 5f;
-            
-
+            counter += 5f;            
             // increments relative to the counter
-
             triangleSpacing += triangleSpacingIncrement;
-
-
             enemySpacing += enemySpacingIncrement;
-
-
             dressSpacing += dressSpacingIncrement;
-
-
             collectibleSpacing += collectibleSpacingIncrement;
-
-
             objectSpacing += objectSpacingIncrement;
-
-
             objectSpacingLeft += objectSpacingLeftIncrement;
-
-
             decorationSpacing += decorationSpacingIncrement;
-
             otherSpacing += otherSpacingIncrement;
         }
-
         Player.instance.RegisterToSpawnedObjects();
     }
 
@@ -234,53 +212,17 @@ public class ObjectSpawner : MonoBehaviour {
         int index = Random.Range(0, collectiblePrefabs.Length);
         if (collectibleOffset.Length != 0)
         {
-            spawnObstaclePosition2 = new Vector3(collectibleOffset[index].x, collectibleOffset[index].y, currentPos + collectibleSpacing);
+            //spawnObstaclePosition2 = new Vector3(collectibleOffset[index].x, collectibleOffset[index].y, currentPos + collectibleSpacing);
+
+            // Place the object relative to the Spawn Manager's position and increment, later randomly...
+            spawnObstaclePosition2 = new Vector3(transform.position.x, transform.position.y, transform.position.z + collectibleSpacing);
 
             // Instantiate a new collectible, and get the returning gameobject, and then use it for adding to the List of gatherables
             GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, transform.parent);
 
-            // If the collectible is a Text Collectible, add IT a random capital letter in property
-            if (collectiblePrefabs[index].gameObject.name.StartsWith("Tex"))
-            {
-                go.GetComponent<Collectible>().capitalText.text = SpawnRandomText();
-            }
             // Invoke OnCollectibleSpawn
             _gatherables.Add(go.GetComponent<Collectible>());
         }
-    }
-
-    /// <summary>
-    /// Spawn Text collectible fixed for spawning all capital letters
-    /// </summary>
-    void SpawnCollectiblesAllText()
-    {
-        int index = Random.Range(0, collectiblePrefabs.Length);
-        float textCollectibleSpacing;
-        textCollectibleSpacing = collectibleSpacing;
-
-        // Crate Text collectible fixed for spawning all capital letters
-        index = 0;
-
-        string str = spawnedQuestion.Substring(Random.Range(0, spawnedAnswer.Length - 2), 1).ToUpper();
-        Debug.Log("Spawned letter: " + str);
-
-        for(int i = 0; i< spawnedQuestion.Length; i++)
-        {
-            spawnObstaclePosition2 = new Vector3(collectibleOffset[index].x, collectibleOffset[index].y, currentPos + 1 + textCollectibleSpacing);
-
-            // Instantiate a new collectible, and get the returning gameobject, and then use it for adding to the List of gatherables
-            GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, transform.parent);
-
-            // If the collectible is a Text Collectible, add IT a random capital letter in property
-            if (collectiblePrefabs[index].gameObject.name.StartsWith("Tex"))
-            {
-                go.GetComponent<Collectible>().capitalText.text = spawnedQuestion.Substring(i, 1).ToUpper();
-            }
-            // Invoke OnCollectibleSpawn
-            _gatherables.Add(go.GetComponent<Collectible>());
-            // Spawn in a loop to make sure all letters get generated to fill in the coutry capital letters!
-            textCollectibleSpacing += collectibleSpacingIncrement + 1;
-        }   
     }
 
     /// <summary>
