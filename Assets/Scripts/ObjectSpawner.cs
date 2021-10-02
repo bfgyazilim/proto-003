@@ -55,7 +55,11 @@ public class ObjectSpawner : MonoBehaviour {
     public float decorationSpacing;
     public float minSpawnToPlayer;
     public float platformHalfLength;
-    private float counter, counterMax = 40;
+    // Offseter for the spawning, currently linear
+    private float counter;
+    // Determines how many times the counter will iterate, for the spawn loop
+    [SerializeField]
+    float counterIncrement;
 
     // Spacing Increments
     [SerializeField]
@@ -111,7 +115,7 @@ public class ObjectSpawner : MonoBehaviour {
         //SpawnCollectiblesAllText();
 
         //if (distanceToPlayer < minSpawnToPlayer && currentPos + counter < currentPos + spawnRange)
-        while (counter < counterMax)
+        while (counter < spawnRange)
         {
             Debug.Log("Spawner ------------ " +
             currentPos + " " + objectSpacing + " < " + currentPos + " " + spawnRange + "Counter:" + counter);
@@ -133,7 +137,7 @@ public class ObjectSpawner : MonoBehaviour {
             //SpawnDecorationObjects();
 
             // general increment on the map
-            counter += 5f;            
+            counter += counterIncrement;            
             // increments relative to the counter
             triangleSpacing += triangleSpacingIncrement;
             enemySpacing += enemySpacingIncrement;
