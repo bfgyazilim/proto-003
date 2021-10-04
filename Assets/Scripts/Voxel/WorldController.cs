@@ -29,7 +29,21 @@ public class WorldController : MonoBehaviour
     /// Build generation co-routine
     /// </summary>
     /// <returns></returns>
-    public IEnumerator BuildWorld(float ox, float oy, float oz)
+    public IEnumerator BuildUnit(float ox, float oy, float oz)
+    {
+        Vector3 offset = new Vector3(ox, oy, oz);
+        GameObject cube = GameObject.Instantiate(block, offset, Quaternion.identity);
+        //cube.GetComponent<Renderer>().material = new Material(Shader.Find("Standard"));
+        cube.name = "V_" + offset.x + "_" + offset.y + "_" +  offset.z;
+
+        yield return null;
+    }
+
+    /// <summary>
+    /// Build generation co-routine
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator BuildBlocksRandom(float ox, float oy, float oz)
     {
         for (int z = 0; z < depth; z++)
         {
@@ -54,6 +68,6 @@ public class WorldController : MonoBehaviour
     /// </summary>
     public void GenerateBlocks(float x, float y, float z)
     {
-        StartCoroutine(BuildWorld(x, y, z));
+        StartCoroutine(BuildUnit(x, y, z));
     }
 }
