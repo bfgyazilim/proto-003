@@ -24,8 +24,6 @@ public class Player : MonoBehaviour
     public float playerSpeed = 3.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
-
-    public SphereCollider sphereCollider;    
     public bool playerWin;
     public bool levelFailed, levelFinished, levelStarted;
 

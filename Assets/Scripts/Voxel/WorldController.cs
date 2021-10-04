@@ -8,7 +8,28 @@ public class WorldController : MonoBehaviour
     public int depth = 2;
     public int height = 2;
     public int width = 2;
-    public IEnumerator BuildWorld()
+    [SerializeField]
+    Vector3 offset;
+
+    public static WorldController instance;
+
+    // use this for initialization
+    private void Start()
+    {
+        instance = this;
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+
+    }
+
+    /// <summary>
+    /// Build generation co-routine
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator BuildWorld(float ox, float oy, float oz)
     {
         for (int z = 0; z < depth; z++)
         {
@@ -18,25 +39,21 @@ public class WorldController : MonoBehaviour
                 {
                     if (y >= height - 2 && Random.Range(0, 100) < 50) continue;
                     Vector3 pos = new Vector3(x, y, z);
-                    GameObject cube = GameObject.Instantiate(block, pos, Quaternion.identity);
-                    cube.GetComponent<Renderer>().material = new Material(Shader.Find("Standard"));
-                    cube.name = x + "_" + y + "_" + z;
+                    Vector3 offset = new Vector3(ox, oy, oz);
+                    GameObject cube = GameObject.Instantiate(block, pos + offset, Quaternion.identity);
+                    //cube.GetComponent<Renderer>().material = new Material(Shader.Find("Standard"));
+                    cube.name = "V_" + x + "_" + y + "_" + z;
                 }
                 yield return null;
             }
         }
     }
 
-    // use this for initialization
-    private void Start()
+    /// <summary>
+    /// Generates random blocks in the given size and shape!
+    /// </summary>
+    public void GenerateBlocks(float x, float y, float z)
     {
-        StartCoroutine(BuildWorld());
+        StartCoroutine(BuildWorld(x, y, z));
     }
-
-    // Update is called once per frame
-    private void Update()
-    {
-
-    }
-
 }
