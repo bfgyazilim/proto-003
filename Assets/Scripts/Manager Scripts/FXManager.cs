@@ -64,4 +64,10 @@ public class FXManager : MonoBehaviour
         // Look at camera (face to the camera to have always direct showup)
         Instantiate(triggerParticles[0], Player.instance.transform.position, Camera.main.transform.rotation);
     }
+
+    public void HandleTriggerFeedbackParticlesByOrder(int i)
+    {
+        // Look at camera (face to the camera to have always direct showup)
+        Instantiate(triggerParticles[i], Player.instance.transform.position, Camera.main.transform.rotation);
+    }
 }

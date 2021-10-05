@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using DG.Tweening;
 
 public class WorldController : MonoBehaviour
 {
@@ -10,7 +12,8 @@ public class WorldController : MonoBehaviour
     public int width = 2;
     [SerializeField]
     Vector3 offset;
-
+    [SerializeField]
+    Color emissionColor;
     public static WorldController instance;
 
     // use this for initialization
@@ -33,9 +36,17 @@ public class WorldController : MonoBehaviour
     {
         Vector3 offset = new Vector3(ox, oy, oz);
         GameObject cube = GameObject.Instantiate(block, offset, Quaternion.identity);
-        //cube.GetComponent<Renderer>().material = new Material(Shader.Find("Standard"));
+        //cube.GetComponent<Renderer>().material.SetColor("_EmissionColor", emissionColor);
         cube.name = "V_" + offset.x + "_" + offset.y + "_" +  offset.z;
 
+        // Cinemachine Camera Shake feedback
+        GetComponent<CinemachineImpulseSource>().GenerateImpulse();
+
+        // DO Tween Shake Scale
+        cube.transform.DOShakeScale(.5f, .2f, 10, 90, true);
+
+        // Handle Feedback FX
+        FXManager.instance.HandleTriggerFeedbackParticlesByOrder(1);
         yield return null;
     }
 
