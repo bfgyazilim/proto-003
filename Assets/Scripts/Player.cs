@@ -9,6 +9,18 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
+    public enum BlockType
+    {
+        GRASSTOP, GRASSSIDE, DIRT, WATER, STONE, SAND, AIR
+    };
+
+    public enum PlayerStateType
+    {
+        WALKING, IDLE, JOGBOX, THROW, FLAIR, WAVEDANCE, DEATH
+    };
+
+    PlayerStateType state;
+
     public float turnSpeed = 20f;
     public Animator anim;
     Rigidbody m_Rigidbody;
@@ -83,6 +95,9 @@ public class Player : MonoBehaviour
     bool textHit;
     string old;
 
+    // Current Job
+    bool JogBox;
+
     /// <summary>
     /// 
     /// </summary>
@@ -100,7 +115,7 @@ public class Player : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
 
         // initialize animator
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         anim.SetBool("isGrounded", true);
         m_AudioSource = GetComponent<AudioSource>();
 
@@ -114,8 +129,7 @@ public class Player : MonoBehaviour
     /// 
     /// </summary>
     private void Update()
-    {
-        
+    {        
         if(joystick != null)
         {
             //Debug.Log("Joystick not null");
@@ -139,7 +153,11 @@ public class Player : MonoBehaviour
 
         if (!isAttacking)
         {
-            anim.SetBool("isIdle", true);
+            ChangePlayerState(PlayerStateType.IDLE);
+            // old character
+            //anim.SetBool("isIdle", true);
+            // new character
+            //anim.SetTrigger("DynIdle");
             isIdle = true;
 
         }
@@ -153,15 +171,21 @@ public class Player : MonoBehaviour
         {
             gameObject.transform.forward = move;
 
-            anim.SetBool("isWalking", true);
+            ChangePlayerState(PlayerStateType.WALKING);
+
+            // old character
+            //anim.SetBool("isWalking", true);
+            // new character
+            //anim.SetTrigger("Walking");
             isWalking = true;
             isIdle = false;
         }
         else
         {
+            ChangePlayerState(PlayerStateType.IDLE);
             isWalking = false;
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isIdle", true);
+            //anim.SetBool("isWalking", false);
+            //anim.SetBool("isIdle", true);
         }
 
 
@@ -176,6 +200,31 @@ public class Player : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Change Player State
+    /// </summary>
+    /// 	public Quad(MeshUtils.BlockSide side, Vector3 offset, MeshUtils.BlockType bType)
+
+    public void ChangePlayerState(PlayerStateType psType)
+    {
+        switch(psType)
+        {
+            case PlayerStateType.IDLE:
+                state = PlayerStateType.IDLE;
+                anim.SetBool("isWalking", false);
+                break;
+
+            case PlayerStateType.WALKING:
+                state = PlayerStateType.WALKING;
+                anim.SetBool("isWalking", true);
+                break;
+
+            case PlayerStateType.JOGBOX:
+                state = PlayerStateType.JOGBOX;
+                anim.SetBool("JogBox", true);
+                break;
+        }
+    }
     /// <summary>
     /// 
     /// </summary>
@@ -251,6 +300,8 @@ public class Player : MonoBehaviour
         // Play button pressed, start running...
         anim.SetBool("isRunning", true);
     }
+
+
 
     /// <summary>
     /// 
