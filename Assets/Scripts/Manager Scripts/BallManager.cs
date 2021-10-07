@@ -9,7 +9,7 @@ public class BallManager : MonoBehaviour
     public static Color oneColor = Color.green;
     public GameObject ball;
 
-    private float speed = 100f;
+    private float speed = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,10 @@ public class BallManager : MonoBehaviour
 
     public void HitBall()
     {
-        GameObject gameObject = Instantiate<GameObject>(ball, new Vector3(0, 1f, 3f), Quaternion.identity);
+        //GameObject gameObject = Instantiate<GameObject>(ball, new Vector3(0, 1f, 3f), Quaternion.identity);
+        GameObject gameObject = Instantiate<GameObject>(ball,transform.position, Quaternion.identity);
+        //GameObject gameObject = Instantiate(Resources.Load("splash1"), target.gameObject.transform, false) as GameObject;
+
         gameObject.GetComponent<MeshRenderer>().material.color = oneColor;
         gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * speed, ForceMode.Impulse);
     }
