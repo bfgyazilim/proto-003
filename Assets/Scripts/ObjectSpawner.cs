@@ -122,7 +122,7 @@ public class ObjectSpawner : MonoBehaviour {
             
             //SpawnTriangles();
             SpawnCollectibles();            
-            SpawnEnemies();
+            //SpawnEnemies();
             //SpawnDresses();
 
             // Spawn rotated and offseted objects , or fixed objects...

@@ -18,11 +18,12 @@ public class ColorChanger : MonoBehaviour {
                 Destroy(base.gameObject, .5f);
                 print("Game Over");
             }
-            else
+            else if(target.gameObject.tag == "floor")
             {
+                //Player.instance.ChangePlayerState(Player.PlayerStateType.THROW);
                 //GameObject.Find("hitSound").GetComponent<AudioSource>().Play();
                 base.gameObject.GetComponent<Collider>().enabled = false;
-                GameObject gameObject = Instantiate(Resources.Load("splash2"), target.gameObject.transform, false) as GameObject;
+                GameObject gameObject = Instantiate(Resources.Load("splash3"), target.gameObject.transform, false) as GameObject;
                 //gameObject.transform.parent = target.gameObject.transform;
                 Destroy(gameObject, 0.1f);
                 target.gameObject.name = "color";

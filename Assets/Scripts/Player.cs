@@ -229,6 +229,11 @@ public class Player : MonoBehaviour
                 state = PlayerStateType.JOGBOX;
                 anim.SetBool("JogBox", true);
                 break;
+
+            case PlayerStateType.THROW:
+                state = PlayerStateType.THROW;
+                anim.SetBool("Throw", true);
+                break;
         }
     }
     /// <summary>
@@ -327,7 +332,7 @@ public class Player : MonoBehaviour
             other.gameObject.SetActive(false);
 
             Instantiate(scoreParticles[0], transform.position, Quaternion.identity);
-            Score.instance.ShowBonusText(other.gameObject.transform.position);
+            //Score.instance.ShowBonusText(other.gameObject.transform.position);
 
         }
         else if (other.gameObject.tag == "coin")

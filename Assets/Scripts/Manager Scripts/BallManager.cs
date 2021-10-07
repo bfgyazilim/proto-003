@@ -9,7 +9,8 @@ public class BallManager : MonoBehaviour
     public static Color oneColor = Color.green;
     public GameObject ball;
 
-    private float speed = 1f;
+    [SerializeField]
+    float speed = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +21,10 @@ public class BallManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Space))
         {
             HitBall();
+            Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
         }
     }
 
@@ -33,7 +35,7 @@ public class BallManager : MonoBehaviour
         //GameObject gameObject = Instantiate(Resources.Load("splash1"), target.gameObject.transform, false) as GameObject;
 
         gameObject.GetComponent<MeshRenderer>().material.color = oneColor;
-        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * speed, ForceMode.Impulse);
+        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * speed, ForceMode.Impulse);
     }
 
     void MakeANewCircle()
