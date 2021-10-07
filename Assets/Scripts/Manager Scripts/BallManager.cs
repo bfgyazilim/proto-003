@@ -36,7 +36,7 @@ public class BallManager : MonoBehaviour
     void MakeANewCircle()
     {
         GameObject gameObject2 = Instantiate(Resources.Load("round" + Random.Range(3, 6))) as GameObject;
-        gameObject2.transform.position = new Vector3(0, 20, 13);
+        gameObject2.transform.position = new Vector3(0, 20, 23);
         gameObject2.name = "Circle";
     }
 }
