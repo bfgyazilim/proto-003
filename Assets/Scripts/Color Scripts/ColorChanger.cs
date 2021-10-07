@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorChanger : MonoBehaviour {
+public class ColorChanger : MonoBehaviour
+{
+    public Material newMaterialRef;
 
     void OnCollisionEnter(Collision target)
     {
@@ -12,7 +14,7 @@ public class ColorChanger : MonoBehaviour {
             {
                 base.gameObject.GetComponent<Collider>().enabled = false;
                 target.gameObject.GetComponent<MeshRenderer>().enabled = true;
-                target.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+                target.gameObject.GetComponent<MeshRenderer>().material = newMaterialRef;
                 base.GetComponent<Rigidbody>().AddForce(Vector3.down * 50, ForceMode.Impulse);
                 //HeartsFun(target.gameObject);
                 Destroy(base.gameObject, .5f);

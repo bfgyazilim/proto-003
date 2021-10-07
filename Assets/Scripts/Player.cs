@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         WALKING, IDLE, JOGBOX, THROW, FLAIR, WAVEDANCE, DEATH
     };
 
-    PlayerStateType state;
+    public PlayerStateType state;
 
     public float turnSpeed = 20f;
     public Animator anim;
@@ -157,6 +157,7 @@ public class Player : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
+        /*
         if (!isAttacking)
         {
             ChangePlayerState(PlayerStateType.IDLE);
@@ -172,36 +173,28 @@ public class Player : MonoBehaviour
             anim.SetBool("isIdle", false);
             isIdle = false;
         }
+        */
 
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
 
-            ChangePlayerState(PlayerStateType.WALKING);
-
-            // old character
-            //anim.SetBool("isWalking", true);
-            // new character
-            //anim.SetTrigger("Walking");
-            isWalking = true;
-            isIdle = false;
-        }
-        else
-        {
-            ChangePlayerState(PlayerStateType.IDLE);
-            isWalking = false;
-            //anim.SetBool("isWalking", false);
-            //anim.SetBool("isIdle", true);
+            if (state != PlayerStateType.JOGBOX)
+            {             
+                ChangePlayerState(PlayerStateType.WALKING);
+            }
         }
 
-
+        /*
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
-
+        
         playerVelocity.y += gravityValue * Time.deltaTime;
+        */
+
         controller.Move(playerVelocity * Time.deltaTime);
 
     }
