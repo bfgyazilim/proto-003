@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Cinemachine;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -95,8 +96,13 @@ public class Player : MonoBehaviour
     bool textHit;
     string old;
 
-    // Current Job
+    // Carry object variables
     bool JogBox;
+    [SerializeField]
+    Transform jointPoint;    
+    public static event Action<Transform> OnTriggerAttach;
+    public static event Action<Transform> OnTriggerDetach;    
+    Transform attachedObject;
 
     /// <summary>
     /// 
@@ -342,7 +348,7 @@ public class Player : MonoBehaviour
         else if (other.transform.tag == "Finish")
         {
             // Give extra coins for every rescued prisoner, multiply by prisoner count..
-            if(RescuedPrisoners > 0)
+            if (RescuedPrisoners > 0)
             {
                 rescueText.text = "Rescued " + RescuedPrisoners + " Hostages";
 
@@ -358,11 +364,50 @@ public class Player : MonoBehaviour
             //GetComponent<Rigidbody>().velocity = Vector3.zero;
 
             playerWin = true;
-            
+
             // Wait 10 sec
             StartCoroutine(WaitForGivenTime(2f));
         }
+        else if (other.gameObject.tag == "Box")
+        {
+            //OnTriggerAttach?.Invoke(other.transform);
+            ChangePlayerState(Player.PlayerStateType.JOGBOX);
+
+            // Parent object to player
+            attachedObject = other.transform;           
+            other.transform.SetParent(jointPoint, false);
+            other.transform.rotation = jointPoint.transform.rotation;
+            other.transform.localPosition = Vector3.zero;
+            other.transform.localScale = Vector3.one;
+        }
+        else if (other.gameObject.tag == "DropPlane")
+        {
+            //OnTriggerDetach?.Invoke(other.transform);
+            ChangePlayerState(Player.PlayerStateType.IDLE);
+            attachedObject.parent = null;
+            attachedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            attachedObject.gameObject.GetComponent<Rigidbody>().Sleep();
+            Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
+        }
     }
+
+    /*
+    public void AttachObject(Transform t)
+    {
+        attachedObject = t;
+        // Parent object to player
+        t.SetParent(jointPoint, false);
+        t.rotation = jointPoint.transform.rotation;
+        t.localPosition = Vector3.zero;
+        t.localScale = Vector3.one;
+    }
+
+    public void DetachObject()
+    {
+        attachedObject.parent = null;
+        attachedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+    }
+    */
 
     /// <summary>
     /// 

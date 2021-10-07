@@ -45,7 +45,7 @@ public class ObjectSpawner : MonoBehaviour {
 
 
     public float spawnRange = 150f;
-    public float currentPos;
+    private float currentPos;
     public float collectibleSpawnRange;
 
     // Spacing between spawnable objects
@@ -89,6 +89,7 @@ public class ObjectSpawner : MonoBehaviour {
     {
         instance = this;
 
+        currentPos = transform.position.x;
         // Setup tex question and answers for generating collectibles according to that
         InitializeRandomText();
     }
@@ -117,8 +118,8 @@ public class ObjectSpawner : MonoBehaviour {
         //if (distanceToPlayer < minSpawnToPlayer && currentPos + counter < currentPos + spawnRange)
         while (counter < spawnRange)
         {
-            Debug.Log("Spawner ------------ " +
-            currentPos + " " + objectSpacing + " < " + currentPos + " " + spawnRange + "Counter:" + counter);
+            //Debug.Log("Spawner ------------ " + currentPos + " " + objectSpacing + " < " + currentPos + " " + spawnRange + "Counter:" + counter);
+            
             //SpawnTriangles();
             SpawnCollectibles();            
             SpawnEnemies();

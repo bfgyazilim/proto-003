@@ -11,7 +11,8 @@ public class Trigger : MonoBehaviour
     public bool repeatable = false;
     float startTime;
     public bool switchOn;
-
+    [SerializeField]
+    Transform jointPoint;
     // Use this for initialization
     void Start()
     {
@@ -21,7 +22,7 @@ public class Trigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(switchOn)
+        if (switchOn)
         {
             if (!repeatable)
             {
@@ -36,17 +37,31 @@ public class Trigger : MonoBehaviour
 
         }
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
             // Change player state to carrying something and jogging
+            Player.OnTriggerAttach += Player.instance.AttachObject;
             Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
             // Parent object to player
-            transform.parent = Player.instance.transform;
+            transform.SetParent(jointPoint, false);            
+            transform.rotation = jointPoint.transform.rotation;
+            transform.localPosition = Vector3.zero;
+            transform.localScale = Vector3.one;
+
+
+            //transform.parent = jointPoint;
+            //transform.position = jointPoint.transform.position;
             // switch material change animation to give feedback to the user
             switchOn = true;
+        }      
+        else if (other.gameObject.name == "Drop Plane")
+        {
+            transform.parent = null;
+            transform.GetComponent<Rigidbody>().isKinematic = false;
         }
-    }
-}
+     */
+ }
+   
