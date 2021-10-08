@@ -18,7 +18,7 @@ public class ColorChanger : MonoBehaviour
                 base.GetComponent<Rigidbody>().AddForce(Vector3.down * 50, ForceMode.Impulse);
                 //HeartsFun(target.gameObject);
                 Destroy(base.gameObject, .5f);
-                print("Game Over");
+                //print("Game Over");
             }
             else if(target.gameObject.tag == "floor")
             {
