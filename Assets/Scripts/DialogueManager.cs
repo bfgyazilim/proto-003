@@ -7,8 +7,10 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
-
+    public Image uiImage;
     public Animator animator;
+
+    public Transform target;
 
     private Queue<string> sentences;
 
@@ -25,6 +27,17 @@ public class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
 
         sentences.Clear();
+
+        //uiImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 20);
+        if(uiImage != null)
+        {
+            uiImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(UIUtils.instance.GetScreenXPositionOfObject(target.position), UIUtils.instance.GetScreenYPositionOfObject(target.position));
+            //Debug.Log("======================== Dialog anchored position " + uiImage.GetComponent<RectTransform>().anchoredPosition);
+        }
+        else
+        {
+            Debug.Log("UI Image NULL");
+        }
 
         foreach (string sentence in dialogue.sentences)
         {
