@@ -20,7 +20,9 @@ public class SpeechBubble : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InitializeOrder();
+        text.text = "<size=8>New tiles!! <sprite=2> <sprite=2>";
+
+        //InitializeOrder();
     }
 
     void InitializeOrder()

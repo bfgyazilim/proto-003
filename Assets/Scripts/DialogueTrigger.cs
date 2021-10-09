@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    [SerializeField] UnityEvent OnCompleteEvent;
 
     public void TriggerDialogue()
     {
@@ -16,6 +18,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             TriggerDialogue();
+            OnCompleteEvent.Invoke();
         }
     }
 }

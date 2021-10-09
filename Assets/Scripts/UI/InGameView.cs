@@ -34,7 +34,13 @@ public class InGameView : MonoBehaviour
     public float highScore;
     public int winScore;
     public TextMeshProUGUI coinText;
-    public TextMeshProUGUI feedbackText;
+    public TextMeshProUGUI feedbackText, playerText;
+
+    // PlayerDialog variables
+    public GameObject playerDialog;
+    [SerializeField]
+    float playerOffsetX, playerOffsetY;
+
     public TextMeshProUGUI highScoreUI;
     public Text testText;
     float feedbacktextmaxY = 1;
@@ -43,7 +49,7 @@ public class InGameView : MonoBehaviour
 
     // Start position of the Feedback message texts to appear on screen
     [SerializeField]
-    Vector3 feedbacktextPos;
+    Vector3 feedbacktextPos, playertextPos;
 
     // This Speed factor is for how fast the Feedback tests move up in the ui Plane in time multiplier...
     [SerializeField]
@@ -85,6 +91,33 @@ public class InGameView : MonoBehaviour
             PlayerPrefs.SetFloat("highscore", highScore);
         }
         */
+    }
+
+    private void OnGUI()
+    {
+        ShowPlayerText();
+    }
+
+    void ShowPlayerText()
+    {
+        // Activate the text to start feedback movement accross Y axis, give
+        // random messages, and fade out slowly
+        int index = UnityEngine.Random.Range(0, feedbackMessages.Length);
+        //int alpha = 255;
+        //playerText.text = /*feedbackMessages[index]*/ "Clean Tiles " + "<sprite=" + 0 + ">";
+
+        float x =  UIUtils.instance.GetScreenXPositionOfObject(Player.instance.transform.position);
+        float y = UIUtils.instance.GetScreenYPositionOfObject(Player.instance.transform.position);
+
+        // fade out and reset position
+        //playerText.color = new Color(0, 0, 0, 0);
+
+        //playerDialog.GetComponent<RectTransform>().anchoredPosition = new Vector2(x + playerOffsetX, y + playerOffsetY);
+        //Debug.Log("Player screen position: " + x + " , " + y);
+        // Get player position in Screen Space, then display UI message in that point
+
+        playerText.text = /*feedbackMessages[index]*/ "<sprite=" + 0 + ">";
+        //playerText.rectTransform.anchoredPosition = new Vector2(x, y);
     }
 
     /// <summary>

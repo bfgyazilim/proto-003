@@ -28,16 +28,15 @@ public class DialogueManager : MonoBehaviour
 
         sentences.Clear();
 
-        //uiImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 20);
-        if(uiImage != null)
-        {
-            uiImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(UIUtils.instance.GetScreenXPositionOfObject(target.position), UIUtils.instance.GetScreenYPositionOfObject(target.position));
-            //Debug.Log("======================== Dialog anchored position " + uiImage.GetComponent<RectTransform>().anchoredPosition);
-        }
-        else
-        {
-            Debug.Log("UI Image NULL");
-        }
+        //if(uiImage != null)
+        //{
+        //    uiImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(UIUtils.instance.GetScreenXPositionOfObject(target.position), UIUtils.instance.GetScreenYPositionOfObject(target.position));
+        //    //Debug.Log("======================== Dialog anchored position " + uiImage.GetComponent<RectTransform>().anchoredPosition);
+        //}
+        //else
+        //{
+        //    Debug.Log("UI Image NULL");
+        //}
 
         foreach (string sentence in dialogue.sentences)
         {
