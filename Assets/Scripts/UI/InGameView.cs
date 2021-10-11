@@ -71,6 +71,11 @@ public class InGameView : MonoBehaviour
 
     [SerializeField][Range(1,10)]
     private float delayAmount;
+
+    // Tasks Progress Bar
+    //[Header("Tasks Stats")]
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,10 +110,8 @@ public class InGameView : MonoBehaviour
         // Calculate the Level Progress Bar, the distance between the player and the FINISH point...
         distance = Vector3.Distance(Player.instance.transform.position, finish.transform.position);
 
-        if (Player.instance.transform.position.z < finish.transform.position.z)
-            fill.fillAmount = 1 - (distance / startDistance);
-        
-
+        //if (Player.instance.transform.position.z < finish.transform.position.z)
+        //    fill.fillAmount = 1 - (distance / startDistance);
         /*
         //  update Score
         highScoreUI.text = highScore.ToString();
@@ -222,6 +225,18 @@ public class InGameView : MonoBehaviour
         go.GetComponent<TextMesh>().color = Color.red;
     }
 
+
+    /// <summary>
+    /// Show feedback upon object collection 
+    /// </summary>
+    /// <param name="collectible"></param>
+    public void ShowFeedbackTextGeneric()
+    {
+        Debug.Log("ShowFeedbackTextGeneric called");
+        AudioManager.instance.PlaySFX(1);
+        StartCoroutine(MoveTextInTime());
+    }
+
     /// <summary>
     /// Show feedback upon object collection 
     /// </summary>
@@ -230,10 +245,11 @@ public class InGameView : MonoBehaviour
     {
         Debug.Log("ShowFeedbackTextForCollectible called");
         AudioManager.instance.PlaySFX(0);
-        StartCoroutine("MoveTextInTime");
+        StartCoroutine(MoveTextInTime());
     }
 
     /// <summary>
+    /// Show feedback message, with an additional  random Emoticon
     /// Wait for given time, and move text in intervals in Y axis up and fade out
     /// </summary>
     /// <returns></returns>
@@ -245,7 +261,7 @@ public class InGameView : MonoBehaviour
         int alpha = 255;
         feedbackText.text = feedbackMessages[index] + " <sprite=" + index + ">";
         feedbackText.gameObject.SetActive(true);
-        Debug.Log("FeedbackText anchoredposition" + feedbackText.rectTransform.anchoredPosition);
+        //Debug.Log("FeedbackText anchoredposition" + feedbackText.rectTransform.anchoredPosition);
 
         // Move in Y axis up until the anchoredposition of the text less than minimum feedback limit
         while(feedbackText.rectTransform.anchoredPosition.y < feedbacktextPos.y)
@@ -274,12 +290,11 @@ public class InGameView : MonoBehaviour
         //yield return 0;
     }
     /// <summary>
-    /// 
+    /// Activate the text to start feedback movement accross Y axis, give
+    /// random messages, and fade out slowly
     /// </summary>
     public void ShowFeedbackText()
     {
-        // Activate the text to start feedback movement accross Y axis, give
-        // random messages, and fade out slowly
         feedbackText.gameObject.SetActive(true);
         //Debug.Log("FeedbackText anchoredposition" + feedbackText.rectTransform.anchoredPosition);
 

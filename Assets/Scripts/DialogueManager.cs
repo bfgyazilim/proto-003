@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        animator.SetBool("isOpen", true);
+        //animator.SetBool("isOpen", true);
 
         nameText.text = dialogue.name;
 
@@ -50,13 +50,15 @@ public class DialogueManager : MonoBehaviour
     {
         if(sentences.Count == 0)
         {
-            EndDialogue();
-            return;
+            //EndDialogue();
+            Debug.Log("No sentences");
+            return;            
         }
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+        Debug.Log(sentence);
     }
 
     IEnumerator TypeSentence(string sentence)

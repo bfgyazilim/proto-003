@@ -28,6 +28,7 @@ public class Collectible : MonoBehaviour
             // show feedback on screen...
             OnPickup += UIManager.instance.inGameView.ShowFeedbackTextForCollectible;
 
+            // Trigger OnPickup Event
             OnPickup?.Invoke(this);
 
             gameObject.SetActive(false);

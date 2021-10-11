@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -55,6 +57,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject[] doors;
 
+    [SerializeField]
+    public UnityEvent OnMissionComplete;
+
+
     // Timelines
     public GameObject flashbackTimeline, stormTimeline, aicommandTimeline;
     public GameObject dialoguePanel;
@@ -62,6 +68,15 @@ public class GameManager : MonoBehaviour
     public List<GameObject> timelines;
     [SerializeField]
     int lastActiveTimelineIndex = -1;
+
+    // Mission 1 variables (Later put on to MissionManager)
+    [Header("Tile Stats")]
+    [SerializeField]
+    int remainingTiles;
+    [SerializeField]
+    int totalTiles;
+    [SerializeField]
+    int clearedTiles;
 
     /// <summary>
     /// 
@@ -200,6 +215,34 @@ public class GameManager : MonoBehaviour
         }
 
         return remainingEnemy;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public int DecreaseTiles()
+    {
+        if (remainingTiles > 0)
+        {
+            remainingTiles--;
+            clearedTiles++;
+            // Update Progress Bar from UIManager            
+            float progressRatio = (float)clearedTiles / (float)totalTiles;
+            UIManager.instance.IncreaseInGameProgressBar(progressRatio);
+
+            Debug.Log("Remaining tiles: " + remainingTiles);
+
+            if (remainingTiles == 0)
+            {
+                // Trigger OnMissionComplete Event
+                OnMissionComplete.Invoke();
+                //PlayerController.instance.ChangePlayerStateToWin();
+                Debug.Log("Task 1 Complete");
+            }
+        }
+
+        return remainingTiles;
     }
 
     /// <summary>
@@ -511,7 +554,7 @@ public class GameManager : MonoBehaviour
             // Increase level, add to PlayerPrefbs (save to device)            
             // Save the last active timeline, so we have increased the the level,  show/play the next Timeline stage
             
-            PlayerPrefs.SetInt("lastActiveTimelineIndex", Random.Range(-1, 7));
+            PlayerPrefs.SetInt("lastActiveTimelineIndex",UnityEngine.Random.Range(-1, 7));
             Debug.Log("Reseted values. now will LOAD scene again!");
             // Reload scene, start from level 1 - also timelines and everyrhing resets to original...
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class ColorChanger : MonoBehaviour
 {
     public Material newMaterialRef;
+
+    // Invoke(Trigger) this event on Player contact
+    // Collector and other classes listen to this FX, and UI
+    // for the response in their ways!!!
+    public event Action OnFloorTrigger;
 
     void OnCollisionEnter(Collision target)
     {
@@ -19,6 +25,15 @@ public class ColorChanger : MonoBehaviour
                 //HeartsFun(target.gameObject);
                 Destroy(base.gameObject, .5f);
                 //print("Game Over");
+
+                // UI Manager registers to the OnDie event via inGameView Canvas to
+                // show feedback on screen...
+                OnFloorTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
+
+                // Trigger OnVolumeTrigger Event
+                OnFloorTrigger?.Invoke();
+
+
             }
             else if(target.gameObject.tag == "floor")
             {
@@ -32,9 +47,15 @@ public class ColorChanger : MonoBehaviour
                 target.gameObject.tag = "red";
                 StartCoroutine(ChangeColor(target.gameObject));
                 Debug.Log("Code reached ColorChanger else ================================");
+
+                // Decrease number of tiles (in the first run, otherwise If collides with the same tile more than once, will count more times!!!)
+                GameManager.instance.DecreaseTiles();
             }
         }
     }
+
+
+
 
     IEnumerator ChangeColor(GameObject g)
     {
