@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,6 +20,12 @@ public class UIManager : MonoBehaviour
 
     private int coinsTotal;
 
+    // Mission progress menu in top of the screen that show text messages about your next activity or job...
+    public RectTransform missionMenu;
+
+    /// <summary>
+    /// Sets the instance
+    /// </summary>
     private void Awake()
     {
         instance = this;
@@ -61,6 +67,10 @@ public class UIManager : MonoBehaviour
         mainMenuView.gameObject.SetActive(false);
         inGameView.gameObject.SetActive(true);
         loseView.gameObject.SetActive(false);
+
+        // Show mission objective
+        // enter game with a slide animation at top
+        SlideMissionMenu(0, -300);
     }
 
     /// <summary>
@@ -143,5 +153,24 @@ public class UIManager : MonoBehaviour
     public void HandleCoinPickup(Collectible collectible)
     {
         AddCoinsToInGameView(2);  
+    }
+
+    /// <summary>
+    /// Sliding animation for UI Menus, from left to right get into the screen for example
+    /// </summary>
+    /// <param name="rect"></param>
+    public void SlideMenu(RectTransform rect)
+    {
+        rect.DOAnchorPos(Vector2.zero, 0.25f);
+    }
+
+    /// <summary>
+    /// Sliding animation for UI Menus, from left to right get into the screen for example
+    /// </summary>
+    /// <param name="rect"></param>
+    public void SlideMissionMenu(int x, int y)
+    {
+        
+        missionMenu.DOAnchorPos(new Vector2(x, y), 0.25f).SetDelay(1.05f);        
     }
 }

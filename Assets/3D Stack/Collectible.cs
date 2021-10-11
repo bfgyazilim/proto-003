@@ -35,6 +35,6 @@ public class Collectible : MonoBehaviour
             Debug.Log("Crate Invoked Collectible->OnTriggerEnter");
         }
 
-        Debug.Log("Collectible collided with: " + other.gameObject.name);
+        //Debug.Log("Collectible collided with: " + other.gameObject.name);
     }
 }

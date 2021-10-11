@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ClampName : MonoBehaviour
 {
     public Text nameLabel;
+    public GameObject panel;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,6 @@ public class ClampName : MonoBehaviour
     {
         Vector3 namePos = Camera.main.WorldToScreenPoint(this.transform.position);
         nameLabel.transform.position = namePos;
+        panel.transform.position = namePos;
     }
 }

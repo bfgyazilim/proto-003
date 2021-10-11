@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class InGameView : MonoBehaviour
 {
@@ -36,11 +37,6 @@ public class InGameView : MonoBehaviour
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI feedbackText, playerText;
 
-    // PlayerDialog variables
-    public GameObject playerDialog;
-    [SerializeField]
-    float playerOffsetX, playerOffsetY;
-
     public TextMeshProUGUI highScoreUI;
     public Text testText;
     float feedbacktextmaxY = 1;
@@ -61,15 +57,46 @@ public class InGameView : MonoBehaviour
     public static Score instance;
 
     // floating text for score popup
-    public GameObject floatingText;
+    private GameObject floatingText;
 
-    
+    // Player Menu
+    [Header("Player Dialog Menu Stats")]
+    public Text playerMenuDialogText;
+    public Text playerMenuNameText;
+    public TextMeshProUGUI playerEmot;
+    public Image playerMenuBgImage;
+
+    [SerializeField][Range(0,10)]
+    private float fadeInterval;
+
+    [SerializeField][Range(1,10)]
+    private float delayAmount;
     // Start is called before the first frame update
     void Start()
     {
         InitializeMenu();
+        if(this.gameObject.active)
+        {
+            FadePlayerMenu();
+        }        
     }
 
+    /// <summary>
+    /// Player UI Above the head giving messages and fade out after time interval
+    /// </summary>
+    void  FadePlayerMenu()
+    {
+        //DG.Tweening.DOTweenModuleUI.DOFade(playerMenu.GetComponent<CanvasGroup>(), 0, 1.0f);
+        //playerMenuText.DOFade(0.0f, 5.0f);
+        playerMenuNameText.DOFade(0.0f, fadeInterval).SetDelay(delayAmount);
+        playerMenuDialogText.DOFade(0.0f, fadeInterval).SetDelay(delayAmount);
+        playerEmot.DOFade(0.0f, fadeInterval).SetDelay(delayAmount);
+        playerMenuBgImage.DOFade(0.0f, fadeInterval).SetDelay(delayAmount);
+    }
+
+    /// <summary>
+    /// Check progression amount, and update the bar upon mission complete percentage
+    /// </summary>
     // Update is called once per frame
     void Update()
     {
@@ -91,33 +118,6 @@ public class InGameView : MonoBehaviour
             PlayerPrefs.SetFloat("highscore", highScore);
         }
         */
-    }
-
-    private void OnGUI()
-    {
-        ShowPlayerText();
-    }
-
-    void ShowPlayerText()
-    {
-        // Activate the text to start feedback movement accross Y axis, give
-        // random messages, and fade out slowly
-        int index = UnityEngine.Random.Range(0, feedbackMessages.Length);
-        //int alpha = 255;
-        //playerText.text = /*feedbackMessages[index]*/ "Clean Tiles " + "<sprite=" + 0 + ">";
-
-        float x =  UIUtils.instance.GetScreenXPositionOfObject(Player.instance.transform.position);
-        float y = UIUtils.instance.GetScreenYPositionOfObject(Player.instance.transform.position);
-
-        // fade out and reset position
-        //playerText.color = new Color(0, 0, 0, 0);
-
-        //playerDialog.GetComponent<RectTransform>().anchoredPosition = new Vector2(x + playerOffsetX, y + playerOffsetY);
-        //Debug.Log("Player screen position: " + x + " , " + y);
-        // Get player position in Screen Space, then display UI message in that point
-
-        playerText.text = /*feedbackMessages[index]*/ "<sprite=" + 0 + ">";
-        //playerText.rectTransform.anchoredPosition = new Vector2(x, y);
     }
 
     /// <summary>
