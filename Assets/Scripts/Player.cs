@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
     Transform jointPoint;    
     public static event Action<Transform> OnTriggerAttach;
     public static event Action<Transform> OnTriggerDetach;    
-    Transform attachedObject;
+    GameObject attachedObject;
 
     // UI Related, Money earning variables
     [SerializeField]
@@ -380,21 +380,42 @@ public class Player : MonoBehaviour
             //OnTriggerAttach?.Invoke(other.transform);
             ChangePlayerState(Player.PlayerStateType.JOGBOX);
 
-            // Parent object to player
-            attachedObject = other.transform;           
-            other.transform.SetParent(jointPoint, false);
-            other.transform.rotation = jointPoint.transform.rotation;
-            other.transform.localPosition = Vector3.zero;
-            other.transform.localScale = Vector3.one;
+            // save picked object, later to decouple
+            attachedObject = other.gameObject;
+
+            Debug.Log("Attached object: " + attachedObject.name);
+
+            // Disable pickep object;s gravity
+            //other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            other.gameObject.GetComponent<MeshCollider>().enabled = false;
+
+            other.transform.position = jointPoint.position;
+            other.transform.parent = jointPoint.transform;
+
+            //other.transform.rotation = jointPoint.transform.rotation;
+            //other.transform.localPosition = Vector3.zero;
+            //other.transform.localScale = Vector3.one;
             Debug.Log("Player Triggered OnTriggerEnter->Box");
         }
         else if (other.gameObject.tag == "DropPlane")
         {
             //OnTriggerDetach?.Invoke(other.transform);
-            ChangePlayerState(Player.PlayerStateType.IDLE);
-            attachedObject.parent = null;
-            attachedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            attachedObject.gameObject.tag = "";
+            Player.instance.ChangePlayerState(Player.PlayerStateType.IDLE);
+
+            if (attachedObject != null)
+            {
+                // detach object from player, drop to ground and enable gravity & collider
+                Debug.Log("Attached object Now will detach!: " + attachedObject.name);
+                attachedObject.transform.parent = null;
+                //attachedObject.GetComponent<Rigidbody>().isKinematic = false;
+                attachedObject.GetComponent<Rigidbody>().useGravity = true;
+                //attachedObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 10, ForceMode.Impulse);
+
+                attachedObject.tag = "";
+                attachedObject = null;
+
+            }
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
     }
