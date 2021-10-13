@@ -410,8 +410,9 @@ public class Player : MonoBehaviour
                 attachedObject.transform.parent = null;
                 //attachedObject.GetComponent<Rigidbody>().isKinematic = false;
                 attachedObject.GetComponent<Rigidbody>().useGravity = true;
-                //attachedObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 10, ForceMode.Impulse);
-
+                attachedObject.transform.position = new Vector3(attachedObject.transform.position.x, attachedObject.transform.position.y, attachedObject.transform.position.z) + (transform.forward * 2);
+                //attachedObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 5, ForceMode.Impulse);
+                attachedObject.GetComponent<MeshCollider>().enabled = true;
                 attachedObject.tag = "";
                 attachedObject = null;
 
