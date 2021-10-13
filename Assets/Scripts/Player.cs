@@ -413,9 +413,9 @@ public class Player : MonoBehaviour
                 attachedObject.transform.position = new Vector3(attachedObject.transform.position.x, attachedObject.transform.position.y, attachedObject.transform.position.z) + (transform.forward * 2);
                 //attachedObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 5, ForceMode.Impulse);
                 attachedObject.GetComponent<MeshCollider>().enabled = true;
-                attachedObject.tag = "";
+                attachedObject.tag = "Untagged";
+                //Destroy(attachedObject, 0.5f);
                 attachedObject = null;
-
             }
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
