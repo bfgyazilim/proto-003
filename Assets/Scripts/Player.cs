@@ -104,6 +104,13 @@ public class Player : MonoBehaviour
     public static event Action<Transform> OnTriggerDetach;    
     Transform attachedObject;
 
+    // UI Related, Money earning variables
+    [SerializeField]
+    GameObject banknoteUI;
+
+    [SerializeField]
+    GameObject panel;
+
     /// <summary>
     /// 
     /// </summary>
@@ -321,23 +328,23 @@ public class Player : MonoBehaviour
             AudioManager.instance.PlaySFX(0);
             Instantiate(scoreParticles[2], transform.position, Quaternion.identity);
         }
-        else if (other.gameObject.tag == "box")
+        else if (other.gameObject.tag == "banknote")
         {
             AudioManager.instance.PlaySFX(0);
-            other.gameObject.SetActive(false);
 
-            Instantiate(scoreParticles[0], transform.position, Quaternion.identity);
+            // Destroy the banknote, and instantiate a 2D UI icon version of it at the player's transform
+            Destroy(other.gameObject);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position), panel.transform.rotation, panel.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), panel.transform.rotation, panel.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 60, transform.position.y - 50, transform.position.z), panel.transform.rotation, panel.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 30, transform.position.y + 50, transform.position.z), panel.transform.rotation, panel.transform);
+
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 40, transform.position.y, transform.position.z), panel.transform.rotation, panel.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 40, transform.position.y - 80, transform.position.z), panel.transform.rotation, panel.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 60, transform.position.y + 80, transform.position.z), panel.transform.rotation, panel.transform);
+
+            UIManager.instance.AddCoinsToInGameView(5);
             //Score.instance.ShowBonusText(other.gameObject.transform.position);
-
-        }
-        else if (other.gameObject.tag == "coin")
-        {
-            AudioManager.instance.PlaySFX(0);
-            other.gameObject.SetActive(false);
-
-            Instantiate(scoreParticles[0], transform.position, Quaternion.identity);
-            //Score.instance.ShowBonusText(other.gameObject.transform.position);
-
         }
         else if ((other.gameObject.tag == "triangle") || (other.gameObject.tag == "Obstacle"))
         {
@@ -379,6 +386,7 @@ public class Player : MonoBehaviour
             other.transform.rotation = jointPoint.transform.rotation;
             other.transform.localPosition = Vector3.zero;
             other.transform.localScale = Vector3.one;
+            Debug.Log("Player Triggered OnTriggerEnter->Box");
         }
         else if (other.gameObject.tag == "DropPlane")
         {
@@ -386,7 +394,7 @@ public class Player : MonoBehaviour
             ChangePlayerState(Player.PlayerStateType.IDLE);
             attachedObject.parent = null;
             attachedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            attachedObject.gameObject.GetComponent<Rigidbody>().Sleep();
+            attachedObject.gameObject.tag = "";
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
     }

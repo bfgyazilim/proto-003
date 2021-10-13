@@ -85,13 +85,13 @@ public class ObjectSpawner : MonoBehaviour {
     public string spawnedQuestion, spawnedAnswer;
     int randTextIndex;
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void Awake()
     {
         instance = this;
-
         currentPos = transform.position.x;
-        // Setup tex question and answers for generating collectibles according to that
-        InitializeRandomText();
     }
 
     /// <summary>
@@ -345,6 +345,4 @@ public class ObjectSpawner : MonoBehaviour {
             }
         }
     }
-
-
 }
