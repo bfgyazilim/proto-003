@@ -646,6 +646,16 @@ public class GameManager : MonoBehaviour
             prisoner.GetComponent<PrisonerController>().ChangeDestination(mainPoint.transform);
         }
     }
+
+    /// <summary>
+    /// Handles MissionComplete Event
+    /// </summary>
+    /// <param name="missionNo"></param>
+    public void HandleMissionComplete(int missionNo)
+    {
+        Debug.Log("Mission " + missionNo + "Completed");
+    }
+
 }
     // end runner code
 

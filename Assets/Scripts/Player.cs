@@ -99,10 +99,11 @@ public class Player : MonoBehaviour
     // Carry object variables
     bool JogBox;
     [SerializeField]
-    Transform jointPoint;    
-    public static event Action<Transform> OnTriggerAttach;
-    public static event Action<Transform> OnTriggerDetach;    
+    Transform jointPoint;
+    int missionNo = 1;
+    public static event Action<int> OnMissionComplete;    
     GameObject attachedObject;
+    int collectedAmount;
 
     // UI Related, Money earning variables
     [SerializeField]
@@ -377,7 +378,6 @@ public class Player : MonoBehaviour
         }
         else if (other.gameObject.tag == "Box")
         {
-            //OnTriggerAttach?.Invoke(other.transform);
             ChangePlayerState(Player.PlayerStateType.JOGBOX);
 
             // save picked object, later to decouple
@@ -400,7 +400,15 @@ public class Player : MonoBehaviour
         }
         else if (other.gameObject.tag == "DropPlane")
         {
-            //OnTriggerDetach?.Invoke(other.transform);
+            collectedAmount++;
+            if (collectedAmount >= 3)
+            {
+                // Mission complete triggered, so GameManager knows about the game state, and Updates
+                OnMissionComplete += GameManager.instance.HandleMissionComplete;
+                OnMissionComplete?.Invoke(missionNo);
+                helicopter.GetComponent<Animator>().enabled = true;
+            }
+            // Change animation back to normal
             Player.instance.ChangePlayerState(Player.PlayerStateType.IDLE);
 
             if (attachedObject != null)
@@ -415,7 +423,7 @@ public class Player : MonoBehaviour
                 attachedObject.GetComponent<MeshCollider>().enabled = true;
                 attachedObject.tag = "Untagged";
                 //Destroy(attachedObject, 0.5f);
-                attachedObject = null;
+                attachedObject = null; 
             }
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
