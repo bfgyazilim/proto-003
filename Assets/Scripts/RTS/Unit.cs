@@ -72,16 +72,27 @@ public class Unit : MonoBehaviour
 		{
 			if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance + 1f)
 			{
-				navMeshAgent.isStopped = true;
-				animator.SetTrigger("Dance");
-				//Debug.Log("SetTrigger - Dance called on Boy1");
+				//navMeshAgent.isStopped = true;
 
+				// edit
+				targetOfAttack = null;
+				isReady = false;
+
+				navMeshAgent.isStopped = true;
+				navMeshAgent.velocity = Vector3.zero;
+				// end edit
+
+
+				animator.SetBool("isWalking", false);
+				animator.SetTrigger("Chicken");
+				//Debug.Log("SetTrigger - Chicken called on Boy1");
+				prepareLevelEnding = false;
 			}
 			else
 			{
 				//Debug.Log("SetTrigger - Dance NOT called on Boy1");
 
-				navMeshAgent.speed += .5f;
+				//navMeshAgent.speed += .5f;
 			}
 		}
 		else
