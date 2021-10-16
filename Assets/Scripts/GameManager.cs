@@ -654,6 +654,7 @@ public class GameManager : MonoBehaviour
     public void HandleMissionComplete(int missionNo)
     {
         Debug.Log("Mission " + missionNo + "Completed");
+        ActivateTimeline(missionNo);
     }
 
 }

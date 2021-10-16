@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
     bool JogBox;
     [SerializeField]
     Transform jointPoint;
-    int missionNo = 1;
+    int missionNo = 0;
     public static event Action<int> OnMissionComplete;    
     GameObject attachedObject;
     int collectedAmount;
@@ -400,19 +400,19 @@ public class Player : MonoBehaviour
         }
         else if (other.gameObject.tag == "DropPlane")
         {
-            collectedAmount++;
-            if (collectedAmount >= 3)
+            if (collectedAmount >= 2)
             {
                 // Mission complete triggered, so GameManager knows about the game state, and Updates
                 OnMissionComplete += GameManager.instance.HandleMissionComplete;
                 OnMissionComplete?.Invoke(missionNo);
-                helicopter.GetComponent<Animator>().enabled = true;
+                //helicopter.GetComponent<Animator>().enabled = true;
             }
             // Change animation back to normal
             Player.instance.ChangePlayerState(Player.PlayerStateType.IDLE);
 
             if (attachedObject != null)
             {
+                collectedAmount++;
                 // detach object from player, drop to ground and enable gravity & collider
                 Debug.Log("Attached object Now will detach!: " + attachedObject.name);
                 attachedObject.transform.parent = null;
