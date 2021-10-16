@@ -15,7 +15,7 @@ public class BallManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MakeANewCircle();
+        //MakeANewCircle();
     }
 
     // Update is called once per frame
