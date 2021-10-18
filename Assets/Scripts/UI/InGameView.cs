@@ -59,21 +59,29 @@ public class InGameView : MonoBehaviour
     // floating text for score popup
     private GameObject floatingText;
 
-    // Player Menu
+    // Player Dialog Menu variables
     [Header("Player Dialog Menu Stats")]
     public Text playerMenuDialogText;
     public Text playerMenuNameText;
     public TextMeshProUGUI playerEmot;
     public Image playerMenuBgImage;
-
     [SerializeField][Range(0,10)]
     private float fadeInterval;
-
     [SerializeField][Range(1,10)]
     private float delayAmount;
 
-    // Tasks Progress Bar
-    //[Header("Tasks Stats")]
+    // Tasks Dialog Menu variables (Array for holding multiple mission data)
+    [Header("TASK DIALOG MENU STATS")]
+    public Text[] missionMenuDialogText;
+    public Text[] missionMenuNameText;
+    public TextMeshProUGUI[] missionEmot;
+    public Image[] missionMenuBgImage;
+    [SerializeField]
+    [Range(0, 10)]
+    private float missionFadeInterval;
+    [SerializeField]
+    [Range(1, 10)]
+    private float missionDelayAmount;
 
 
     // Start is called before the first frame update

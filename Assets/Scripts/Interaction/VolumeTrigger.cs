@@ -8,7 +8,7 @@ public class VolumeTrigger : MonoBehaviour
 {
     [SerializeField]
     Player.PlayerStateType state;
-    [SerializeField] UnityEvent OnVolumeEnterEvent;
+    [SerializeField] UnityEvent OnVolumeEnterEvent, OnVolumeExitEvent;
 
     // Invoke(Trigger) this event on Player contact
     // Collector and other classes listen to this FX, and UI
@@ -43,6 +43,25 @@ public class VolumeTrigger : MonoBehaviour
 
             //Player.instance.ChangePlayerState(state);
             Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
+            Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "Player State: " + Player.instance.state);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        //if (other.gameObject.tag == "Crate" && other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player")
+        {
+            //// UI Manager registers to the OnDie event via inGameView Canvas to
+            //// show feedback on screen...
+            //OnVolumeTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
+
+            //// Trigger OnVolumeTrigger Event
+            //OnVolumeTrigger?.Invoke();
+            OnVolumeExitEvent.Invoke();
+
+            //Player.instance.ChangePlayerState(state);
+            Player.instance.ChangePlayerState(Player.PlayerStateType.WALKING);
             Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "Player State: " + Player.instance.state);
         }
     }
