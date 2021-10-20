@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     GameObject[] doors;
 
     [SerializeField]
-    public UnityEvent OnMissionComplete;
+    public UnityEvent OnMissionComplete1, OnMissionComplete2, OnMissionComplete3;
 
 
     // Timelines
@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
             if (remainingTiles == 0)
             {
                 // Trigger OnMissionComplete Event
-                OnMissionComplete.Invoke();
+                OnMissionComplete1.Invoke();
                 //PlayerController.instance.ChangePlayerStateToWin();
                 Debug.Log("Task 1 Complete");
             }
@@ -654,7 +654,12 @@ public class GameManager : MonoBehaviour
     public void HandleMissionComplete(int missionNo)
     {
         Debug.Log("Mission " + missionNo + "Completed");
-        ActivateTimeline(missionNo);
+        // If It is carry boxes mission
+        if(missionNo == 3)
+        {
+            OnMissionComplete3.Invoke();
+            ActivateTimeline(0);
+        }
     }
 
 }

@@ -65,6 +65,14 @@ public class InGameView : MonoBehaviour
     public Text playerMenuNameText;
     public TextMeshProUGUI playerEmot;
     public Image playerMenuBgImage;
+
+    [Header("Status Dialog Menu Stats")]
+    public Text statusMenuDialogText;
+    public Text statusMenuNameText;
+    public TextMeshProUGUI statusEmot;
+    public Image statusMenuBgImage;
+
+
     [SerializeField][Range(0,10)]
     private float fadeInterval;
     [SerializeField][Range(1,10)]
@@ -91,13 +99,27 @@ public class InGameView : MonoBehaviour
         if(this.gameObject.active)
         {
             FadePlayerMenu();
+            FadeStatusMenu();
         }        
     }
+    /// <summary>
+    /// Status Menu UI Above the head giving messages and fade out after time interval
+    /// </summary>
+    void FadeStatusMenu()
+    {
+        //DG.Tweening.DOTweenModuleUI.DOFade(playerMenu.GetComponent<CanvasGroup>(), 0, 1.0f);
+        //playerMenuText.DOFade(0.0f, 5.0f);
+        statusMenuNameText.DOFade(0.0f, fadeInterval).SetDelay(delayAmount * 2);
+        statusMenuDialogText.DOFade(0.0f, fadeInterval).SetDelay(delayAmount * 2);
+        statusEmot.DOFade(0.0f, fadeInterval).SetDelay(delayAmount * 2);
+        statusMenuBgImage.DOFade(0.0f, fadeInterval).SetDelay(delayAmount * 2);
+    }
+
 
     /// <summary>
-    /// Player UI Above the head giving messages and fade out after time interval
+    /// Player Menu UI Above the head giving messages and fade out after time interval
     /// </summary>
-    void  FadePlayerMenu()
+    void FadePlayerMenu()
     {
         //DG.Tweening.DOTweenModuleUI.DOFade(playerMenu.GetComponent<CanvasGroup>(), 0, 1.0f);
         //playerMenuText.DOFade(0.0f, 5.0f);

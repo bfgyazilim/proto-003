@@ -17,7 +17,7 @@ public class UIAnimate : MonoBehaviour
 
     void AnimateSprite()
     {
-        panel = GameObject.FindGameObjectWithTag("banknote").transform;
+        panel = GameObject.FindGameObjectWithTag("banknoteP").transform;
         spriteAnimation = DOTween.Sequence();
 
         spriteAnimation.Append(transform.DOMove(panel.position, 1.5f)

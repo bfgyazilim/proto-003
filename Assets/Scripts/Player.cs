@@ -402,6 +402,8 @@ public class Player : MonoBehaviour
         {
             if (collectedAmount >= 2)
             {
+                // later make it enum
+                missionNo = 3;
                 // Mission complete triggered, so GameManager knows about the game state, and Updates
                 OnMissionComplete += GameManager.instance.HandleMissionComplete;
                 OnMissionComplete?.Invoke(missionNo);
