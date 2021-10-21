@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     GameObject[] doors;
 
     [SerializeField]
-    public UnityEvent OnMissionComplete1, OnMissionComplete2, OnMissionComplete3;
+    public UnityEvent OnMissionComplete1, OnMissionComplete2, OnMissionComplete3, OnMissionComplete4;
 
 
     // Timelines
@@ -659,6 +659,13 @@ public class GameManager : MonoBehaviour
         {
             OnMissionComplete3.Invoke();
             ActivateTimeline(0);
+        }
+
+        // If It is build house next to road mission?!
+        if (missionNo == 4)
+        {
+            OnMissionComplete4.Invoke();
+            ActivateTimeline(1);
         }
     }
 

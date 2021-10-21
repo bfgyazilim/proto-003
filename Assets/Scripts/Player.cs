@@ -429,6 +429,19 @@ public class Player : MonoBehaviour
             }
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
+        else if (other.gameObject.tag == "Concrete")
+        {            
+            float unitOffsetX = -5, unitOffsetY = 0, unitOffsetZ =1;
+            WorldController.instance.GenerateBlocks(other.transform.position.x + unitOffsetX, other.transform.position.y + unitOffsetY, other.transform.position.z + unitOffsetZ);
+            Debug.Log("Player collided with: " + other.gameObject.name);
+
+            // later make it enum
+            missionNo = 4;
+            // Mission complete triggered, so GameManager knows about the game state, and Updates
+            OnMissionComplete += GameManager.instance.HandleMissionComplete;
+            OnMissionComplete?.Invoke(missionNo);
+        }
+
     }
 
     /*

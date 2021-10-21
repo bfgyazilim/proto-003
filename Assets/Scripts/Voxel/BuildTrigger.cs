@@ -6,6 +6,8 @@ public class BuildTrigger : MonoBehaviour
 {
     [SerializeField]
     float unitOffsetX, unitOffsetY, unitOffsetZ;
+    
+    public int missionNo;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,6 @@ public class BuildTrigger : MonoBehaviour
         {
             WorldController.instance.GenerateBlocks(transform.position.x + unitOffsetX, transform.position.y + unitOffsetY, transform.position.z + unitOffsetZ);
             Debug.Log("BuildTrigger collided with: " + other.gameObject.name);
-
         }
     }
 }

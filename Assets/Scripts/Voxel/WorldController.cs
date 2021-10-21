@@ -35,7 +35,11 @@ public class WorldController : MonoBehaviour
     public IEnumerator BuildUnit(float ox, float oy, float oz)
     {
         Vector3 offset = new Vector3(ox, oy, oz);
-        GameObject cube = GameObject.Instantiate(block, offset, Quaternion.identity);
+        //GameObject cube = GameObject.Instantiate(block, offset, Quaternion.identity);
+
+        // Instantiate the prefab in 45 degree slight angle
+        GameObject cube = GameObject.Instantiate(block, offset, Quaternion.Euler(0, 45, 0));
+
         //cube.GetComponent<Renderer>().material.SetColor("_EmissionColor", emissionColor);
         cube.name = "V_" + offset.x + "_" + offset.y + "_" +  offset.z;
 
