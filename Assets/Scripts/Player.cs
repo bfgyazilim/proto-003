@@ -28,15 +28,16 @@ public class Player : MonoBehaviour
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
+    [Header("Gravity")]
+    Vector3 move;
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    bool isWalking, isIdle;
-    public bool isAttacking;
-    public bool hitEnemy, killedEnemy;
     public float playerSpeed = 3.0f;
     private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    private float gravityValue = -9.81f * 2f;
+
+
     public bool playerWin;
     public bool levelFailed, levelFinished, levelStarted;
 
@@ -58,7 +59,9 @@ public class Player : MonoBehaviour
     public int RescuedPrisoners;
     private bool splatteredBlood;
 
-    Vector3 move;
+    bool isWalking, isIdle;
+    public bool isAttacking;
+    public bool hitEnemy, killedEnemy;
 
     // Joystick controls
 
@@ -140,7 +143,7 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Control Player movement and states
     /// </summary>
     private void Update()
     {        
@@ -165,48 +168,30 @@ public class Player : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        /*
-        if (!isAttacking)
-        {
-            ChangePlayerState(PlayerStateType.IDLE);
-            // old character
-            //anim.SetBool("isIdle", true);
-            // new character
-            //anim.SetTrigger("DynIdle");
-            isIdle = true;
-
-        }
-        else
-        {
-            anim.SetBool("isIdle", false);
-            isIdle = false;
-        }
-        */
-
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
 
-            if (state != PlayerStateType.JOGBOX)
-            {             
+            //if (state != PlayerStateType.JOGBOX)
+            //{             
                 ChangePlayerState(PlayerStateType.WALKING);
-            }
+            //}
         }
-
-        /*
+        else
+        {
+            ChangePlayerState(PlayerStateType.IDLE);
+        }
+        
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
-        
+
+        // Control player jump speed
         playerVelocity.y += gravityValue * Time.deltaTime;
-        */
-
+        // Control player movement via velocity vector
         controller.Move(playerVelocity * Time.deltaTime);
-
-       
-
     }
 
     /// <summary>
@@ -236,6 +221,11 @@ public class Player : MonoBehaviour
             case PlayerStateType.THROW:
                 state = PlayerStateType.THROW;
                 anim.SetBool("Throw", true);
+                break;
+
+            case PlayerStateType.DEATH:
+                state = PlayerStateType.DEATH;
+                anim.SetTrigger("Death");
                 break;
         }
     }
@@ -315,8 +305,6 @@ public class Player : MonoBehaviour
         anim.SetBool("isRunning", true);
     }
 
-
-
     /// <summary>
     /// 
     /// </summary>
@@ -393,17 +381,12 @@ public class Player : MonoBehaviour
             other.transform.position = jointPoint.position;
             other.transform.parent = jointPoint.transform;
 
-            //other.transform.rotation = jointPoint.transform.rotation;
-            //other.transform.localPosition = Vector3.zero;
-            //other.transform.localScale = Vector3.one;
             Debug.Log("Player Triggered OnTriggerEnter->Box");
         }
         else if (other.gameObject.tag == "DropPlane")
         {
             if (collectedAmount >= 2)
             {
-                // later make it enum
-                missionNo = 3;
                 // Mission complete triggered, so GameManager knows about the game state, and Updates
                 OnMissionComplete += GameManager.instance.HandleMissionComplete;
                 OnMissionComplete?.Invoke(missionNo);
@@ -425,7 +408,9 @@ public class Player : MonoBehaviour
                 attachedObject.GetComponent<MeshCollider>().enabled = true;
                 attachedObject.tag = "Untagged";
                 //Destroy(attachedObject, 0.5f);
-                attachedObject = null; 
+                attachedObject = null;
+                // Decrease number of tasks remaining to complete the current mission
+                GameManager.instance.EvaluateMissionProgress((int)GameManager.MissionType.CARRYBOXES);
             }
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
@@ -435,13 +420,13 @@ public class Player : MonoBehaviour
             WorldController.instance.GenerateBlocks(other.transform.position.x + unitOffsetX, other.transform.position.y + unitOffsetY, other.transform.position.z + unitOffsetZ);
             Debug.Log("Player collided with: " + other.gameObject.name);
 
-            // later make it enum
-            missionNo = 4;
             // Mission complete triggered, so GameManager knows about the game state, and Updates
             OnMissionComplete += GameManager.instance.HandleMissionComplete;
             OnMissionComplete?.Invoke(missionNo);
-        }
 
+            // Decrease number of tasks remaining to complete the current mission
+            GameManager.instance.EvaluateMissionProgress((int)GameManager.MissionType.BUILDHOUSE);
+        }
     }
 
     /*
@@ -473,16 +458,17 @@ public class Player : MonoBehaviour
             splatteredBlood = true;
         }
 
+        // Change state to Death
+        ChangePlayerState(PlayerStateType.DEATH);
+
         // Death
         AudioManager.instance.PlaySFX(1);
 
         levelFailed = true;
 
-        // Hit an obstacle move to Dieing...
-        anim.SetBool("isDying", true);
-        anim.SetBool("isIdle", false);
-
-        sceneManager.GetComponent<App_Initialize>().GameOver();
+        Debug.Log("Game Over");
+        GameManager.instance.GameOver();
+        
     }
 
     /// <summary>

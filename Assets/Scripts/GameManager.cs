@@ -57,9 +57,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject[] doors;
 
-    [SerializeField]
-    public UnityEvent OnMissionComplete1, OnMissionComplete2, OnMissionComplete3, OnMissionComplete4;
-
 
     // Timelines
     public GameObject flashbackTimeline, stormTimeline, aicommandTimeline;
@@ -68,6 +65,24 @@ public class GameManager : MonoBehaviour
     public List<GameObject> timelines;
     [SerializeField]
     int lastActiveTimelineIndex = -1;
+
+    // Mission stat variables (Later put on to MissionManager)
+    [Header("Mission Stats")]
+    [SerializeField]
+    public UnityEvent[] OnMissionComplete;
+    [SerializeField]
+    int remainingTasks;
+    [SerializeField]
+    int totalTasks;
+    [SerializeField]
+    int clearedTasks;
+
+    public enum MissionType
+    {
+        TILECLEAN = 1, DESTRUCTWALLS, CARRYBOXES, BUILDHOUSE, MAZESOLVE
+    };
+
+    public MissionType mission;
 
     // Mission 1 variables (Later put on to MissionManager)
     [Header("Tile Stats")]
@@ -218,7 +233,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Specific to Mission 1, adjust the progress bar level according to the remaining floor tiles
     /// </summary>
     /// <returns></returns>
     public int DecreaseTiles()
@@ -236,13 +251,38 @@ public class GameManager : MonoBehaviour
             if (remainingTiles == 0)
             {
                 // Trigger OnMissionComplete Event
-                OnMissionComplete1.Invoke();
+                OnMissionComplete[(int)GameManager.MissionType.TILECLEAN].Invoke();
                 //PlayerController.instance.ChangePlayerStateToWin();
                 Debug.Log("Task 1 Complete");
             }
         }
-
         return remainingTiles;
+    }
+
+    /// <summary>
+    /// Specific to Mission 1, adjust the progress bar level according to the remaining floor tiles
+    /// </summary>
+    /// <returns></returns>
+    public int EvaluateMissionProgress(int missionNo)
+    {
+        if (remainingTasks > 0)
+        {
+            remainingTasks--;
+            clearedTasks++;
+            // Update Progress Bar from UIManager            
+            float progressRatio = (float)clearedTasks / (float)totalTasks;
+            UIManager.instance.IncreaseInGameProgressBar(progressRatio);
+
+            Debug.Log("Remaining tasks in mission: " + remainingTasks);
+
+            if (remainingTasks == 0)
+            {
+                // Trigger OnMissionComplete Event
+                OnMissionComplete[missionNo].Invoke();                    
+                Debug.Log("Mission " + missionNo + "  Complete");
+            }
+        }
+        return remainingTasks;
     }
 
     /// <summary>
@@ -655,20 +695,19 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Mission " + missionNo + "Completed");
         // If It is carry boxes mission
-        if(missionNo == 3)
-        {
-            OnMissionComplete3.Invoke();
+        if(missionNo == (int)MissionType.CARRYBOXES)
+        {            
+            OnMissionComplete[missionNo].Invoke();
             ActivateTimeline(0);
         }
 
         // If It is build house next to road mission?!
-        if (missionNo == 4)
+        if (missionNo == (int)MissionType.BUILDHOUSE)
         {
-            OnMissionComplete4.Invoke();
+            OnMissionComplete[missionNo].Invoke();
             ActivateTimeline(1);
         }
     }
-
 }
     // end runner code
 

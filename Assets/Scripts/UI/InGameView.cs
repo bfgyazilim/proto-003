@@ -7,7 +7,6 @@ using DG.Tweening;
 
 public class InGameView : MonoBehaviour
 {
-
     // Level Progress bar variables
     [SerializeField] private Text cLevelText, nLevelText;
     [SerializeField] private Image fill;

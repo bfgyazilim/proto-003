@@ -14,11 +14,13 @@ public class DestructibleWall : MonoBehaviour
     private Transform pfWallBroken;
 
     [SerializeField]
-    float damageAmount = 33;
+    float damageAmount = 100;
 
     float totalHp;
-    float remainingHp = 100.0f;
+    static float remainingHp = 400.0f;
     bool zeroHp;
+
+    private static int walltasksInMission = 4;
 
     /// <summary>
     /// UIManager Registers to the OnDestructComplete evet (Triggered when the object is destructed)
@@ -59,6 +61,9 @@ public class DestructibleWall : MonoBehaviour
                 Instantiate(pfWallBroken, transform.position, transform.rotation);
                 Destroy(gameObject);
                 Debug.Log("Destroyed!");
+                // Decrease number of tasks remaining to complete the current mission
+                GameManager.instance.EvaluateMissionProgress((int)GameManager.MissionType.DESTRUCTWALLS);
+
             }
         }
     }

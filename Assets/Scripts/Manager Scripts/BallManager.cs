@@ -20,18 +20,12 @@ public class BallManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-        if(Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Space))
-        {
+    {        
+        //if(Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Space))
+        //{
             HitBall();
             Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
-        }
-        
-        if (Player.instance.state == Player.PlayerStateType.JOGBOX)
-        {
-            HitBall();            
-        }
+        //}            
     }
 
     public void HitBall()
