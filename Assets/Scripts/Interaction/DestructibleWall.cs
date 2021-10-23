@@ -27,13 +27,13 @@ public class DestructibleWall : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        OnDestructProgress += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
+        //OnDestructProgress += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        OnDestructProgress += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
     }
 
     // Update is called once per frame
@@ -61,9 +61,19 @@ public class DestructibleWall : MonoBehaviour
                 Instantiate(pfWallBroken, transform.position, transform.rotation);
                 Destroy(gameObject);
                 Debug.Log("Destroyed!");
-                // Decrease number of tasks remaining to complete the current mission
-                GameManager.instance.EvaluateMissionProgress((int)GameManager.MissionType.DESTRUCTWALLS);
+                if(transform.gameObject.tag == "Tree")
+                {
+                    // Decrease number of tasks remaining to complete the current mission
+                    GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.DESTRUCTTREES);
+                    Debug.Log("Tree object collided with: " + target.gameObject.name + " Player State: " + Player.instance.state);
 
+                }
+                else
+                {
+                    // Decrease number of tasks remaining to complete the current mission
+                    GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.DESTRUCTWALLS);
+                    Debug.Log("Wall object collided with: " + target.gameObject.name + " Player State: " + Player.instance.state);
+                }
             }
         }
     }

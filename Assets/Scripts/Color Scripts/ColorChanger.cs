@@ -49,7 +49,7 @@ public class ColorChanger : MonoBehaviour
                 Debug.Log("Code reached ColorChanger else ================================");
 
                 // Decrease number of tiles (in the first run, otherwise If collides with the same tile more than once, will count more times!!!)
-                GameManager.instance.DecreaseTiles();
+                GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.TILECLEAN);
             }
         }
     }

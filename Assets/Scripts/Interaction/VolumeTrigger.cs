@@ -10,10 +10,12 @@ public class VolumeTrigger : MonoBehaviour
     Player.PlayerStateType state;
     [SerializeField] UnityEvent OnVolumeEnterEvent, OnVolumeExitEvent;
 
+    [SerializeField]
+    GameManager.MissionType missionType;
     // Invoke(Trigger) this event on Player contact
     // Collector and other classes listen to this FX, and UI
     // for the response in their ways!!!
-    public event Action OnVolumeTrigger;
+    public event Action<int> OnVolumeTrigger;
 
 
     // Start is called before the first frame update
@@ -33,16 +35,19 @@ public class VolumeTrigger : MonoBehaviour
         //if (other.gameObject.tag == "Crate" && other.gameObject.name == "Player")
         if (other.gameObject.name == "Player")
         {
-            //// UI Manager registers to the OnDie event via inGameView Canvas to
-            //// show feedback on screen...
+            // Invoke for editor setup of gameobjects on and off             
             //OnVolumeTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
+            // Mission complete triggered, so GameManager knows about the game state, and Updates
+            OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
+            OnVolumeTrigger?.Invoke((int)missionType);
 
-            //// Trigger OnVolumeTrigger Event
-            //OnVolumeTrigger?.Invoke();
+
+            //// Trigger OnVolumeTrigger Unity Event for editor setup of gameobjects            
             OnVolumeEnterEvent.Invoke();
 
             //Player.instance.ChangePlayerState(state);
             Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
+
             Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "Player State: " + Player.instance.state);
         }
     }

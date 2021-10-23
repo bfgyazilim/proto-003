@@ -211,6 +211,7 @@ public class Player : MonoBehaviour
             case PlayerStateType.WALKING:
                 state = PlayerStateType.WALKING;
                 anim.SetBool("isWalking", true);
+                anim.SetBool("JogBox", false);
                 break;
 
             case PlayerStateType.JOGBOX:
@@ -389,7 +390,7 @@ public class Player : MonoBehaviour
             {
                 // Mission complete triggered, so GameManager knows about the game state, and Updates
                 OnMissionComplete += GameManager.instance.HandleMissionComplete;
-                OnMissionComplete?.Invoke(missionNo);
+                OnMissionComplete?.Invoke((int)GameManager.MissionType.CARRYBOXES);
                 //helicopter.GetComponent<Animator>().enabled = true;
             }
             // Change animation back to normal
@@ -410,7 +411,7 @@ public class Player : MonoBehaviour
                 //Destroy(attachedObject, 0.5f);
                 attachedObject = null;
                 // Decrease number of tasks remaining to complete the current mission
-                GameManager.instance.EvaluateMissionProgress((int)GameManager.MissionType.CARRYBOXES);
+                GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.CARRYBOXES);
             }
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
@@ -422,10 +423,9 @@ public class Player : MonoBehaviour
 
             // Mission complete triggered, so GameManager knows about the game state, and Updates
             OnMissionComplete += GameManager.instance.HandleMissionComplete;
-            OnMissionComplete?.Invoke(missionNo);
-
+            OnMissionComplete?.Invoke((int)GameManager.MissionType.BUILDHOUSE);
             // Decrease number of tasks remaining to complete the current mission
-            GameManager.instance.EvaluateMissionProgress((int)GameManager.MissionType.BUILDHOUSE);
+            GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.BUILDHOUSE);
         }
     }
 

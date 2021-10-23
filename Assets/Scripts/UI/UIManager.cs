@@ -111,6 +111,11 @@ public class UIManager : MonoBehaviour
         inGameView.IncreaseProgressBarAmount(i);
     }
 
+    public void SetInGameProgressBarFill(float i)
+    {
+        inGameView.IncreaseProgressBarAmount(i);
+    }
+
     public void AddCoinsToInGameView(int count)
     {
         // Increase Total Coins by Count

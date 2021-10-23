@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     private int remainingEnemy;
     private int killedEnemy;
     [SerializeField] private TextMeshPro levelNo;
-     
-    private TextMeshProUGUI  swipeText;
+
+    private TextMeshProUGUI swipeText;
 
     // instance of the object
     public static GameManager instance;
@@ -71,27 +71,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public UnityEvent[] OnMissionComplete;
     [SerializeField]
-    int remainingTasks;
+    int[] remainingTasks;
     [SerializeField]
-    int totalTasks;
+    int[] totalTasks;
     [SerializeField]
-    int clearedTasks;
+    int[] clearedTasks;
 
     public enum MissionType
     {
-        TILECLEAN = 1, DESTRUCTWALLS, CARRYBOXES, BUILDHOUSE, MAZESOLVE
+        TILECLEAN, DESTRUCTWALLS, CARRYBOXES, BUILDHOUSE, DESTRUCTTREES
     };
 
-    public MissionType mission;
-
-    // Mission 1 variables (Later put on to MissionManager)
-    [Header("Tile Stats")]
-    [SerializeField]
-    int remainingTiles;
-    [SerializeField]
-    int totalTiles;
-    [SerializeField]
-    int clearedTiles;
+    //public MissionType mission;
 
     /// <summary>
     /// 
@@ -153,11 +144,11 @@ public class GameManager : MonoBehaviour
             */
         }
 
-        #if(!UNITY_EDITOR)
+#if (!UNITY_EDITOR)
         // Set Up Voodoo Tiny Sauce at Start!
         if()
         TinySauce.OnGameStarted(levelNumber: level.ToString());
-        #endif
+#endif
 
         // Set the active level remaining enemy on less or more than levelCount levels
         // If more than levelCount, it will repeat levels, so the remaining enemies to match that
@@ -165,7 +156,7 @@ public class GameManager : MonoBehaviour
         if (level > levelCount)
         {
             int indLevel = level % levelCount;
-            remainingEnemy = enemyCount[indLevel-1];
+            remainingEnemy = enemyCount[indLevel - 1];
         }
         else
         {
@@ -196,8 +187,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            return enemyCount[level-1];
-        }        
+            return enemyCount[level - 1];
+        }
     }
 
     /// <summary>
@@ -214,8 +205,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public int DecreaseEnemy()
-    {        
-        if(remainingEnemy > 0)
+    {
+        if (remainingEnemy > 0)
         {
             remainingEnemy--;
             killedEnemy++;
@@ -236,53 +227,25 @@ public class GameManager : MonoBehaviour
     /// Specific to Mission 1, adjust the progress bar level according to the remaining floor tiles
     /// </summary>
     /// <returns></returns>
-    public int DecreaseTiles()
+    public void HandleMissionProgress(int missionNo)
     {
-        if (remainingTiles > 0)
+        if (remainingTasks[missionNo] > 0)
         {
-            remainingTiles--;
-            clearedTiles++;
+            remainingTasks[missionNo]--;
+            clearedTasks[missionNo]++;
             // Update Progress Bar from UIManager            
-            float progressRatio = (float)clearedTiles / (float)totalTiles;
+            float progressRatio = (float)clearedTasks[missionNo] / (float)totalTasks[missionNo];
             UIManager.instance.IncreaseInGameProgressBar(progressRatio);
 
-            Debug.Log("Remaining tiles: " + remainingTiles);
+            Debug.Log("Remaining tasks in mission: " + remainingTasks[missionNo]);
 
-            if (remainingTiles == 0)
+            if (remainingTasks[missionNo] == 0)
             {
                 // Trigger OnMissionComplete Event
-                OnMissionComplete[(int)GameManager.MissionType.TILECLEAN].Invoke();
-                //PlayerController.instance.ChangePlayerStateToWin();
-                Debug.Log("Task 1 Complete");
-            }
-        }
-        return remainingTiles;
-    }
-
-    /// <summary>
-    /// Specific to Mission 1, adjust the progress bar level according to the remaining floor tiles
-    /// </summary>
-    /// <returns></returns>
-    public int EvaluateMissionProgress(int missionNo)
-    {
-        if (remainingTasks > 0)
-        {
-            remainingTasks--;
-            clearedTasks++;
-            // Update Progress Bar from UIManager            
-            float progressRatio = (float)clearedTasks / (float)totalTasks;
-            UIManager.instance.IncreaseInGameProgressBar(progressRatio);
-
-            Debug.Log("Remaining tasks in mission: " + remainingTasks);
-
-            if (remainingTasks == 0)
-            {
-                // Trigger OnMissionComplete Event
-                OnMissionComplete[missionNo].Invoke();                    
+                OnMissionComplete[missionNo].Invoke();
                 Debug.Log("Mission " + missionNo + "  Complete");
             }
         }
-        return remainingTasks;
     }
 
     /// <summary>
@@ -315,7 +278,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Reload Scene for debug purposes
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -388,7 +351,7 @@ public class GameManager : MonoBehaviour
         return level;
     }
 
- 
+
     // keep track of game progress and send to analytics...
     bool isUserCompleteLevel;
 
@@ -459,7 +422,7 @@ public class GameManager : MonoBehaviour
             level++;
 
             // Increase level, add to PlayerPrefbs (save to device)
-            PlayerPrefs.SetInt("Level", level);                        
+            PlayerPrefs.SetInt("Level", level);
 
             // Reset UI Progress Bar on new level
             UIManager.instance.IncreaseInGameProgressBar(0f);
@@ -470,10 +433,10 @@ public class GameManager : MonoBehaviour
             // Save collected coins
             UIManager.instance.SaveCoins();
 
-            #if (!UNITY_EDITOR)
+#if (!UNITY_EDITOR)
             // TinySauce send level and score values
             TinySauce.OnGameFinished(true, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
-            #endif
+#endif
             //reloads the scene scene if WIN
             SceneManager.LoadScene(GetLevelScene());
 
@@ -486,10 +449,10 @@ public class GameManager : MonoBehaviour
             // Set the level you are on, so that after scene reload, It knows where you left of.
             PlayerPrefs.SetInt("Level", level);
 
-            #if (!UNITY_EDITOR)
+#if (!UNITY_EDITOR)
             // TinySauce send level and score values
             TinySauce.OnGameFinished(false, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
-            #endif
+#endif
 
             // Ah, I failed, reload the scene again (Same Scene in this prototype)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -557,7 +520,7 @@ public class GameManager : MonoBehaviour
     public void ActivateTimeline()
     {
         // If not first Timeline ?
-        if(lastActiveTimelineIndex != -1)
+        if (lastActiveTimelineIndex != -1)
         {
             //timelines[lastActiveTimelineIndex].SetActive(false);
         }
@@ -574,7 +537,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < timelines.Count; i++)
             {
                 timelines[i].SetActive(false);
-            }            
+            }
         }
 
         // After moving to the next timeline, make sure that you save the new level, and the last active timelines,
@@ -588,13 +551,13 @@ public class GameManager : MonoBehaviour
         TinySauce.OnGameFinished(true, UIManager.instance.GetCoinsFromGameView(), levelNumber: level.ToString());
         */
 
-        if (level  > levelCount)
+        if (level > levelCount)
         {
             // Our scenes in stock are finished, so delete PlayerPrefs, and start from first level again!!!
             // Increase level, add to PlayerPrefbs (save to device)            
             // Save the last active timeline, so we have increased the the level,  show/play the next Timeline stage
-            
-            PlayerPrefs.SetInt("lastActiveTimelineIndex",UnityEngine.Random.Range(-1, 7));
+
+            PlayerPrefs.SetInt("lastActiveTimelineIndex", UnityEngine.Random.Range(-1, 7));
             Debug.Log("Reseted values. now will LOAD scene again!");
             // Reload scene, start from level 1 - also timelines and everyrhing resets to original...
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -666,7 +629,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject door in doors)
         {
             //door.transform.RotateAround(Vector3.up, 90f);
-            if(i == 0)
+            if (i == 0)
             {
                 door.transform.position += new Vector3(-3f, 0, 0);
                 i++;
@@ -674,13 +637,13 @@ public class GameManager : MonoBehaviour
             else
             {
                 door.transform.position += new Vector3(3f, 0, 0);
-            }                
+            }
         }
 
         // here we will manage the status of the movement, and take prisoners
         // to the helicopter and/or slow motion for the cut scene, to give feedback
         // and accomplisment feeling the the Player!
-        foreach(GameObject prisoner in prisoners)
+        foreach (GameObject prisoner in prisoners)
         {
             // move all of the prisoners to the pickup point...
             prisoner.GetComponent<PrisonerController>().ChangeDestination(mainPoint.transform);
@@ -695,8 +658,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Mission " + missionNo + "Completed");
         // If It is carry boxes mission
-        if(missionNo == (int)MissionType.CARRYBOXES)
-        {            
+        if (missionNo == (int)MissionType.CARRYBOXES)
+        {
             OnMissionComplete[missionNo].Invoke();
             ActivateTimeline(0);
         }
@@ -709,5 +672,4 @@ public class GameManager : MonoBehaviour
         }
     }
 }
-    // end runner code
 
