@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
     {
         // Initialize coins on Start
         coinsTotal = PlayerPrefs.GetInt("Coin");
+        // Initialize planks on Start
+        coinsTotal = PlayerPrefs.GetInt("Plank");
         // Set menu states on Start
         mainMenuView.gameObject.SetActive(true);
         inGameView.gameObject.SetActive(false);
@@ -101,9 +103,11 @@ public class UIManager : MonoBehaviour
         coinsTotal += 5;
         // Save to prefs
         PlayerPrefs.SetInt("Coin", coinsTotal);
+        PlayerPrefs.SetInt("Plank", planksTotal);
         // Show in text total
         //coinText.text = coin.ToString();
         Debug.Log("SAVED Coins:" + coinsTotal);
+        Debug.Log("SAVED Planks:" + planksTotal);
     }
 
     public void IncreaseInGameProgressBar(float i)
@@ -131,7 +135,7 @@ public class UIManager : MonoBehaviour
         planksTotal += count;
         // Update inGameView UI Text to reflect the change on Game
         inGameView.AddPlanks(planksTotal);
-        Debug.Log("TOTAL Coins: " + planksTotal);
+        Debug.Log("TOTAL Planks: " + planksTotal);
     }
 
     /// <summary>
@@ -143,9 +147,31 @@ public class UIManager : MonoBehaviour
         return PlayerPrefs.GetInt("Coin");
     }
 
+    /// <summary>
+    /// Get how many coins user have
+    /// </summary>
+    /// <returns></returns>
+    public int GetPlanks()
+    {
+        return PlayerPrefs.GetInt("Plank");
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public int GetCoinsInGame()
     {
         return coinsTotal;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public int GetPlanksInGame()
+    {
+        return planksTotal;
     }
 
     /// <summary>
