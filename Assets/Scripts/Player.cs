@@ -113,7 +113,10 @@ public class Player : MonoBehaviour
     GameObject banknoteUI;
 
     [SerializeField]
-    GameObject panel;
+    GameObject plankUI;
+
+    [SerializeField]
+    GameObject panelB, panelP;
 
     /// <summary>
     /// 
@@ -324,16 +327,34 @@ public class Player : MonoBehaviour
 
             // Destroy the banknote, and instantiate a 2D UI icon version of it at the player's transform
             Destroy(other.gameObject);
-            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position), panel.transform.rotation, panel.transform);
-            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), panel.transform.rotation, panel.transform);
-            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 60, transform.position.y - 50, transform.position.z), panel.transform.rotation, panel.transform);
-            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 30, transform.position.y + 50, transform.position.z), panel.transform.rotation, panel.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 60, transform.position.y - 50, transform.position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 30, transform.position.y + 50, transform.position.z), panelB.transform.rotation, panelB.transform);
 
-            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 40, transform.position.y, transform.position.z), panel.transform.rotation, panel.transform);
-            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 40, transform.position.y - 80, transform.position.z), panel.transform.rotation, panel.transform);
-            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 60, transform.position.y + 80, transform.position.z), panel.transform.rotation, panel.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 40, transform.position.y, transform.position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 40, transform.position.y - 80, transform.position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 60, transform.position.y + 80, transform.position.z), panelB.transform.rotation, panelB.transform);
 
             UIManager.instance.AddCoinsToInGameView(5);
+            //Score.instance.ShowBonusText(other.gameObject.transform.position);
+        }
+        else if (other.gameObject.tag == "plank")
+        {
+            AudioManager.instance.PlaySFX(0);
+
+            // Destroy the banknote, and instantiate a 2D UI icon version of it at the player's transform
+            Destroy(other.gameObject);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 60, transform.position.y - 50, transform.position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 30, transform.position.y + 50, transform.position.z), panelP.transform.rotation, panelP.transform);
+
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 40, transform.position.y, transform.position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 40, transform.position.y - 80, transform.position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 60, transform.position.y + 80, transform.position.z), panelP.transform.rotation, panelP.transform);
+
+            UIManager.instance.AddPlanksToInGameView(5);
             //Score.instance.ShowBonusText(other.gameObject.transform.position);
         }
         else if ((other.gameObject.tag == "triangle") || (other.gameObject.tag == "Obstacle"))

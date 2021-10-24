@@ -17,7 +17,15 @@ public class UIAnimate : MonoBehaviour
 
     void AnimateSprite()
     {
-        panel = GameObject.FindGameObjectWithTag("banknoteP").transform;
+        if(transform.gameObject.tag == "BanknoteUI")
+        {
+            panel = GameObject.FindGameObjectWithTag("banknoteP").transform;
+        }
+        else if (transform.gameObject.tag == "PlankUI")
+        {
+            panel = GameObject.FindGameObjectWithTag("plankP").transform;
+        }
+
         spriteAnimation = DOTween.Sequence();
 
         spriteAnimation.Append(transform.DOMove(panel.position, 1.5f)

@@ -223,7 +223,8 @@ public class ObjectSpawner : MonoBehaviour {
             spawnObstaclePosition2 = new Vector3(transform.position.x, transform.position.y, transform.position.z + collectibleSpacing);
 
             // Instantiate a new collectible, and get the returning gameobject, and then use it for adding to the List of gatherables
-            GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, transform.parent);
+            //GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, transform.parent);
+            GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, transform);
 
             // Invoke OnCollectibleSpawn
             _gatherables.Add(go.GetComponent<Collectible>());

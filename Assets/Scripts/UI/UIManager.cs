@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
 
     public static UIManager instance;
 
-    private int coinsTotal;
+    private int coinsTotal, planksTotal;
 
     // Mission progress menu in top of the screen that show text messages about your next activity or job...
     public RectTransform missionMenu;
@@ -123,6 +123,15 @@ public class UIManager : MonoBehaviour
         // Update inGameView UI Text to reflect the change on Game
         inGameView.AddCoins(coinsTotal);
         Debug.Log("TOTAL Coins: " + coinsTotal);
+    }
+
+    public void AddPlanksToInGameView(int count)
+    {
+        // Increase Total Coins by Count
+        planksTotal += count;
+        // Update inGameView UI Text to reflect the change on Game
+        inGameView.AddPlanks(planksTotal);
+        Debug.Log("TOTAL Coins: " + planksTotal);
     }
 
     /// <summary>
