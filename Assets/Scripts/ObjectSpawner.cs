@@ -121,7 +121,9 @@ public class ObjectSpawner : MonoBehaviour {
             //Debug.Log("Spawner ------------ " + currentPos + " " + objectSpacing + " < " + currentPos + " " + spawnRange + "Counter:" + counter);
             
             //SpawnTriangles();
-            SpawnCollectibles();            
+            SpawnCollectibles();
+
+            SpawnCollectiblesInFormation();
             //SpawnEnemies();
             //SpawnDresses();
 
@@ -149,6 +151,8 @@ public class ObjectSpawner : MonoBehaviour {
             decorationSpacing += decorationSpacingIncrement;
             otherSpacing += otherSpacingIncrement;
         }
+
+        // Player registers to the collectible events at start
         Player.instance.RegisterToSpawnedObjects();
     }
 
@@ -225,6 +229,29 @@ public class ObjectSpawner : MonoBehaviour {
             // Instantiate a new collectible, and get the returning gameobject, and then use it for adding to the List of gatherables
             //GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, transform.parent);
             GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, transform);
+
+            // Invoke OnCollectibleSpawn
+            _gatherables.Add(go.GetComponent<Collectible>());
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    void SpawnCollectiblesInFormation()
+    {
+        // bridge prefab
+        int index = 4;
+        if (collectibleOffset.Length != 0)
+        {
+            //spawnObstaclePosition2 = new Vector3(collectibleOffset[index].x, collectibleOffset[index].y, currentPos + collectibleSpacing);
+
+            // Place the object relative to the Spawn Manager's position and increment, later randomly...
+            spawnObstaclePosition2 = new Vector3(transform.position.x, transform.position.y, transform.position.z + collectibleSpacing);
+
+            // Instantiate a new collectible, and get the returning gameobject, and then use it for adding to the List of gatherables
+            //GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, transform.parent);
+            GameObject go = Instantiate(collectiblePrefabs[index], spawnObstaclePosition2, Quaternion.identity, null);
 
             // Invoke OnCollectibleSpawn
             _gatherables.Add(go.GetComponent<Collectible>());

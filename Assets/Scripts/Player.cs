@@ -175,10 +175,11 @@ public class Player : MonoBehaviour
         {
             gameObject.transform.forward = move;
 
-            //if (state != PlayerStateType.JOGBOX)
-            //{             
+            // If triggered on a volume, stay in work state which is Jogging with saw, or clearing the tiles...
+            if (state != PlayerStateType.JOGBOX)
+            {             
                 ChangePlayerState(PlayerStateType.WALKING);
-            //}
+            }
         }
         else
         {
