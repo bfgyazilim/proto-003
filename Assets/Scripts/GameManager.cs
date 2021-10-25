@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     public enum MissionType
     {
-        TILECLEAN, DESTRUCTWALLS, CARRYBOXES, BUILDHOUSE, DESTRUCTTREES
+        TILECLEAN, DESTRUCTWALLS, CARRYBOXES, BUILDHOUSE, DESTRUCTTREES, BUILDBRIDGE
     };
 
     //public MissionType mission;
