@@ -28,6 +28,12 @@ public class Collectible : MonoBehaviour
             // show feedback on screen...
             OnPickup += UIManager.instance.inGameView.ShowFeedbackTextForCollectible;
 
+            // Player registers to the collectible for stacking it!!!
+            if (transform.gameObject.tag == "plank")
+            {            
+                OnPickup += Player.instance.HandleStacking;
+            }
+
             // Trigger OnPickup Event
             OnPickup?.Invoke(this);
 

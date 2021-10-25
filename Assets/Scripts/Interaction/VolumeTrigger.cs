@@ -41,13 +41,14 @@ public class VolumeTrigger : MonoBehaviour
             OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
             OnVolumeTrigger?.Invoke((int)missionType);
 
+            if(GameManager.instance.GetMissionStatus())
+            {
+                //// Trigger OnVolumeTrigger Unity Event for editor setup of gameobjects            
+                OnVolumeEnterEvent.Invoke();
 
-            //// Trigger OnVolumeTrigger Unity Event for editor setup of gameobjects            
-            OnVolumeEnterEvent.Invoke();
-
-            //Player.instance.ChangePlayerState(state);
-            Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
-
+                //Player.instance.ChangePlayerState(state);
+                Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
+            }
             Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "Player State: " + Player.instance.state);
         }
     }

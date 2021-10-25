@@ -20077,6 +20077,10 @@ Transform:
   - {fileID: 2993888942533242373}
   - {fileID: 7722176032564675766}
   - {fileID: 2657731811126193618}
+  - {fileID: 7348727867684535018}
+  - {fileID: 3780148574675416035}
+  - {fileID: 8590247112833003465}
+  - {fileID: 950182368610874452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -61761,6 +61765,81 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &248086187030909579
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1385393244009865531}
+    m_Modifications:
+    - target: {fileID: 621855285566235946, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank Pickup Container (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.308
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.176
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0a29df4cf1314cf58f03d6a6198f520, type: 3}
+--- !u!4 &8590247112833003465 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+    type: 3}
+  m_PrefabInstance: {fileID: 248086187030909579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &295124494126205979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61772,6 +61851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plank Pickup (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239818655047160343, guid: f993e737881134873ab99b98f5407b14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8012695497114732717, guid: f993e737881134873ab99b98f5407b14,
         type: 3}
@@ -61851,6 +61935,156 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 295124494126205979}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1277962509093783464
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1385393244009865531}
+    m_Modifications:
+    - target: {fileID: 621855285566235946, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank Pickup Container
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.223
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.308
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0a29df4cf1314cf58f03d6a6198f520, type: 3}
+--- !u!4 &7348727867684535018 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+    type: 3}
+  m_PrefabInstance: {fileID: 1277962509093783464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4625786392992992929
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1385393244009865531}
+    m_Modifications:
+    - target: {fileID: 621855285566235946, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank Pickup Container (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.049
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.308
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0a29df4cf1314cf58f03d6a6198f520, type: 3}
+--- !u!4 &3780148574675416035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+    type: 3}
+  m_PrefabInstance: {fileID: 4625786392992992929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5097720978009269928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61862,6 +62096,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plank Pickup (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239818655047160343, guid: f993e737881134873ab99b98f5407b14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8012695497114732717, guid: f993e737881134873ab99b98f5407b14,
         type: 3}
@@ -61953,6 +62192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plank Pickup (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7239818655047160343, guid: f993e737881134873ab99b98f5407b14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8012695497114732717, guid: f993e737881134873ab99b98f5407b14,
         type: 3}
       propertyPath: m_RootOrder
@@ -62043,6 +62287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plank Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 7239818655047160343, guid: f993e737881134873ab99b98f5407b14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8012695497114732717, guid: f993e737881134873ab99b98f5407b14,
         type: 3}
       propertyPath: m_RootOrder
@@ -62120,4 +62369,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8012695497114732717, guid: f993e737881134873ab99b98f5407b14,
     type: 3}
   m_PrefabInstance: {fileID: 7996313557885696341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8748357701508466966
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1385393244009865531}
+    m_Modifications:
+    - target: {fileID: 621855285566235946, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank Pickup Container (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.308
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0a29df4cf1314cf58f03d6a6198f520, type: 3}
+--- !u!4 &950182368610874452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8378895631381757250, guid: c0a29df4cf1314cf58f03d6a6198f520,
+    type: 3}
+  m_PrefabInstance: {fileID: 8748357701508466966}
   m_PrefabAsset: {fileID: 0}

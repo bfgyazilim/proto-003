@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     int[] totalTasks;
     [SerializeField]
     int[] clearedTasks;
+    bool resourcesSufficient;
 
     public enum MissionType
     {
@@ -224,11 +225,38 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Gets the current state of the mission
+    /// </summary>
+    /// <returns></returns>
+    public bool GetMissionStatus()
+    {
+        return resourcesSufficient;
+    }
+
+    /// <summary>
     /// Specific to Mission 1, adjust the progress bar level according to the remaining floor tiles
     /// </summary>
     /// <returns></returns>
     public void HandleMissionProgress(int missionNo)
     {
+        // Check Resource availability for the mission, or Do Nothing!
+        int plankCount = UIManager.instance.GetPlanksInGame();
+        int coinCount = UIManager.instance.GetCoinsInGame();
+
+        // Check resources for misson type BUILDBRIDGE
+        if(missionNo == (int)MissionType.BUILDBRIDGE)
+        {
+            if(plankCount < remainingTasks[missionNo])
+            {
+                resourcesSufficient = false;
+                return;
+            }
+        }
+
+        // If not a bridge mission now, continue at any case...
+        resourcesSufficient = true;
+
+        // Resources sufficient continue to the mission progress...
         if (remainingTasks[missionNo] > 0)
         {
             remainingTasks[missionNo]--;

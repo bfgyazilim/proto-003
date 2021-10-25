@@ -34,10 +34,25 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialize coins on Start
-        coinsTotal = PlayerPrefs.GetInt("Coin");
-        // Initialize planks on Start
-        coinsTotal = PlayerPrefs.GetInt("Plank");
+        // Initialize resources on Start
+        if (PlayerPrefs.HasKey("Plank"))
+        {            
+            planksTotal = PlayerPrefs.GetInt("Plank");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Plank", planksTotal);
+        }
+
+        if (PlayerPrefs.HasKey("Coin"))
+        {
+            coinsTotal = PlayerPrefs.GetInt("Coin");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Coin", coinsTotal);
+        }
+
         // Set menu states on Start
         mainMenuView.gameObject.SetActive(true);
         inGameView.gameObject.SetActive(false);

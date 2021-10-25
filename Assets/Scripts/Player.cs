@@ -342,9 +342,13 @@ public class Player : MonoBehaviour
         }
         else if (other.gameObject.tag == "plank")
         {
-            AudioManager.instance.PlaySFX(0);
+            // Stacking on demand, added for the collectibles that are spawned after the game start (Like planks after chopping trees, that are not present on game yet...)
+            //other.gameObject.GetComponent<Collectible>().OnPickup += HandleStacking; // Registering for the OnPickup event on Collectible
+            other.gameObject.GetComponent<Collectible>().OnPickup += FXManager.instance.HandleFeedbackParticles; // Register FXManager to the Onpickup event on Collectible
+            Debug.Log("Registered to collectible: OnPickup " + other.gameObject.GetComponent<Collectible>().name);
 
             // Destroy the banknote, and instantiate a 2D UI icon version of it at the player's transform
+            AudioManager.instance.PlaySFX(0);
             Destroy(other.gameObject);
             Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position), panelP.transform.rotation, panelP.transform);
             Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), panelP.transform.rotation, panelP.transform);
@@ -355,8 +359,8 @@ public class Player : MonoBehaviour
             Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 40, transform.position.y - 80, transform.position.z), panelP.transform.rotation, panelP.transform);
             Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 60, transform.position.y + 80, transform.position.z), panelP.transform.rotation, panelP.transform);
 
+            // UI inventory setup for the resource
             UIManager.instance.AddPlanksToInGameView(5);
-            //Score.instance.ShowBonusText(other.gameObject.transform.position);
         }
         else if ((other.gameObject.tag == "triangle") || (other.gameObject.tag == "Obstacle"))
         {
@@ -581,7 +585,7 @@ public class Player : MonoBehaviour
     /// Handle the pickup logic in player
     /// </summary>
     /// <param name="collectible"></param>
-    void HandleStacking(Collectible collectible)
+    public void HandleStacking(Collectible collectible)
     {
         int childCount = transform.GetChild(0).childCount;
         int index = 0;
@@ -613,6 +617,27 @@ public class Player : MonoBehaviour
         }
         go.transform.localPosition = new Vector3(0, newY + (hitCount * offset), 0);
         //Debug.Log(go.transform.localPosition);        
+    }
+
+    /// <summary>
+    /// Destack from player backpack one by one
+    /// </summary>
+    public void HandleDeStacking()
+    {
+        int childCount = transform.GetChild(0).childCount;
+        
+        if (childCount != 0)
+        {
+            if (transform.GetChild(0).GetChild(0) != null)
+            {
+                //transform.GetChild(0).GetChild(0).transform.gameObject.SetActive(false);
+                //transform.GetChild(0).GetChild(0).transform.parent = null;
+                Transform go = transform.GetChild(0).GetChild(childCount - 1); 
+                go.parent = null;
+                Debug.Log("Detached child: " + go.gameObject.name);
+                go.gameObject.SetActive(false);
+            }
+        }
     }
 
     /// <summary>
