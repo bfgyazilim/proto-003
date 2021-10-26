@@ -14,7 +14,6 @@ public class UIAnimate : MonoBehaviour
         AnimateSprite();
     }
 
-
     void AnimateSprite()
     {
         if(transform.gameObject.tag == "BanknoteUI")
@@ -24,6 +23,10 @@ public class UIAnimate : MonoBehaviour
         else if (transform.gameObject.tag == "PlankUI")
         {
             panel = GameObject.FindGameObjectWithTag("plankP").transform;
+        }
+        else if (transform.gameObject.tag == "JewelUI")
+        {
+            panel = GameObject.FindGameObjectWithTag("jewelP").transform;
         }
 
         spriteAnimation = DOTween.Sequence();

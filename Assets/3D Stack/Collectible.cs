@@ -34,6 +34,7 @@ public class Collectible : MonoBehaviour
                 OnPickup += Player.instance.HandleStacking;
             }
 
+
             // Trigger OnPickup Event
             OnPickup?.Invoke(this);
 

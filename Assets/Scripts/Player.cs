@@ -116,7 +116,10 @@ public class Player : MonoBehaviour
     GameObject plankUI;
 
     [SerializeField]
-    GameObject panelB, panelP;
+    GameObject jewelUI;
+
+    [SerializeField]
+    GameObject panelB, panelP, panelJ;
 
     /// <summary>
     /// 
@@ -360,7 +363,25 @@ public class Player : MonoBehaviour
             Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 60, transform.position.y + 80, transform.position.z), panelP.transform.rotation, panelP.transform);
 
             // UI inventory setup for the resource
-            UIManager.instance.AddPlanksToInGameView(5);
+            UIManager.instance.AddPlanksToInGameView(2);
+        }
+        else if(other.gameObject.tag == "jewel")
+        {
+            AudioManager.instance.PlaySFX(0);
+
+            // Destroy the banknote, and instantiate a 2D UI icon version of it at the player's transform
+            Destroy(other.gameObject);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(transform.position), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 20, transform.position.y, transform.position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 60, transform.position.y - 50, transform.position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 30, transform.position.y + 50, transform.position.z), panelJ.transform.rotation, panelJ.transform);
+
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 40, transform.position.y, transform.position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x - 40, transform.position.y - 80, transform.position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 60, transform.position.y + 80, transform.position.z), panelJ.transform.rotation, panelB.transform);
+
+            UIManager.instance.AddJewelsToInGameView(1);
+            //Score.instance.ShowBonusText(other.gameObject.transform.position);
         }
         else if ((other.gameObject.tag == "triangle") || (other.gameObject.tag == "Obstacle"))
         {

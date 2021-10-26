@@ -33,7 +33,7 @@ public class InGameView : MonoBehaviour
     public float score;
     public float highScore;
     public int winScore;
-    public TextMeshProUGUI coinText, plankText;
+    public TextMeshProUGUI coinText, plankText, jewelText;
     public TextMeshProUGUI feedbackText, playerText;
 
     public TextMeshProUGUI highScoreUI;
@@ -357,6 +357,15 @@ public class InGameView : MonoBehaviour
     public void AddPlanks(int count)
     {
         plankText.text = count.ToString();
+    }
+
+    /// <summary>
+    /// Adds the new coins to the coinText to display the new amount
+    /// </summary>
+    /// <param name="count"></param>
+    public void AddJewels(int count)
+    {
+        jewelText.text = count.ToString();
     }
 
     /// <summary>

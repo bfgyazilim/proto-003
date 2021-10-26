@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
 
     public static UIManager instance;
 
-    private int coinsTotal, planksTotal;
+    private int coinsTotal, planksTotal, jewelsTotal;
 
     // Mission progress menu in top of the screen that show text messages about your next activity or job...
     public RectTransform missionMenu;
@@ -35,14 +35,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         // Initialize resources on Start
-        if (PlayerPrefs.HasKey("Plank"))
-        {            
-            planksTotal = PlayerPrefs.GetInt("Plank");
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Plank", planksTotal);
-        }
+
 
         if (PlayerPrefs.HasKey("Coin"))
         {
@@ -53,6 +46,23 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetInt("Coin", coinsTotal);
         }
 
+        if (PlayerPrefs.HasKey("Plank"))
+        {            
+            planksTotal = PlayerPrefs.GetInt("Plank");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Plank", planksTotal);
+        }
+
+        if (PlayerPrefs.HasKey("Jewel"))
+        {
+            jewelsTotal = PlayerPrefs.GetInt("Jewel");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Jewel", jewelsTotal);
+        }
         // Set menu states on Start
         mainMenuView.gameObject.SetActive(true);
         inGameView.gameObject.SetActive(false);
@@ -119,10 +129,12 @@ public class UIManager : MonoBehaviour
         // Save to prefs
         PlayerPrefs.SetInt("Coin", coinsTotal);
         PlayerPrefs.SetInt("Plank", planksTotal);
+        PlayerPrefs.SetInt("Jewel", jewelsTotal);
         // Show in text total
         //coinText.text = coin.ToString();
         Debug.Log("SAVED Coins:" + coinsTotal);
         Debug.Log("SAVED Planks:" + planksTotal);
+        Debug.Log("SAVED Jewels:" + jewelsTotal);
     }
 
     public void IncreaseInGameProgressBar(float i)
@@ -153,6 +165,15 @@ public class UIManager : MonoBehaviour
         Debug.Log("TOTAL Planks: " + planksTotal);
     }
 
+    public void AddJewelsToInGameView(int count)
+    {
+        // Increase Total Coins by Count
+        jewelsTotal += count;
+        // Update inGameView UI Text to reflect the change on Game
+        inGameView.AddJewels(jewelsTotal);
+        Debug.Log("TOTAL Jewels: " + jewelsTotal);
+    }
+
     /// <summary>
     /// Get how many coins user have
     /// </summary>
@@ -169,6 +190,15 @@ public class UIManager : MonoBehaviour
     public int GetPlanks()
     {
         return PlayerPrefs.GetInt("Plank");
+    }
+
+    /// <summary>
+    /// Get how many coins user have
+    /// </summary>
+    /// <returns></returns>
+    public int GetJewels()
+    {
+        return PlayerPrefs.GetInt("Jewel");
     }
 
     /// <summary>
@@ -192,6 +222,15 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    /// <returns></returns>
+    public int GetJewelsInGame()
+    {
+        return jewelsTotal;
+    }
+
+    /// <summary>
+    /// Coin or Money(Banknote), Cash
+    /// </summary>
     /// <param name="amount"></param>
     public void DecreaseCoins(int amount)
     {
@@ -199,6 +238,30 @@ public class UIManager : MonoBehaviour
         coinsTotal -= amount;
         PlayerPrefs.SetInt("Coin", coinsTotal);
         Debug.Log("Coins:" + coinsTotal + " decreased");
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="amount"></param>
+    public void DecreasePlanks(int amount)
+    {
+        // Store last remaining coins after purchase to the coinsTotal in UIManager (access it from other canvases during the game If needed!)
+        planksTotal -= amount;
+        PlayerPrefs.SetInt("Plank", planksTotal);
+        Debug.Log("Planks:" + planksTotal + " decreased");
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="amount"></param>
+    public void DecreaseJewels(int amount)
+    {
+        // Store last remaining coins after purchase to the coinsTotal in UIManager (access it from other canvases during the game If needed!)
+        jewelsTotal -= amount;
+        PlayerPrefs.SetInt("Jewel", jewelsTotal);
+        Debug.Log("Jewels:" + jewelsTotal + " decreased");
     }
 
     /// <summary>
