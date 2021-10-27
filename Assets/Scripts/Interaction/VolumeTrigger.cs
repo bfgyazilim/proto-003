@@ -41,9 +41,16 @@ public class VolumeTrigger : MonoBehaviour
             OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
             OnVolumeTrigger?.Invoke((int)missionType);
 
+            // If you have enough resources for this mission
             if(GameManager.instance.GetMissionStatus())
             {
-                //// Trigger OnVolumeTrigger Unity Event for editor setup of gameobjects            
+                if(missionType == GameManager.MissionType.BUILDHOUSE)
+                {
+                    float unitOffsetX = 0, unitOffsetY = 0, unitOffsetZ = 3;
+                    WorldController.instance.GenerateBlocks(transform.position.x + unitOffsetX, transform.position.y + unitOffsetY, transform.position.z + unitOffsetZ);
+                }
+
+                //// Trigger OnVolumeTrigger Unity Event for ADDITIONAL editor setup of gameobjects            
                 OnVolumeEnterEvent.Invoke();
 
                 //Player.instance.ChangePlayerState(state);
@@ -52,6 +59,8 @@ public class VolumeTrigger : MonoBehaviour
             Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "Player State: " + Player.instance.state);
         }
     }
+
+
 
     void OnTriggerExit(Collider other)
     {

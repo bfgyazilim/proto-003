@@ -369,6 +369,33 @@ public class InGameView : MonoBehaviour
     }
 
     /// <summary>
+    /// Adds the new coins to the coinText to display the new amount
+    /// </summary>
+    /// <param name="count"></param>
+    public void RemoveCoins(int count)
+    {
+        coinText.text = count.ToString();
+    }
+
+    /// <summary>
+    /// Adds the new coins to the coinText to display the new amount
+    /// </summary>
+    /// <param name="count"></param>
+    public void RemovePlanks(int count)
+    {
+        plankText.text = count.ToString();
+    }
+
+    /// <summary>
+    /// Adds the new coins to the coinText to display the new amount
+    /// </summary>
+    /// <param name="count"></param>
+    public void RemoveJewels(int count)
+    {
+        jewelText.text = count.ToString();
+    }
+
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="amount"></param>

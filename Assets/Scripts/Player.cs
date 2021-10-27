@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Cinemachine;
 using System;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -104,7 +105,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform jointPoint;
     int missionNo = 0;
-    public static event Action<int> OnMissionComplete;    
+    public static event Action<GameManager.MissionType> OnMissionComplete;    
     GameObject attachedObject;
     int collectedAmount;
 
@@ -120,6 +121,10 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     GameObject panelB, panelP, panelJ;
+
+    // Destacking end point for UI animation
+    [SerializeField]
+    Transform panel;
 
     /// <summary>
     /// 
@@ -363,7 +368,7 @@ public class Player : MonoBehaviour
             Instantiate(plankUI, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(transform.position.x + 60, transform.position.y + 80, transform.position.z), panelP.transform.rotation, panelP.transform);
 
             // UI inventory setup for the resource
-            UIManager.instance.AddPlanksToInGameView(2);
+            UIManager.instance.AddPlanksToInGameView(1);
         }
         else if(other.gameObject.tag == "jewel")
         {
@@ -437,7 +442,7 @@ public class Player : MonoBehaviour
             {
                 // Mission complete triggered, so GameManager knows about the game state, and Updates
                 OnMissionComplete += GameManager.instance.HandleMissionComplete;
-                OnMissionComplete?.Invoke((int)GameManager.MissionType.CARRYBOXES);
+                OnMissionComplete?.Invoke(GameManager.MissionType.CARRYBOXES);
                 //helicopter.GetComponent<Animator>().enabled = true;
             }
             // Change animation back to normal
@@ -459,17 +464,17 @@ public class Player : MonoBehaviour
             }
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
-        else if (other.gameObject.tag == "Concrete")
-        {            
-            float unitOffsetX = -5, unitOffsetY = 0, unitOffsetZ =1;
-            WorldController.instance.GenerateBlocks(other.transform.position.x + unitOffsetX, other.transform.position.y + unitOffsetY, other.transform.position.z + unitOffsetZ);
-            Debug.Log("Player collided with: " + other.gameObject.name);
-            // Mission complete triggered, so GameManager knows about the game state, and Updates
-            OnMissionComplete += GameManager.instance.HandleMissionComplete;
-            OnMissionComplete?.Invoke((int)GameManager.MissionType.BUILDHOUSE);
-            // Decrease number of tasks remaining to complete the current mission
-            GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.BUILDHOUSE);
-        }
+        //else if (other.gameObject.tag == "Concrete")
+        //{            
+            //float unitOffsetX = -5, unitOffsetY = 0, unitOffsetZ =1;
+            //WorldController.instance.GenerateBlocks(other.transform.position.x + unitOffsetX, other.transform.position.y + unitOffsetY, other.transform.position.z + unitOffsetZ);
+            //Debug.Log("Player collided with: " + other.gameObject.name);
+            //// Mission complete triggered, so GameManager knows about the game state, and Updates
+            //OnMissionComplete += GameManager.instance.HandleMissionComplete;
+            //OnMissionComplete?.Invoke((int)GameManager.MissionType.BUILDHOUSE);
+            //// Decrease number of tasks remaining to complete the current mission
+            //GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.BUILDHOUSE);
+        //}
     }
 
     /*
@@ -637,25 +642,64 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// Destack from player backpack one by one
+    /// Destack from player backpack one by how many in a loop
     /// </summary>
-    public void HandleDeStacking()
+    public void HandleDeStacking(int count)
     {
-        int childCount = transform.GetChild(0).childCount;
-        
-        if (childCount != 0)
+        for(int i = 0; i < count; i++)
         {
-            if (transform.GetChild(0).GetChild(0) != null)
+            int childCount = transform.GetChild(0).childCount;
+
+            if (childCount != 0)
             {
-                //transform.GetChild(0).GetChild(0).transform.gameObject.SetActive(false);
-                //transform.GetChild(0).GetChild(0).transform.parent = null;
-                Transform go = transform.GetChild(0).GetChild(childCount - 1); 
-                go.parent = null;
-                Debug.Log("Detached child: " + go.gameObject.name);
-                go.gameObject.SetActive(false);
+                if (transform.GetChild(0).GetChild(0) != null)
+                {
+                    Transform go = transform.GetChild(0).GetChild(childCount - 1);
+                    go.parent = null;
+                    // Tween here to ground
+                    DestackAnimation(go);
+
+                    Debug.Log("Detached child: " + go.gameObject.name);
+                    //go.gameObject.SetActive(false);                    
+                }
             }
         }
+
+        // Decrease the resources from UI 
+        UIManager.instance.DecreasePlanks(count);
     }
+
+    void DestackAnimation(Transform t)
+    {
+        Sequence spriteAnimation;
+
+        spriteAnimation = DOTween.Sequence();
+
+        spriteAnimation.Append(t.DOMove(panel.position, 0.5f)
+            .SetEase(Ease.OutSine))
+            .OnComplete(() => Destroy(t.gameObject));
+    }
+
+    ///// <summary>
+    ///// Destack from player backpack one by one
+    ///// </summary>
+    //public void HandleDeStacking(int count)
+    //{
+    //    int childCount = transform.GetChild(0).childCount;
+
+    //    if (childCount != 0)
+    //    {
+    //        if (transform.GetChild(0).GetChild(0) != null)
+    //        {
+    //            //transform.GetChild(0).GetChild(0).transform.gameObject.SetActive(false);
+    //            //transform.GetChild(0).GetChild(0).transform.parent = null;
+    //            Transform go = transform.GetChild(0).GetChild(childCount - 1);
+    //            go.parent = null;
+    //            Debug.Log("Detached child: " + go.gameObject.name);
+    //            go.gameObject.SetActive(false);
+    //        }
+    //    }
+    //}
 
     /// <summary>
     /// Register to the event on Collectible

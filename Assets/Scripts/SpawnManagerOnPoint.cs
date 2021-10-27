@@ -27,9 +27,10 @@ public class SpawnManagerOnPoint : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        //GenerateBoxFormation();        
-        StartCoroutine(BuildBlocksRandom(offset.x, offset.y , offset.z));
+    {        
+        //StartCoroutine(BuildBlocksRandom(offset.x, offset.y , offset.z));
+
+        StartCoroutine(BuildBlocksFixed(offset.x, offset.y, offset.z));
     }
 
     // Update is called once per frame
@@ -76,6 +77,29 @@ public class SpawnManagerOnPoint : MonoBehaviour
                     Vector3 pos = new Vector3(x, y, z);
                     Vector3 offset = new Vector3(ox, oy, oz);
                     GameObject cube = GameObject.Instantiate(block, transform.position + pos + offset, Quaternion.identity);
+                    //cube.GetComponent<Renderer>().material = new Material(Shader.Find("Standard"));
+                    cube.name = "V_" + x + "_" + y + "_" + z;
+                }
+                yield return null;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Build generation co-routine
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator BuildBlocksFixed(float ox, float oy, float oz)
+    {
+        for (int z = 0; z < depth; z++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Vector3 pos = new Vector3(x, y, z);
+                    Vector3 offset = new Vector3(ox, oy, oz);
+                    GameObject cube = GameObject.Instantiate(block, transform.position + pos, Quaternion.identity);
                     //cube.GetComponent<Renderer>().material = new Material(Shader.Find("Standard"));
                     cube.name = "V_" + x + "_" + y + "_" + z;
                 }

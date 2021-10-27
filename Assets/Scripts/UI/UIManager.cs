@@ -35,8 +35,6 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         // Initialize resources on Start
-
-
         if (PlayerPrefs.HasKey("Coin"))
         {
             coinsTotal = PlayerPrefs.GetInt("Coin");
@@ -49,10 +47,16 @@ public class UIManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Plank"))
         {            
             planksTotal = PlayerPrefs.GetInt("Plank");
+            inGameView.AddPlanks(planksTotal);
+            Debug.Log("Planks Total:" + planksTotal);
         }
         else
         {
+            // Start with 3 planks in the backpack in advance!
+            planksTotal = 3;
             PlayerPrefs.SetInt("Plank", planksTotal);
+            inGameView.AddPlanks(planksTotal);
+            Debug.Log("Planks Total Init:" + planksTotal);
         }
 
         if (PlayerPrefs.HasKey("Jewel"))
@@ -237,6 +241,7 @@ public class UIManager : MonoBehaviour
         // Store last remaining coins after purchase to the coinsTotal in UIManager (access it from other canvases during the game If needed!)
         coinsTotal -= amount;
         PlayerPrefs.SetInt("Coin", coinsTotal);
+        inGameView.RemoveCoins(coinsTotal);
         Debug.Log("Coins:" + coinsTotal + " decreased");
     }
 
@@ -249,6 +254,7 @@ public class UIManager : MonoBehaviour
         // Store last remaining coins after purchase to the coinsTotal in UIManager (access it from other canvases during the game If needed!)
         planksTotal -= amount;
         PlayerPrefs.SetInt("Plank", planksTotal);
+        inGameView.RemovePlanks(planksTotal);
         Debug.Log("Planks:" + planksTotal + " decreased");
     }
 
@@ -261,6 +267,7 @@ public class UIManager : MonoBehaviour
         // Store last remaining coins after purchase to the coinsTotal in UIManager (access it from other canvases during the game If needed!)
         jewelsTotal -= amount;
         PlayerPrefs.SetInt("Jewel", jewelsTotal);
+        inGameView.RemoveJewels(jewelsTotal);
         Debug.Log("Jewels:" + jewelsTotal + " decreased");
     }
 

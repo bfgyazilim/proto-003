@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
         }
         else if (missionNo == (int)MissionType.BUILDHOUSE)
         {
-            if(coinCount < buildCost[(int)MissionType.BUILDHOUSE])
+            if(plankCount < buildCost[(int)MissionType.BUILDHOUSE])
             {
                 resourcesSufficient = false;
                 return;
@@ -691,20 +691,20 @@ public class GameManager : MonoBehaviour
     /// Handles MissionComplete Event
     /// </summary>
     /// <param name="missionNo"></param>
-    public void HandleMissionComplete(int missionNo)
+    public void HandleMissionComplete(MissionType missionNo)
     {
         Debug.Log("Mission " + missionNo + "Completed");
         // If It is carry boxes mission
-        if (missionNo == (int)MissionType.CARRYBOXES)
+        if ((int)missionNo == (int)MissionType.CARRYBOXES)
         {
-            OnMissionComplete[missionNo].Invoke();
+            OnMissionComplete[(int)missionNo].Invoke();
             ActivateTimeline(0);
         }
 
         // If It is build house next to road mission?!
-        if (missionNo == (int)MissionType.BUILDHOUSE)
+        if ((int)missionNo == (int)MissionType.BUILDHOUSE)
         {
-            OnMissionComplete[missionNo].Invoke();
+            OnMissionComplete[(int)missionNo].Invoke();
             ActivateTimeline(1);
         }
     }
