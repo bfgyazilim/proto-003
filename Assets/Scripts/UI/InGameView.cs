@@ -95,11 +95,9 @@ public class InGameView : MonoBehaviour
     void Start()
     {
         InitializeMenu();
-        if(this.gameObject.active)
-        {
-            FadePlayerMenu();
-            FadeStatusMenu();
-        }        
+        FadePlayerMenu();
+        FadeStatusMenu();
+
     }
     /// <summary>
     /// Status Menu UI Above the head giving messages and fade out after time interval
@@ -179,7 +177,7 @@ public class InGameView : MonoBehaviour
         //testText.text = PlayerPrefs.GetFloat("Coin").ToString();
 
         // City texy initialize
-        cityText.text = ("Which country has the capital city " + ObjectSpawner.instance.spawnedAnswer).ToUpper();
+        //cityText.text = ("Which country has the capital city " + ObjectSpawner.instance.spawnedAnswer).ToUpper();
 
     }
 

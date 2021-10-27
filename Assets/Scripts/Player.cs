@@ -674,10 +674,11 @@ public class Player : MonoBehaviour
         Sequence spriteAnimation;
 
         spriteAnimation = DOTween.Sequence();
-
+        
         spriteAnimation.Append(t.DOMove(panel.position, 0.5f)
             .SetEase(Ease.OutSine))
             .OnComplete(() => Destroy(t.gameObject));
+
     }
 
     ///// <summary>

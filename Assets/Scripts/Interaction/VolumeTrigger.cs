@@ -46,7 +46,7 @@ public class VolumeTrigger : MonoBehaviour
             {
                 if(missionType == GameManager.MissionType.BUILDHOUSE)
                 {
-                    float unitOffsetX = 0, unitOffsetY = 0, unitOffsetZ = 3;
+                    float unitOffsetX = 0, unitOffsetY = -0.5f, unitOffsetZ = 3;
                     WorldController.instance.GenerateBlocks(transform.position.x + unitOffsetX, transform.position.y + unitOffsetY, transform.position.z + unitOffsetZ);
                 }
 
