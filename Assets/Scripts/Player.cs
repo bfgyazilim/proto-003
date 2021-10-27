@@ -449,13 +449,10 @@ public class Player : MonoBehaviour
                 // detach object from player, drop to ground and enable gravity & collider
                 Debug.Log("Attached object Now will detach!: " + attachedObject.name);
                 attachedObject.transform.parent = null;
-                //attachedObject.GetComponent<Rigidbody>().isKinematic = false;
                 attachedObject.GetComponent<Rigidbody>().useGravity = true;
                 attachedObject.transform.position = new Vector3(attachedObject.transform.position.x, attachedObject.transform.position.y, attachedObject.transform.position.z) + (transform.forward * 2);
-                //attachedObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 5, ForceMode.Impulse);
                 attachedObject.GetComponent<MeshCollider>().enabled = true;
                 attachedObject.tag = "Untagged";
-                //Destroy(attachedObject, 0.5f);
                 attachedObject = null;
                 // Decrease number of tasks remaining to complete the current mission
                 GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.CARRYBOXES);
@@ -467,7 +464,6 @@ public class Player : MonoBehaviour
             float unitOffsetX = -5, unitOffsetY = 0, unitOffsetZ =1;
             WorldController.instance.GenerateBlocks(other.transform.position.x + unitOffsetX, other.transform.position.y + unitOffsetY, other.transform.position.z + unitOffsetZ);
             Debug.Log("Player collided with: " + other.gameObject.name);
-
             // Mission complete triggered, so GameManager knows about the game state, and Updates
             OnMissionComplete += GameManager.instance.HandleMissionComplete;
             OnMissionComplete?.Invoke((int)GameManager.MissionType.BUILDHOUSE);

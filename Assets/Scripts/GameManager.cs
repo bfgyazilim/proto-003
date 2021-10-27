@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
     int[] totalTasks;
     [SerializeField]
     int[] clearedTasks;
+    [SerializeField]
+    int[] buildCost;
     bool resourcesSufficient;
 
     public enum MissionType
@@ -246,17 +248,24 @@ public class GameManager : MonoBehaviour
         // Check resources for misson type BUILDBRIDGE
         if(missionNo == (int)MissionType.BUILDBRIDGE)
         {
-            if(plankCount < remainingTasks[missionNo])
+            if(plankCount < buildCost[(int)MissionType.BUILDBRIDGE])
             {
                 resourcesSufficient = false;
                 return;
             }
         }
+        else if (missionNo == (int)MissionType.BUILDHOUSE)
+        {
+            if(coinCount < buildCost[(int)MissionType.BUILDHOUSE])
+            {
+                resourcesSufficient = false;
+                return;
+            }
+        }
+            // If not a bridge mission now, continue at any case...
+            resourcesSufficient = true;
 
-        // If not a bridge mission now, continue at any case...
-        resourcesSufficient = true;
-
-        // Resources sufficient continue to the mission progress...
+        // Update the progress bar, resources sufficient continue to the mission progress...
         if (remainingTasks[missionNo] > 0)
         {
             remainingTasks[missionNo]--;
