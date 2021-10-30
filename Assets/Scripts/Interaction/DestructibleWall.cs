@@ -51,7 +51,6 @@ public class DestructibleWall : MonoBehaviour
             if (remainingHp > 0)
             {
                 remainingHp -= damageAmount;
-                AudioManager.instance.PlaySFX(3);
                 // Trigger OnDestructComplete Event
                 OnDestructProgress?.Invoke();
             }
@@ -75,6 +74,15 @@ public class DestructibleWall : MonoBehaviour
                     Debug.Log("Wall object collided with: " + target.gameObject.name + " Player State: " + Player.instance.state);
                 }
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision target)
+    {
+        if (target.gameObject.tag == "PlayerSaw")
+        {
+            AudioManager.instance.PlaySFX(3);
+            Debug.Log("Play SFX Desturtion/Saw");
         }
     }
 }

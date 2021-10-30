@@ -260,7 +260,7 @@ public class InGameView : MonoBehaviour
     public void ShowFeedbackTextGeneric()
     {
         Debug.Log("ShowFeedbackTextGeneric called");
-        AudioManager.instance.PlaySFX(1);
+        //AudioManager.instance.PlaySFX(1);
         StartCoroutine(MoveTextInTime());
     }
 

@@ -149,8 +149,8 @@ public class GameManager : MonoBehaviour
 
 #if (!UNITY_EDITOR)
         // Set Up Voodoo Tiny Sauce at Start!
-        if()
-        TinySauce.OnGameStarted(levelNumber: level.ToString());
+        TinySauce.OnGameStarted();
+        //TinySauce.OnGameStarted(levelNumber: level.ToString());
 #endif
 
         // Set the active level remaining enemy on less or more than levelCount levels
@@ -430,10 +430,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
-
         // If you want to track if the user was able to finish the level of the game
-
+#if (!UNITY_EDITOR)
+        // Set Up Voodoo Tiny Sauce Game Progress!
+        TinySauce.OnGameFinished(UIManager.instance.GetCoinsInGame());
         //TinySauce.OnGameFinished(levelNumber: GameManager.instance.GetLevelNo().ToString(), false, Score.instance.score);
+
+#endif
 
         //player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
 

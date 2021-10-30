@@ -11,6 +11,7 @@ public class ColorChanger : MonoBehaviour
     // Collector and other classes listen to this FX, and UI
     // for the response in their ways!!!
     public event Action OnFloorTrigger;
+    int rand;
 
     void OnCollisionEnter(Collision target)
     {
@@ -26,14 +27,16 @@ public class ColorChanger : MonoBehaviour
                 Destroy(base.gameObject, .5f);
                 //print("Game Over");
 
-                // UI Manager registers to the OnDie event via inGameView Canvas to
-                // show feedback on screen...
-                OnFloorTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
-
-                // Trigger OnVolumeTrigger Event
-                OnFloorTrigger?.Invoke();
-
-
+                // UI Manager registers to the Floor Trigger to give visual feedback
+                // but not always give some randomness
+                rand = UnityEngine.Random.Range(0, 100);
+                if (rand == 17)
+                {
+                    OnFloorTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
+                    // Trigger OnVolumeTrigger Event
+                    OnFloorTrigger?.Invoke();
+                    AudioManager.instance.PlaySFX(1);
+                }
             }
             else if(target.gameObject.tag == "floor")
             {
