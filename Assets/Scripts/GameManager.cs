@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     public enum MissionType
     {
-        TILECLEAN, DESTRUCTWALLS, CARRYBOXES, BUILDHOUSE, DESTRUCTTREES, BUILDBRIDGE
+        MISSION0, MISSION1, MISSION2, MISSION3, MISSION4, MISSION5, MISSION6, MISSION7, MISSION8, MISSION9
     };
 
     //public MissionType mission;
@@ -246,17 +246,17 @@ public class GameManager : MonoBehaviour
         int coinCount = UIManager.instance.GetCoinsInGame();
 
         // Check resources for misson type BUILDBRIDGE
-        if(missionNo == (int)MissionType.BUILDBRIDGE)
+        if(missionNo == (int)MissionType.MISSION5)
         {
-            if(plankCount < buildCost[(int)MissionType.BUILDBRIDGE])
+            if(plankCount < buildCost[(int)MissionType.MISSION5])
             {
                 resourcesSufficient = false;
                 return;
             }
         }
-        else if (missionNo == (int)MissionType.BUILDHOUSE)
+        else if (missionNo == (int)MissionType.MISSION3)
         {
-            if(plankCount < buildCost[(int)MissionType.BUILDHOUSE])
+            if(plankCount < buildCost[(int)MissionType.MISSION3])
             {
                 resourcesSufficient = false;
                 return;
@@ -698,14 +698,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Mission " + missionNo + "Completed");
         // If It is carry boxes mission
-        if ((int)missionNo == (int)MissionType.CARRYBOXES)
+        if ((int)missionNo == (int)MissionType.MISSION2)
         {
             OnMissionComplete[(int)missionNo].Invoke();
             ActivateTimeline(0);
         }
 
         // If It is build house next to road mission?!
-        if ((int)missionNo == (int)MissionType.BUILDHOUSE)
+        if ((int)missionNo == (int)MissionType.MISSION3)
         {
             OnMissionComplete[(int)missionNo].Invoke();
             ActivateTimeline(1);

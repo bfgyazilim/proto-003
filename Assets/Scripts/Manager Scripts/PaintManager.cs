@@ -31,7 +31,8 @@ public class PaintManager : MonoBehaviour
     public void HitBall()
     {
         //GameObject gameObject = Instantiate<GameObject>(ball, new Vector3(0, 1f, 3f), Quaternion.identity);
-        GameObject gameObject = Instantiate<GameObject>(ball,nozzle.transform.position, Quaternion.identity);
+        GameObject gameObject = Instantiate<GameObject>(ball,nozzle.transform.position, nozzle.transform.rotation);
+        Destroy(gameObject, 1.3f);
         //GameObject gameObject = Instantiate(Resources.Load("splash1"), target.gameObject.transform, false) as GameObject;
 
         gameObject.GetComponent<MeshRenderer>().material.color = oneColor;

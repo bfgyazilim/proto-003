@@ -11,6 +11,10 @@ public class ColorChanger : MonoBehaviour
     // Collector and other classes listen to this FX, and UI
     // for the response in their ways!!!
     public event Action OnFloorTrigger;
+    [SerializeField]
+    GameManager.MissionType missionType;
+    [SerializeField]
+    float splashTimeInterval = 0.1f;
     int rand;
 
     void OnCollisionEnter(Collision target)
@@ -45,20 +49,17 @@ public class ColorChanger : MonoBehaviour
                 base.gameObject.GetComponent<Collider>().enabled = false;
                 GameObject gameObject = Instantiate(Resources.Load("splash3"), target.gameObject.transform, false) as GameObject;
                 //gameObject.transform.parent = target.gameObject.transform;
-                Destroy(gameObject, 0.1f);
+                Destroy(gameObject, splashTimeInterval);
                 target.gameObject.name = "color";
                 target.gameObject.tag = "red";
                 StartCoroutine(ChangeColor(target.gameObject));
                 Debug.Log("Code reached ColorChanger else ================================");
 
                 // Decrease number of tiles (in the first run, otherwise If collides with the same tile more than once, will count more times!!!)
-                GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.TILECLEAN);
+                GameManager.instance.HandleMissionProgress((int)missionType);
             }
         }
     }
-
-
-
 
     IEnumerator ChangeColor(GameObject g)
     {

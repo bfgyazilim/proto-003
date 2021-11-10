@@ -63,14 +63,14 @@ public class DestructibleWall : MonoBehaviour
                 if(transform.gameObject.tag == "Tree")
                 {
                     // Decrease number of tasks remaining to complete the current mission
-                    GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.DESTRUCTTREES);
+                    GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.MISSION4);
                     Debug.Log("Tree object collided with: " + target.gameObject.name + " Player State: " + Player.instance.state);
 
                 }
                 else
                 {
                     // Decrease number of tasks remaining to complete the current mission
-                    GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.DESTRUCTWALLS);
+                    GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.MISSION1);
                     Debug.Log("Wall object collided with: " + target.gameObject.name + " Player State: " + Player.instance.state);
                 }
             }

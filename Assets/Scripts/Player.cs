@@ -442,7 +442,7 @@ public class Player : MonoBehaviour
             {
                 // Mission complete triggered, so GameManager knows about the game state, and Updates
                 OnMissionComplete += GameManager.instance.HandleMissionComplete;
-                OnMissionComplete?.Invoke(GameManager.MissionType.CARRYBOXES);
+                OnMissionComplete?.Invoke(GameManager.MissionType.MISSION2);
                 //helicopter.GetComponent<Animator>().enabled = true;
             }
             // Change animation back to normal
@@ -460,7 +460,7 @@ public class Player : MonoBehaviour
                 attachedObject.tag = "Untagged";
                 attachedObject = null;
                 // Decrease number of tasks remaining to complete the current mission
-                GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.CARRYBOXES);
+                GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.MISSION2);
             }
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
