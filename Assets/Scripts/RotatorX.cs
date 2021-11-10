@@ -2,18 +2,22 @@
 using System.Collections;
 
 public class RotatorX : MonoBehaviour
-{
-	[SerializeField]
-	private float turnSpeed = 1.0f;
-	[SerializeField]
+{    
 	bool limitDelta;
 	float currentAngle;
-	[SerializeField]
     float maxAngle;
+    
+    public float speed;
+    [SerializeField]
+    private float minX, maxX;
+
+    public bool right, dontMove;
+    private bool stop;
 
 	// Before rendering each frame..
 	void Update () 
 	{
+        /*
 		if(limitDelta && currentAngle > maxAngle)
         {
 			// Rotate the game object that this script is attached to by 15 in the X axis,
@@ -28,5 +32,36 @@ public class RotatorX : MonoBehaviour
 			currentAngle = 0;
 			limitDelta = false;
         }
-	}
-}	
+        */
+        // Came from MoveUpandDownX adapt same logic to the rotator code to limit the angle and go backwards
+        if (!stop && !dontMove)
+        {
+            //Debug.Log(currentAngle);
+
+            if (right)
+            {
+                currentAngle += Time.deltaTime * speed;
+                transform.Rotate(new Vector3(currentAngle, 0f, 0f));
+
+                //transform.position += Vector3.forward * speed * Time.deltaTime;
+                if (currentAngle >= maxX)
+                {
+                    right = false;
+                    currentAngle = 0;
+                }
+            }
+            else
+            {
+                currentAngle -= Time.deltaTime * speed;
+                transform.Rotate(new Vector3(currentAngle, 0f, 0f));
+
+                //transform.position += Vector3.back * speed * Time.deltaTime;
+                if (currentAngle <= minX)
+                {
+                    right = true;
+                    currentAngle = 0;
+                }
+            }
+        }
+    }
+}

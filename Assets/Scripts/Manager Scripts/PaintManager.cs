@@ -8,7 +8,9 @@ public class PaintManager : MonoBehaviour
 
     public static Color oneColor = Color.green;
     public GameObject ball;
-    public Transform nozzle;
+    public Transform nozzle, rotMuzzle;
+    [SerializeField]
+    Vector3 offset;
     [SerializeField]
     float speed = 3f;
 
@@ -31,7 +33,8 @@ public class PaintManager : MonoBehaviour
     public void HitBall()
     {
         //GameObject gameObject = Instantiate<GameObject>(ball, new Vector3(0, 1f, 3f), Quaternion.identity);
-        GameObject gameObject = Instantiate<GameObject>(ball,nozzle.transform.position, nozzle.transform.rotation);
+        Debug.Log(offset);
+        GameObject gameObject = Instantiate<GameObject>(ball, nozzle.transform.position, nozzle.transform.rotation);
         Destroy(gameObject, 1.3f);
         //GameObject gameObject = Instantiate(Resources.Load("splash1"), target.gameObject.transform, false) as GameObject;
 
