@@ -34,12 +34,12 @@ public class PaintManager : MonoBehaviour
     {
         //GameObject gameObject = Instantiate<GameObject>(ball, new Vector3(0, 1f, 3f), Quaternion.identity);
         Debug.Log(offset);
-        GameObject gameObject = Instantiate<GameObject>(ball, nozzle.transform.position, nozzle.transform.rotation);
+        GameObject gameObject = Instantiate<GameObject>(ball, nozzle.transform.position, Quaternion.identity);
         Destroy(gameObject, 1.3f);
         //GameObject gameObject = Instantiate(Resources.Load("splash1"), target.gameObject.transform, false) as GameObject;
 
         gameObject.GetComponent<MeshRenderer>().material.color = oneColor;
-        gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * speed, ForceMode.Impulse);
+        gameObject.GetComponent<Rigidbody>().AddForce(nozzle.transform.forward * speed, ForceMode.Impulse);
     }
 
     void MakeANewCircle()
