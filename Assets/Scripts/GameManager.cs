@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -85,13 +86,58 @@ public class GameManager : MonoBehaviour
         MISSION0, MISSION1, MISSION2, MISSION3, MISSION4, MISSION5, MISSION6, MISSION7, MISSION8, MISSION9
     };
 
-    //public MissionType mission;
+    [Header("Camera Stats")]
+    public CinemachineVirtualCamera vcam;
+    bool finishedCamEffect;
+    [SerializeField]
+    float camOffsetX, camOffsetY, camOffsetZ;
+    [SerializeField]
+    float camDeOffsetX, camDeOffsetY, camDeOffsetZ;
+
+
+    /// <summary>
+    /// At scene start, make a camera zoom effect
+    /// </summary>
+    /// <param name="f"></param>
+    /// <returns></returns>
+    IEnumerator WaitAtStartForCameraEffects(float f)
+    {
+        yield return new WaitForSeconds(f);
+        Debug.Log("Got Camera, lets try switching");
+
+        vcam.Priority = 0;
+        finishedCamEffect = true;
+    }
+
+    /// <summary>
+    /// Change Follow Offset of Camera to zoom in
+    /// </summary>
+    public void OffsetCamera()
+    {
+        vcam.GetComponentInChildren<CinemachineFramingTransposer>().m_TrackedObjectOffset.y = camOffsetY;
+    }
+
+    /// <summary>
+    /// Change Follow Offset of Camera to zoom back to original
+    /// </summary>
+
+    public void DeOffsetCamera()
+    {
+        vcam.GetComponentInChildren<CinemachineFramingTransposer>().m_TrackedObjectOffset.y = camDeOffsetY;
+    }
 
     /// <summary>
     /// 
     /// </summary>
     void Awake()
     {
+        /*
+        // Change active camera on Start
+        if (vcam != null)
+        {
+            StartCoroutine(WaitAtStartForCameraEffects(0.2f));
+        }
+        */
         /*
         if (!FB.IsInitialized)
         {
@@ -105,9 +151,6 @@ public class GameManager : MonoBehaviour
         }
         */
         instance = this;
-        Shader.SetGlobalFloat("_Curvature", 2.0f);
-        Shader.SetGlobalFloat("_Trimming", 0.1f);
-        Application.targetFrameRate = 60;
         killedEnemy = 0;
     }
 

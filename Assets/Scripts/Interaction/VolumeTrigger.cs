@@ -54,6 +54,9 @@ public class VolumeTrigger : MonoBehaviour
 
                 //Player.instance.ChangePlayerState(state);
                 Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
+
+                // Test for Mission08 Camera Offset - From GameManager
+                GameManager.instance.OffsetCamera();
             }
             Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "Player State: " + Player.instance.state);
         }
@@ -76,6 +79,10 @@ public class VolumeTrigger : MonoBehaviour
 
             //Player.instance.ChangePlayerState(state);
             Player.instance.ChangePlayerState(Player.PlayerStateType.WALKING);
+
+            // Test for Mission08 Camera Offset - From GameManager
+            GameManager.instance.DeOffsetCamera();
+
             Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "Player State: " + Player.instance.state);
         }
     }
