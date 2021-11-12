@@ -438,7 +438,7 @@ public class Player : MonoBehaviour
         }
         else if (other.gameObject.tag == "DropPlane")
         {
-            if (collectedAmount >= 2)
+            if (collectedAmount >= 3)
             {
                 // Mission complete triggered, so GameManager knows about the game state, and Updates
                 OnMissionComplete += GameManager.instance.HandleMissionComplete;

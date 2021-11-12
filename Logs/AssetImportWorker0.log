@@ -1,0 +1,1531 @@
+Using pre-set license
+Pro License: NO
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2021.1.13f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/barbarostombaz/Developer/runner-003
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+49363
+Successfully changed project path to: /Users/barbarostombaz/Developer/runner-003
+/Users/barbarostombaz/Developer/runner-003
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 159.80 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.13f1 (a03098edbbe0)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.1.13f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/barbarostombaz/Developer/runner-003/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+2021-11-12 09:40:09.978 Unity[1128:27096] iMac preferred device: AMD Radeon Pro 575X (high power)
+2021-11-12 09:40:09.979 Unity[1128:27096] Metal devices available: 1
+2021-11-12 09:40:09.979 Unity[1128:27096] 0: AMD Radeon Pro 575X (high power)
+2021-11-12 09:40:09.979 Unity[1128:27096] Using device AMD Radeon Pro 575X (high power)
+Initializing Metal device caps: AMD Radeon Pro 575X
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2021.1.13f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2021.1.13f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2021.1.13f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56128
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2021.1.13f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.1.13f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.002932 seconds.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 80.79 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  6.067 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6067ms)
+		BeginReloadAssembly (41ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (575ms)
+			LoadAssemblies (44ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (250ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (244ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (81ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (99ms)
+				ProcessInitializeOnLoadMethodAttributes (56ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.066433 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.09 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+WARNING: RGBA Compressed ETC2 sRGB format is not supported, decompressing texture
+WARNING: RGBA Compressed ETC2 sRGB format is not supported, decompressing texture
+WARNING: RGBA Compressed ETC2 sRGB format is not supported, decompressing texture
+Mono: successfully reloaded assembly
+- Completed reload, in  1.638 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1639ms)
+		BeginReloadAssembly (147ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (23ms)
+		EndReloadAssembly (1432ms)
+			LoadAssemblies (208ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (357ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (694ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (569ms)
+				ProcessInitializeOnLoadMethodAttributes (59ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2021.1.13f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.09 seconds
+Refreshing native plugins compatible for Editor in 1.13 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3027 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 427.2 MB.
+System memory in use after: 427.4 MB.
+
+Unloading 186 unused Assets to reduce memory usage. Loaded Objects now: 3472.
+Total: 5.597750 ms (FindLiveObjects: 0.226109 ms CreateObjectMapping: 0.118735 ms MarkObjects: 4.915145 ms  DeleteObjects: 0.336971 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Assets/Textures/YellowTanker/final_truck_trolly.png
+  artifactKey: Guid(f2125ac3e4e6a614f9041c5fcbf79919) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker/final_truck_trolly.png using Guid(f2125ac3e4e6a614f9041c5fcbf79919) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'e44e325fc99d44c182b2cfabf0aa8aa1') in 1.093325 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Assets/Textures/YellowTanker/final_truck_trolly_uv.png
+  artifactKey: Guid(d726a1f80b673b54d96af99c53cdc280) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker/final_truck_trolly_uv.png using Guid(d726a1f80b673b54d96af99c53cdc280) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '6da0b35c03abeb104e7ba445cb1232c0') in 0.004123 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Assets/Textures/Dumper/dumper_trolly_uvs.png
+  artifactKey: Guid(a77f68623a00d1f41aa6c82046a7d61a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper/dumper_trolly_uvs.png using Guid(a77f68623a00d1f41aa6c82046a7d61a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'a94fcb3ab4d6cc1d7bed9cb0560b0317') in 0.005038 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/Assets
+  artifactKey: Guid(6e4dab6feac804a23a5a66d7431289f2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets using Guid(6e4dab6feac804a23a5a66d7431289f2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '5bbac18f28bcb65042c5a61953314947') in 0.003155 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/Assets/Textures/Tanker/tanker_tank_color.png
+  artifactKey: Guid(074dc81989b0589409b9614f06806db2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker/tanker_tank_color.png using Guid(074dc81989b0589409b9614f06806db2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'd46e9b50ebf5be27a2fd31866e105030') in 0.003325 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Assets/Textures/Tanker/tanker_tank.png
+  artifactKey: Guid(3af5d42109b9dec4a899116ae8c3190f) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker/tanker_tank.png using Guid(3af5d42109b9dec4a899116ae8c3190f) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '36fe2369e605e784c642f1a88f6458f2') in 0.003283 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000440 seconds.
+  path: Assets/Assets/Models/yellow_truck.fbx
+  artifactKey: Guid(ccb9255796f85d8438739116864d17b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Models/yellow_truck.fbx using Guid(ccb9255796f85d8438739116864d17b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9473e7a5a5e15f3876fce0e884968d72') in 0.897604 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000280 seconds.
+  path: Assets/Assets/Materials/Dumper/tyre.mat
+  artifactKey: Guid(8750c65db6abed449a116428a00a1869) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Dumper/tyre.mat using Guid(8750c65db6abed449a116428a00a1869) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '19e0182d533020c529c4c5c084b9d5ec') in 1.177803 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Assets/Materials/Dumper/tank.mat
+  artifactKey: Guid(717c90cb49cf7eb4f8f6a34463ba5531) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Dumper/tank.mat using Guid(717c90cb49cf7eb4f8f6a34463ba5531) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c6e476eb192b377e98d40326c3fd1f45') in 0.003350 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Scripts/RotatorX.cs
+  artifactKey: Guid(acfc6e2385bab466aa5c9c3a5b217d5d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Scripts/RotatorX.cs using Guid(acfc6e2385bab466aa5c9c3a5b217d5d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '9ec9052dc61a2dc4d40c622bc5976dfd') in 0.413998 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000322 seconds.
+  path: Assets/Assets/Textures/YellowTanker/truck_tank color.png
+  artifactKey: Guid(b1b717f25bc62d845855f4cb947e4522) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker/truck_tank color.png using Guid(b1b717f25bc62d845855f4cb947e4522) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'd0fa4aa680c90493e205a845e9ac327f') in 0.005103 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Assets/Textures/Tanker/truck_tyres.png
+  artifactKey: Guid(3761997ba3ef7774b87a9e1abc10396a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker/truck_tyres.png using Guid(3761997ba3ef7774b87a9e1abc10396a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'aa8fa23c675242c011f86f9705c906d7') in 0.004652 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/Assets/Prefabs/Dumper.prefab
+  artifactKey: Guid(417479e5060c1f943934af173eea3229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Prefabs/Dumper.prefab using Guid(417479e5060c1f943934af173eea3229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32721c9ad561f0a2158280bddc6f1ae4') in 0.165742 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Assets/Textures/YellowTanker/truck_tank.png
+  artifactKey: Guid(227aa65b4f05d0e4eafc1b3b907a3316) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker/truck_tank.png using Guid(227aa65b4f05d0e4eafc1b3b907a3316) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'e1a3a8d0e2953b81996fee2b6d319943') in 0.003218 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/Assets/Scripts/MovementControl.cs
+  artifactKey: Guid(7f60569a1abed0247a836681697a2ff2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Scripts/MovementControl.cs using Guid(7f60569a1abed0247a836681697a2ff2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '4249ae6ea354b27e3bccd519de752d24') in 0.003782 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Assets/Textures/Tanker
+  artifactKey: Guid(04b8d7d77eaad9e40ac9bb213612f3bf) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker using Guid(04b8d7d77eaad9e40ac9bb213612f3bf) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c295bf006f7dffe22a0417a3f6c96f08') in 0.002939 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000317 seconds.
+  path: Assets/Assets/Textures/YellowTanker/truck_tyres.png
+  artifactKey: Guid(93fab2ebe639b8d48850f4aef25e7137) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker/truck_tyres.png using Guid(93fab2ebe639b8d48850f4aef25e7137) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'd63aae5b74d69d4606b293fdada478fc') in 0.004215 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/Assets/Materials/Cargo
+  artifactKey: Guid(288b7eef5847f9344a23b03449287061) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Cargo using Guid(288b7eef5847f9344a23b03449287061) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '18affb231d390ee0cc4d05e7473c73ae') in 0.004526 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/Assets/Textures/Cargo/cargo_truck_trolly_base_uv.png
+  artifactKey: Guid(83e0dac0306462f4a98524e741e93d72) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo/cargo_truck_trolly_base_uv.png using Guid(83e0dac0306462f4a98524e741e93d72) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'a57e0b21fb6d428bf9275fbef11e48b6') in 0.003122 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Assets/Materials/Tanker/body.mat
+  artifactKey: Guid(5ec4fae2e9b765e47997ed7e523a71f4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Tanker/body.mat using Guid(5ec4fae2e9b765e47997ed7e523a71f4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '7b36395797292a855735fb95fe46d54f') in 0.003006 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/Assets/Textures/YellowTanker/truck_head_uvs.png
+  artifactKey: Guid(18c3ca3a03e41bb4ebdc710c941a1e5c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker/truck_head_uvs.png using Guid(18c3ca3a03e41bb4ebdc710c941a1e5c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '138c518e2a3cdaf4f7ba7d60d0148a2b') in 0.003768 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/Assets/Scripts
+  artifactKey: Guid(581dff9dfcf5b7341aca3c5956054d6d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Scripts using Guid(581dff9dfcf5b7341aca3c5956054d6d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '3386d77861a2f07a215c01c960598c61') in 0.003143 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
+  path: Assets/Assets/Textures/Dumper/truck_head_color.png
+  artifactKey: Guid(4a4ef9575c04f82459636282354f4f02) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper/truck_head_color.png using Guid(4a4ef9575c04f82459636282354f4f02) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'bce554161143b995e3fdccf28e0020d8') in 0.003152 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Assets/Textures/Dumper/truck_tyres.png
+  artifactKey: Guid(f345037b16633b04789cb5d9f9355d43) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper/truck_tyres.png using Guid(f345037b16633b04789cb5d9f9355d43) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '0b6d63ee465b8d45c26069d840438962') in 0.002998 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Assets/Textures/Dumper
+  artifactKey: Guid(f3715c93db7178143a8ae9d61fa671e8) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper using Guid(f3715c93db7178143a8ae9d61fa671e8) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'a9f98accdb98e361e2e5b290a4d9ad23') in 0.002290 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/Assets/Materials/YelloTanker/body.mat
+  artifactKey: Guid(eb946161f80d18d44aabc7c275e7b429) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/YelloTanker/body.mat using Guid(eb946161f80d18d44aabc7c275e7b429) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '3fedc7a0f8b18e5cef3bf7667a538f34') in 0.003326 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Assets/Models/dumper.fbx
+  artifactKey: Guid(f6b166d18c492744a9baa48898301a45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Models/dumper.fbx using Guid(f6b166d18c492744a9baa48898301a45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea2222714e75407ec6d804c660f88b26') in 0.055503 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/Assets/Materials/Cargo/head.mat
+  artifactKey: Guid(cfa97f6a16fa9a84196d306407393a35) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Cargo/head.mat using Guid(cfa97f6a16fa9a84196d306407393a35) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '31d221234026b2e91e608a7cbb26ab2a') in 0.003224 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Assets/Materials
+  artifactKey: Guid(aba7baacd153f87478b5b972a68bfa91) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials using Guid(aba7baacd153f87478b5b972a68bfa91) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'ab34387d86cfb0fc823d7dde5d2a6465') in 0.002856 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Scenes/Runner_003 2.unity
+  artifactKey: Guid(2b23a011efbba4642a60894f5daf9bc9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Scenes/Runner_003 2.unity using Guid(2b23a011efbba4642a60894f5daf9bc9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'bce8b392bc4e95348da79871e8e94c4d') in 0.011544 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Assets/Textures/Cargo/truck_tank color.png
+  artifactKey: Guid(e9cae62b6c68a3348919b46cb6a94003) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo/truck_tank color.png using Guid(e9cae62b6c68a3348919b46cb6a94003) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '0f87b85f62f81ac79aca04321c971cb1') in 0.003356 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Assets/Materials/YelloTanker/tank.mat
+  artifactKey: Guid(3a4df695b6002fa46ad857952a39418a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/YelloTanker/tank.mat using Guid(3a4df695b6002fa46ad857952a39418a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'f1c34c8774a694e4b03d8eac45f42852') in 0.003038 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/Assets/Textures/Dumper/truck_tyres_uvs.png
+  artifactKey: Guid(db4b256c79cc7a84c81cc5e43dd2a867) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper/truck_tyres_uvs.png using Guid(db4b256c79cc7a84c81cc5e43dd2a867) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '324a27f09be6df7ce6afb9e3730c4afd') in 0.005652 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Assets/Textures/Cargo/truck_head_uvs.png
+  artifactKey: Guid(cf150b37a6c8c3f459ca9232593207e0) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo/truck_head_uvs.png using Guid(cf150b37a6c8c3f459ca9232593207e0) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c247e28e87f6f72c5909e4e106860b66') in 0.002919 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Assets/Textures/Dumper/truck_head_uvs.png
+  artifactKey: Guid(b18fdc35590e233419f4bb7b47b6cef8) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper/truck_head_uvs.png using Guid(b18fdc35590e233419f4bb7b47b6cef8) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '9eaf2f1e62e637be0e2f14046a9d56a9') in 0.003537 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Assets/Materials/Cargo/body.mat
+  artifactKey: Guid(5f84cde37333f674db0126ab10bc7eff) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Cargo/body.mat using Guid(5f84cde37333f674db0126ab10bc7eff) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '511c0f575bc9e1cae7f8fffe00217a90') in 0.002927 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000247 seconds.
+  path: Assets/Scripts/Interaction/AnyVolumeTrigger.cs
+  artifactKey: Guid(cd4ea3bfd601249cab53e834a2be2c2c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Scripts/Interaction/AnyVolumeTrigger.cs using Guid(cd4ea3bfd601249cab53e834a2be2c2c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '6ee3e5a0b11742a361997c358b37aef2') in 0.003482 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000308 seconds.
+  path: Assets/Scenes/Runner_003.unity
+  artifactKey: Guid(b68d56a135f494eee865c52e4f5fe3c1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Scenes/Runner_003.unity using Guid(b68d56a135f494eee865c52e4f5fe3c1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'ad4462576823605882ec4f87ad6be33a') in 0.002435 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Scripts/GameManager.cs
+  artifactKey: Guid(54ada97ba208e42f29dd16f474b62f82) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Scripts/GameManager.cs using Guid(54ada97ba208e42f29dd16f474b62f82) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '464b07019f26d16137ee9e0f3c912716') in 0.002945 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Assets/Materials/Cargo/tyre.mat
+  artifactKey: Guid(c7ebae100c5b09a4bbf62df0d9e3e179) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Cargo/tyre.mat using Guid(c7ebae100c5b09a4bbf62df0d9e3e179) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '7e98ca4f837657c4c9e087d5140fb266') in 0.002733 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Assets/Textures/Tanker/truck_tyres_uvs.png
+  artifactKey: Guid(8e8456972376afc40bd432591c411bd1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker/truck_tyres_uvs.png using Guid(8e8456972376afc40bd432591c411bd1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'e0c1d7cdb2566fbe916bcbc591989714') in 0.002958 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/Assets/Materials/Tanker/head.mat
+  artifactKey: Guid(9200db73938a8ce4bb325bd8f4aebdd4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Tanker/head.mat using Guid(9200db73938a8ce4bb325bd8f4aebdd4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '4a2b4d73a11daf50d1118d0c290d75bf') in 0.003096 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/Assets/Materials/YelloTanker
+  artifactKey: Guid(d967c914e8fb53640b36b62bdb90f5a2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/YelloTanker using Guid(d967c914e8fb53640b36b62bdb90f5a2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'cf650400230eb5888a5d6b5e4e9b23fe') in 0.002833 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Assets/Textures/Dumper/truck_tyres.png
+  artifactKey: Guid(f345037b16633b04789cb5d9f9355d43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Textures/Dumper/truck_tyres.png using Guid(f345037b16633b04789cb5d9f9355d43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67d4c5f35765f64cb8fb2d28f514a290') in 0.061594 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/Assets/Textures/Dumper/dumper_trolly_uvs.png
+  artifactKey: Guid(a77f68623a00d1f41aa6c82046a7d61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Textures/Dumper/dumper_trolly_uvs.png using Guid(a77f68623a00d1f41aa6c82046a7d61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3bf831082a186ec55e350296795ee85') in 0.023709 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Assets/Textures/Cargo/truck_tank.png
+  artifactKey: Guid(b120f9f4c79d6b24290662be46af472f) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo/truck_tank.png using Guid(b120f9f4c79d6b24290662be46af472f) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '6dd16c8e546577391b0606eda6c0ae7a') in 0.002924 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Assets/Materials/Cargo/tank.mat
+  artifactKey: Guid(d7ea547681504bc448cbfe920ab2a966) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Cargo/tank.mat using Guid(d7ea547681504bc448cbfe920ab2a966) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '6d9fdae9aa4f2a81bb66d5d5d6ec8471') in 0.002949 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/Assets/Textures/Tanker/truck_head_color.png
+  artifactKey: Guid(0ea1ee4cb47551a46ab05f970b59752b) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker/truck_head_color.png using Guid(0ea1ee4cb47551a46ab05f970b59752b) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '60d253ae938236b5bbec109b835d1511') in 0.005099 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Assets/Textures/Cargo/cargo_truck_trolly_base_color.png
+  artifactKey: Guid(5dd2d02fd5dfaa74dba1ed57848885b9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo/cargo_truck_trolly_base_color.png using Guid(5dd2d02fd5dfaa74dba1ed57848885b9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '0cdbe6a26109782b385afa8424dd6bb2') in 0.003262 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/Assets/Textures/Dumper/dumper_trolly_color.png
+  artifactKey: Guid(c8177cf1d4fbf44429b52601609c7bab) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper/dumper_trolly_color.png using Guid(c8177cf1d4fbf44429b52601609c7bab) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'cf40e49b265c81cd8010164f75fbe9bf') in 0.003429 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Scripts/Interaction/VolumeTrigger.cs
+  artifactKey: Guid(d82689eb2ac3243b085914147a257bb5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Scripts/Interaction/VolumeTrigger.cs using Guid(d82689eb2ac3243b085914147a257bb5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'db9754c1c35530346712ae959dcfa5f9') in 0.003157 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/Timelines/Timeline 4.playable
+  artifactKey: Guid(193d8c1d70d994c228706a722e3f21a4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Timelines/Timeline 4.playable using Guid(193d8c1d70d994c228706a722e3f21a4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '364f125a34c4bca3b89e41f76883a8e0') in 0.190119 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/Assets/Textures/Cargo/truck_head_color.png
+  artifactKey: Guid(ccb24b10e50e22d4f9f13395922f83f9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo/truck_head_color.png using Guid(ccb24b10e50e22d4f9f13395922f83f9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'e877de9e9b9a22dd9dc39c67a8002116') in 0.005052 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/Assets/Prefabs/Tanker.prefab
+  artifactKey: Guid(b7f1d4f9cba84794dad97533ef1d0a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Prefabs/Tanker.prefab using Guid(b7f1d4f9cba84794dad97533ef1d0a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9df6501009bdc26462dcddf39b41565') in 0.099360 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/Assets/Materials/Tanker/tyre.mat
+  artifactKey: Guid(9734a437c51a27647a53e84a04cd76d7) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Tanker/tyre.mat using Guid(9734a437c51a27647a53e84a04cd76d7) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'ddf177cdd822f445403f31922e313982') in 0.004711 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Assets/Models/cargo_truck.fbx
+  artifactKey: Guid(76e02d3579112c047aa7dd1b77145dda) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Models/cargo_truck.fbx using Guid(76e02d3579112c047aa7dd1b77145dda) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '53ca15929986fce1fc0df85d6a468518') in 0.016061 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/Assets/Materials/Dumper/head.mat
+  artifactKey: Guid(7db4c9d3476bd2b48999e42f0882a454) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Dumper/head.mat using Guid(7db4c9d3476bd2b48999e42f0882a454) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '2f47c009f81a267055fa69701e1260ca') in 0.004917 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Assets/Prefabs/Cargo_truck.prefab
+  artifactKey: Guid(e80716950af176e4e929fdeeee216943) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Prefabs/Cargo_truck.prefab using Guid(e80716950af176e4e929fdeeee216943) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '079847b44f626eb51b1eae1b0afca12d') in 0.004900 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/Assets/Models/tanker.fbx
+  artifactKey: Guid(de4ba6c19d5a2874589f8a02a0c51042) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Models/tanker.fbx using Guid(de4ba6c19d5a2874589f8a02a0c51042) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'ade78f19a2af1c13265f9230356469ce') in 0.012281 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000322 seconds.
+  path: Assets/Assets/Prefabs/Tanker.prefab
+  artifactKey: Guid(b7f1d4f9cba84794dad97533ef1d0a8e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Prefabs/Tanker.prefab using Guid(b7f1d4f9cba84794dad97533ef1d0a8e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'de1df64ea8a5c737b8fb091cecdf1040') in 0.004427 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Assets/Models/yellow_truck.fbx
+  artifactKey: Guid(ccb9255796f85d8438739116864d17b4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Models/yellow_truck.fbx using Guid(ccb9255796f85d8438739116864d17b4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'd2f479a230c6c71e6f6b6bf4de7209be') in 0.011224 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/Assets/Textures/Tanker/truck_tank color.png
+  artifactKey: Guid(2ad6ea725a6e3b5499b7bcfa210f0eb5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker/truck_tank color.png using Guid(2ad6ea725a6e3b5499b7bcfa210f0eb5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'e5eb97e043334b954f4eed7e9983b460') in 0.005056 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000268 seconds.
+  path: Assets/Assets/Materials/Tanker/tank.mat
+  artifactKey: Guid(06f3b80aff105d845ae8468ae46a18c1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Tanker/tank.mat using Guid(06f3b80aff105d845ae8468ae46a18c1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'f3fafc82fb22e53a7ee4c03a6a5f23e4') in 0.004428 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Assets/Textures/Dumper/dumper_trolly_color.png
+  artifactKey: Guid(c8177cf1d4fbf44429b52601609c7bab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Textures/Dumper/dumper_trolly_color.png using Guid(c8177cf1d4fbf44429b52601609c7bab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5028fbdf4d79941cf982901a0428b858') in 0.021684 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Assets/Textures/YellowTanker/truck_tyres_uvs.png
+  artifactKey: Guid(a719b614b30b3fd4e82ea884ac86da7b) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker/truck_tyres_uvs.png using Guid(a719b614b30b3fd4e82ea884ac86da7b) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'f931507a4fc68b200a8dad0d571850da') in 0.005478 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/Assets/Prefabs
+  artifactKey: Guid(2f62505d9fd4ba04e89fcb1dc4193b37) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Prefabs using Guid(2f62505d9fd4ba04e89fcb1dc4193b37) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '50dd687ef45cc38b5478975065639c8b') in 0.002803 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/Scripts/Manager Scripts/PaintManager.cs
+  artifactKey: Guid(f98161e00e60d46018e52ebbdd3ef605) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Scripts/Manager Scripts/PaintManager.cs using Guid(f98161e00e60d46018e52ebbdd3ef605) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '00be938113a553d9f898c0f31eb98093') in 0.004492 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/Assets/Models
+  artifactKey: Guid(86fd81c49891bed4fa6001227219fb43) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Models using Guid(86fd81c49891bed4fa6001227219fb43) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '149472b48eca2b35f8753de8b903a2e7') in 0.003015 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000435 seconds.
+  path: Assets/Assets/Textures/YellowTanker/truck_head_color.png
+  artifactKey: Guid(57e8f68b132c1cd4bbe350d269f325b5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker/truck_head_color.png using Guid(57e8f68b132c1cd4bbe350d269f325b5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '5a8a850f07c6c4262798edd2fef41674') in 0.004731 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Assets/Models/cargo_truck.fbx
+  artifactKey: Guid(76e02d3579112c047aa7dd1b77145dda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Models/cargo_truck.fbx using Guid(76e02d3579112c047aa7dd1b77145dda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18fa2432c225b62d861def5149453cd7') in 0.056777 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Assets/Prefabs/Cargo_truck.prefab
+  artifactKey: Guid(e80716950af176e4e929fdeeee216943) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Prefabs/Cargo_truck.prefab using Guid(e80716950af176e4e929fdeeee216943) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c7f8c89f1ac3896a29493e51daa01b7') in 0.067005 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Assets/Prefabs/YellowTanker.prefab
+  artifactKey: Guid(cc8eb93690a63be449a406207cbc120d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Prefabs/YellowTanker.prefab using Guid(cc8eb93690a63be449a406207cbc120d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0381735e66bb3db3ba6612fe0bdbef24') in 0.094795 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Assets/Textures/Cargo
+  artifactKey: Guid(2b7bb640a622ff74e9427de37229e516) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo using Guid(2b7bb640a622ff74e9427de37229e516) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'ec616d1278172b1a50e059af26b49bee') in 0.002399 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/Assets/Materials/Tanker
+  artifactKey: Guid(4b3c9304f60ca0e4cb6b318d0ec48359) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Tanker using Guid(4b3c9304f60ca0e4cb6b318d0ec48359) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '5a798ed16f26df6bda8d2ebbb0436b00') in 0.002359 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000303 seconds.
+  path: Assets/Assets/Materials/YelloTanker/head.mat
+  artifactKey: Guid(03e1ada0ae004964dbad9f20235c8a2c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/YelloTanker/head.mat using Guid(03e1ada0ae004964dbad9f20235c8a2c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'bd8ee0821818e4fa15625d95af3f0a75') in 0.006597 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Assets/Models/dumper.fbx
+  artifactKey: Guid(f6b166d18c492744a9baa48898301a45) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Models/dumper.fbx using Guid(f6b166d18c492744a9baa48898301a45) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c04f777b22cdbad7f2a9ac1191828682') in 0.009321 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Assets/Models/tanker.fbx
+  artifactKey: Guid(de4ba6c19d5a2874589f8a02a0c51042) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Assets/Models/tanker.fbx using Guid(de4ba6c19d5a2874589f8a02a0c51042) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8efe2f995efd778f1008459a65689f75') in 0.057478 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/Assets/Materials/Dumper/body.mat
+  artifactKey: Guid(f5321cbd10603e8409dd4987ae8f58ec) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Dumper/body.mat using Guid(f5321cbd10603e8409dd4987ae8f58ec) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '03758e938f3bf4bebb3b291e516a10ab') in 0.004769 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Assets/Textures/Tanker/truck_tank.png
+  artifactKey: Guid(35ca676184303a24b92f0f3488443eac) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker/truck_tank.png using Guid(35ca676184303a24b92f0f3488443eac) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c790fdc7199aabd7a8d236da386d8428') in 0.004891 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000367 seconds.
+  path: Assets/Assets/Textures/Tanker/truck_head_uvs.png
+  artifactKey: Guid(354137b221945a14f97e89c4b3f8da9d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Tanker/truck_head_uvs.png using Guid(354137b221945a14f97e89c4b3f8da9d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '1529c237268cc7c2547cdcb79e64351a') in 0.004867 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Assets/Prefabs/Dumper.prefab
+  artifactKey: Guid(417479e5060c1f943934af173eea3229) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Prefabs/Dumper.prefab using Guid(417479e5060c1f943934af173eea3229) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '7e3f074a07a08e0b873f540b05a425c4') in 0.004715 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Assets/Textures/Dumper/truck_tank color.png
+  artifactKey: Guid(c4ef82f14e25ecd4abd8950df7f7ed62) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper/truck_tank color.png using Guid(c4ef82f14e25ecd4abd8950df7f7ed62) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'e9234932ad4795b2dbed116bb9e85a3f') in 0.004856 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Unity-UI-Rounded-Corners/Examples/RoundedCornersTextureMaterial.mat
+  artifactKey: Guid(6283e600cc258474490d63f2038384c5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Unity-UI-Rounded-Corners/Examples/RoundedCornersTextureMaterial.mat using Guid(6283e600cc258474490d63f2038384c5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'e900ce60ca3aac4225d71db289b0a47b') in 0.004900 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Assets/Textures/Dumper/truck_tank.png
+  artifactKey: Guid(abac0eeaed7074146b5881e8495a8f2a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Dumper/truck_tank.png using Guid(abac0eeaed7074146b5881e8495a8f2a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '1c7536c3d1522a12b8eeb80cf7af839d') in 0.007029 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Assets/Materials/Dumper
+  artifactKey: Guid(ae76105a340c15543987340b5e5f3b81) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/Dumper using Guid(ae76105a340c15543987340b5e5f3b81) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '78f397061bedd58b0c15a885250839b5') in 0.002789 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/Assets/Textures/Cargo/truck_tyres.png
+  artifactKey: Guid(fd400a2890023fc4fa9bb49aaf9f6810) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo/truck_tyres.png using Guid(fd400a2890023fc4fa9bb49aaf9f6810) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '47402e7827ce08a421a619d2f476a900') in 0.004498 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Assets/Prefabs/YellowTanker.prefab
+  artifactKey: Guid(cc8eb93690a63be449a406207cbc120d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Prefabs/YellowTanker.prefab using Guid(cc8eb93690a63be449a406207cbc120d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '2c9871ed6db5c63184da247cfebe5ca7') in 0.004417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/VoodooPackages/3D_Cars/Prefabs
+  artifactKey: Guid(8d9866b17931d4602ad1c05cd3a13256) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/VoodooPackages/3D_Cars/Prefabs using Guid(8d9866b17931d4602ad1c05cd3a13256) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '782a6a67c4010e2c163e21f483d4baed') in 0.000788 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Assets/Textures/Cargo/truck_tyres_uvs.png
+  artifactKey: Guid(f592b3239138890449405f33630d636e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/Cargo/truck_tyres_uvs.png using Guid(f592b3239138890449405f33630d636e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'aa09601da69f9aaa6c2251c7ebbcdbf0') in 0.004515 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Assets/Textures
+  artifactKey: Guid(b00aa2fa84bf13a40b4b301e87c3fdea) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures using Guid(b00aa2fa84bf13a40b4b301e87c3fdea) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'bf78c0d3a3ae5c838fa55377d955a365') in 0.002782 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Assets/Textures/YellowTanker
+  artifactKey: Guid(520d83cfa6ef7704dbb0a516d4a2396e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Textures/YellowTanker using Guid(520d83cfa6ef7704dbb0a516d4a2396e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '0bc7018eb85f344a2d0a17f30dbed9d1') in 0.002355 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/Scenes/Runner_003/NavMesh.asset
+  artifactKey: Guid(78b0e6e2f02814a25873a206c451e668) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Scenes/Runner_003/NavMesh.asset using Guid(78b0e6e2f02814a25873a206c451e668) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'f996ab30910220c96a73f9a3a8d9db8b') in 0.088539 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000396 seconds.
+  path: Assets/Assets/Materials/YelloTanker/tyre.mat
+  artifactKey: Guid(8a2f5ca9068bded438bbda034e3a4852) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Assets/Materials/YelloTanker/tyre.mat using Guid(8a2f5ca9068bded438bbda034e3a4852) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '74ff76533263489e19231782731e5830') in 0.003044 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.314153 seconds.
+  path: Assets/Trucks/Materials/Cargo
+  artifactKey: Guid(288b7eef5847f9344a23b03449287061) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Cargo using Guid(288b7eef5847f9344a23b03449287061) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '7565af3132319c6686e288e4443e3834') in 0.002726 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/Trucks/Textures/YellowTanker/final_truck_trolly.png
+  artifactKey: Guid(f2125ac3e4e6a614f9041c5fcbf79919) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker/final_truck_trolly.png using Guid(f2125ac3e4e6a614f9041c5fcbf79919) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '14c5cfda6f935c360d20656a9b19ada6') in 0.003417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000255 seconds.
+  path: Assets/Trucks/Textures/YellowTanker/final_truck_trolly_uv.png
+  artifactKey: Guid(d726a1f80b673b54d96af99c53cdc280) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker/final_truck_trolly_uv.png using Guid(d726a1f80b673b54d96af99c53cdc280) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'aac2bd1d310d605f133e8005a388bf5d') in 0.003954 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/Trucks/Textures/Dumper/dumper_trolly_uvs.png
+  artifactKey: Guid(a77f68623a00d1f41aa6c82046a7d61a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper/dumper_trolly_uvs.png using Guid(a77f68623a00d1f41aa6c82046a7d61a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'a73d8243d0132c91917b47a3186c2fe0') in 0.004055 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Trucks
+  artifactKey: Guid(6e4dab6feac804a23a5a66d7431289f2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks using Guid(6e4dab6feac804a23a5a66d7431289f2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '30768b50f1b773f7e090fb2664cfd020') in 0.004432 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Trucks/Textures/Tanker/tanker_tank_color.png
+  artifactKey: Guid(074dc81989b0589409b9614f06806db2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker/tanker_tank_color.png using Guid(074dc81989b0589409b9614f06806db2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '385c019f7031639ffd467fb3c2d492ef') in 0.004079 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Trucks/Textures/Tanker/tanker_tank.png
+  artifactKey: Guid(3af5d42109b9dec4a899116ae8c3190f) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker/tanker_tank.png using Guid(3af5d42109b9dec4a899116ae8c3190f) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'fda1e9c1ede0752834b9a97a0e16da9a') in 0.003775 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Trucks/Materials/Dumper/tyre.mat
+  artifactKey: Guid(8750c65db6abed449a116428a00a1869) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Dumper/tyre.mat using Guid(8750c65db6abed449a116428a00a1869) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'd8c74b9f72732be4081ff8a3f642df86') in 0.002852 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Trucks/Materials/Dumper/tank.mat
+  artifactKey: Guid(717c90cb49cf7eb4f8f6a34463ba5531) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Dumper/tank.mat using Guid(717c90cb49cf7eb4f8f6a34463ba5531) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'e2d34668e97255294e78ef715bcb5ae5') in 0.003313 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/Trucks/Textures/YellowTanker/truck_tank color.png
+  artifactKey: Guid(b1b717f25bc62d845855f4cb947e4522) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker/truck_tank color.png using Guid(b1b717f25bc62d845855f4cb947e4522) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '197e538705e330197601efe0b9c95040') in 0.003018 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Trucks/Textures/Tanker/truck_tyres.png
+  artifactKey: Guid(3761997ba3ef7774b87a9e1abc10396a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker/truck_tyres.png using Guid(3761997ba3ef7774b87a9e1abc10396a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'de792a1a99cd3d4f8bf60c04fc56c66c') in 0.003549 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/Trucks/Textures/YellowTanker/truck_tank.png
+  artifactKey: Guid(227aa65b4f05d0e4eafc1b3b907a3316) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker/truck_tank.png using Guid(227aa65b4f05d0e4eafc1b3b907a3316) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '026f2193ff383938bb4f519b7c7207bf') in 0.003112 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/Trucks/Scripts/MovementControl.cs
+  artifactKey: Guid(7f60569a1abed0247a836681697a2ff2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Scripts/MovementControl.cs using Guid(7f60569a1abed0247a836681697a2ff2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '14f5c69a5f5339c627cd1358411fbefe') in 0.003036 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Trucks/Textures/Tanker
+  artifactKey: Guid(04b8d7d77eaad9e40ac9bb213612f3bf) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker using Guid(04b8d7d77eaad9e40ac9bb213612f3bf) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '8651e3670407f62762f4cd3f759538f3') in 0.002232 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/Trucks/Textures/YellowTanker/truck_tyres.png
+  artifactKey: Guid(93fab2ebe639b8d48850f4aef25e7137) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker/truck_tyres.png using Guid(93fab2ebe639b8d48850f4aef25e7137) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '02676ed0e201de857549a28afac4fae2') in 0.002862 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Trucks/Textures/Cargo/cargo_truck_trolly_base_uv.png
+  artifactKey: Guid(83e0dac0306462f4a98524e741e93d72) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo/cargo_truck_trolly_base_uv.png using Guid(83e0dac0306462f4a98524e741e93d72) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'a24f797463f8431a4da0e07e2b1156ee') in 0.003993 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/Trucks/Materials/Tanker/body.mat
+  artifactKey: Guid(5ec4fae2e9b765e47997ed7e523a71f4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Tanker/body.mat using Guid(5ec4fae2e9b765e47997ed7e523a71f4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '3c36098aca7ba1b88d4d774423e2e29a') in 0.002976 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Trucks/Textures/YellowTanker/truck_head_uvs.png
+  artifactKey: Guid(18c3ca3a03e41bb4ebdc710c941a1e5c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker/truck_head_uvs.png using Guid(18c3ca3a03e41bb4ebdc710c941a1e5c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '666846c1745a2acbf72a3d8986914f56') in 0.005414 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Trucks/Scripts
+  artifactKey: Guid(581dff9dfcf5b7341aca3c5956054d6d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Scripts using Guid(581dff9dfcf5b7341aca3c5956054d6d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'd4e73eebe61335f5f624177120a387e6') in 0.002638 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Trucks/Textures/Dumper/truck_head_color.png
+  artifactKey: Guid(4a4ef9575c04f82459636282354f4f02) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper/truck_head_color.png using Guid(4a4ef9575c04f82459636282354f4f02) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '5a24a805f8825e6d6343506343c1b371') in 0.003438 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Trucks/Textures/Dumper/truck_tyres.png
+  artifactKey: Guid(f345037b16633b04789cb5d9f9355d43) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper/truck_tyres.png using Guid(f345037b16633b04789cb5d9f9355d43) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '8d7d67820348eb690ab577a73eb8059d') in 0.002933 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Trucks/Textures/Dumper
+  artifactKey: Guid(f3715c93db7178143a8ae9d61fa671e8) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper using Guid(f3715c93db7178143a8ae9d61fa671e8) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '532ab1c1a10dc7b63ca5280648822284') in 0.003089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Trucks/Materials
+  artifactKey: Guid(aba7baacd153f87478b5b972a68bfa91) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials using Guid(aba7baacd153f87478b5b972a68bfa91) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '264b721c701886195d578af042b45d27') in 0.002788 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Trucks/Materials/YelloTanker/body.mat
+  artifactKey: Guid(eb946161f80d18d44aabc7c275e7b429) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/YelloTanker/body.mat using Guid(eb946161f80d18d44aabc7c275e7b429) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '4b72df899aa84e5ca1a1bdb280a55d52') in 0.003067 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Trucks/Textures/Dumper/truck_tyres_uvs.png
+  artifactKey: Guid(db4b256c79cc7a84c81cc5e43dd2a867) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper/truck_tyres_uvs.png using Guid(db4b256c79cc7a84c81cc5e43dd2a867) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '03b1d059efdeeaedeb4a7fe2041833c9') in 0.003290 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Trucks/Materials/Cargo/head.mat
+  artifactKey: Guid(cfa97f6a16fa9a84196d306407393a35) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Cargo/head.mat using Guid(cfa97f6a16fa9a84196d306407393a35) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '7ce9f35a003f19988305b409709f6be9') in 0.003209 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Trucks/Textures/Cargo/truck_tank color.png
+  artifactKey: Guid(e9cae62b6c68a3348919b46cb6a94003) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo/truck_tank color.png using Guid(e9cae62b6c68a3348919b46cb6a94003) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'f6734ac401f74b53b629fd3fc96eed23') in 0.003072 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Trucks/Materials/YelloTanker/tank.mat
+  artifactKey: Guid(3a4df695b6002fa46ad857952a39418a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/YelloTanker/tank.mat using Guid(3a4df695b6002fa46ad857952a39418a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '801569307ad6678154cb75e4bc666a70') in 0.003069 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Trucks/Textures/Cargo/truck_head_uvs.png
+  artifactKey: Guid(cf150b37a6c8c3f459ca9232593207e0) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo/truck_head_uvs.png using Guid(cf150b37a6c8c3f459ca9232593207e0) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '4c62155f1ac40555a0943b942d4ee387') in 0.003115 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Trucks/Textures/Dumper/truck_head_uvs.png
+  artifactKey: Guid(b18fdc35590e233419f4bb7b47b6cef8) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper/truck_head_uvs.png using Guid(b18fdc35590e233419f4bb7b47b6cef8) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '98dd3805458f07cd514b5cd08b50f8fc') in 0.003941 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/Trucks/Materials/Cargo/body.mat
+  artifactKey: Guid(5f84cde37333f674db0126ab10bc7eff) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Cargo/body.mat using Guid(5f84cde37333f674db0126ab10bc7eff) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'ad44f2f37e110b9b7a706157ecfead62') in 0.005152 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/Trucks/Materials/Cargo/tyre.mat
+  artifactKey: Guid(c7ebae100c5b09a4bbf62df0d9e3e179) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Cargo/tyre.mat using Guid(c7ebae100c5b09a4bbf62df0d9e3e179) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '413d3eca7d878d7f3640fe7228bef897') in 0.003478 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000288 seconds.
+  path: Assets/Trucks/Textures/Tanker/truck_tyres_uvs.png
+  artifactKey: Guid(8e8456972376afc40bd432591c411bd1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker/truck_tyres_uvs.png using Guid(8e8456972376afc40bd432591c411bd1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'd7524f7d860ecc9d8bf96765c8732e1f') in 0.003139 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/Trucks/Materials/Tanker/head.mat
+  artifactKey: Guid(9200db73938a8ce4bb325bd8f4aebdd4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Tanker/head.mat using Guid(9200db73938a8ce4bb325bd8f4aebdd4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '297ae28d66b817df5d117c2a51f27f4a') in 0.003262 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Trucks/Materials/YelloTanker
+  artifactKey: Guid(d967c914e8fb53640b36b62bdb90f5a2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/YelloTanker using Guid(d967c914e8fb53640b36b62bdb90f5a2) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '72d1748fb39939a41c40364b952b7bd6') in 0.002628 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/Trucks/Textures/Cargo/truck_tank.png
+  artifactKey: Guid(b120f9f4c79d6b24290662be46af472f) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo/truck_tank.png using Guid(b120f9f4c79d6b24290662be46af472f) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '87ba580d5ffccb5f8afd33e1a377712a') in 0.003026 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/Trucks/Materials/Cargo/tank.mat
+  artifactKey: Guid(d7ea547681504bc448cbfe920ab2a966) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Cargo/tank.mat using Guid(d7ea547681504bc448cbfe920ab2a966) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'ed7b079053d2b16d33080c85dc6692e8') in 0.003067 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Trucks/Textures/Tanker/truck_head_color.png
+  artifactKey: Guid(0ea1ee4cb47551a46ab05f970b59752b) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker/truck_head_color.png using Guid(0ea1ee4cb47551a46ab05f970b59752b) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '3790ea1a605f118470fa4bb6d7baec82') in 0.003004 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/Trucks/Textures/Dumper/dumper_trolly_color.png
+  artifactKey: Guid(c8177cf1d4fbf44429b52601609c7bab) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper/dumper_trolly_color.png using Guid(c8177cf1d4fbf44429b52601609c7bab) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '794e1bdecefe254ed79191b793f76508') in 0.002987 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/Trucks/Textures/Cargo/cargo_truck_trolly_base_color.png
+  artifactKey: Guid(5dd2d02fd5dfaa74dba1ed57848885b9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo/cargo_truck_trolly_base_color.png using Guid(5dd2d02fd5dfaa74dba1ed57848885b9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'eff01997327654c14372847646e449f5') in 0.003399 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Trucks/Textures/Cargo/truck_head_color.png
+  artifactKey: Guid(ccb24b10e50e22d4f9f13395922f83f9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo/truck_head_color.png using Guid(ccb24b10e50e22d4f9f13395922f83f9) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '02fbd4d002a271fcac8b8a9607664a44') in 0.003342 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Trucks/Materials/Tanker/tyre.mat
+  artifactKey: Guid(9734a437c51a27647a53e84a04cd76d7) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Tanker/tyre.mat using Guid(9734a437c51a27647a53e84a04cd76d7) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c4c656e13c0bcbf24c7f473c94d3ba71') in 0.002933 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/Trucks/Models/cargo_truck.fbx
+  artifactKey: Guid(76e02d3579112c047aa7dd1b77145dda) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Models/cargo_truck.fbx using Guid(76e02d3579112c047aa7dd1b77145dda) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '3278074c0bcad7f1fb62893fe280948d') in 0.010208 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/Trucks/Materials/Dumper/head.mat
+  artifactKey: Guid(7db4c9d3476bd2b48999e42f0882a454) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Dumper/head.mat using Guid(7db4c9d3476bd2b48999e42f0882a454) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '83fddd102c0709b90451cb056ba88a63') in 0.003227 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/Trucks/Prefabs/Cargo_truck.prefab
+  artifactKey: Guid(e80716950af176e4e929fdeeee216943) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Prefabs/Cargo_truck.prefab using Guid(e80716950af176e4e929fdeeee216943) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '76ccf1419b30d8db5558a681d7a55f13') in 0.003118 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Trucks/Models/tanker.fbx
+  artifactKey: Guid(de4ba6c19d5a2874589f8a02a0c51042) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Models/tanker.fbx using Guid(de4ba6c19d5a2874589f8a02a0c51042) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '3e2daed0b00fdb1fb48e987b6c033e5f') in 0.007920 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/Trucks/Prefabs/Tanker.prefab
+  artifactKey: Guid(b7f1d4f9cba84794dad97533ef1d0a8e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Prefabs/Tanker.prefab using Guid(b7f1d4f9cba84794dad97533ef1d0a8e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'cf2b0644fc2c39bcedd9b82af652c9af') in 0.003282 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Trucks/Models/yellow_truck.fbx
+  artifactKey: Guid(ccb9255796f85d8438739116864d17b4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Models/yellow_truck.fbx using Guid(ccb9255796f85d8438739116864d17b4) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '09cd7860b54093b1477d7df8a5ba818c') in 0.010036 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Trucks/Textures/Tanker/truck_tank color.png
+  artifactKey: Guid(2ad6ea725a6e3b5499b7bcfa210f0eb5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker/truck_tank color.png using Guid(2ad6ea725a6e3b5499b7bcfa210f0eb5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '1fd3a06ddc5499b42bfebf959c4b49f1') in 0.003280 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/Trucks/Materials/Tanker/tank.mat
+  artifactKey: Guid(06f3b80aff105d845ae8468ae46a18c1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Tanker/tank.mat using Guid(06f3b80aff105d845ae8468ae46a18c1) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c329c7d77c0bde7721da162eed513e94') in 0.002938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/Trucks/Textures/YellowTanker/truck_tyres_uvs.png
+  artifactKey: Guid(a719b614b30b3fd4e82ea884ac86da7b) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker/truck_tyres_uvs.png using Guid(a719b614b30b3fd4e82ea884ac86da7b) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'a0dcc265cbf82f1c35906dcbee720b17') in 0.003090 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/Trucks/Prefabs
+  artifactKey: Guid(2f62505d9fd4ba04e89fcb1dc4193b37) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Prefabs using Guid(2f62505d9fd4ba04e89fcb1dc4193b37) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '738d6100e2da0f0511f9a96223f0fe8d') in 0.002293 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Trucks/Models
+  artifactKey: Guid(86fd81c49891bed4fa6001227219fb43) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Models using Guid(86fd81c49891bed4fa6001227219fb43) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '5901643f554cb18a0d781455245acb5c') in 0.002278 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Trucks/Textures/YellowTanker/truck_head_color.png
+  artifactKey: Guid(57e8f68b132c1cd4bbe350d269f325b5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker/truck_head_color.png using Guid(57e8f68b132c1cd4bbe350d269f325b5) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'ba1956183b00d9c4f8b6cf395e36b779') in 0.003187 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Trucks/Textures/Cargo
+  artifactKey: Guid(2b7bb640a622ff74e9427de37229e516) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo using Guid(2b7bb640a622ff74e9427de37229e516) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '75a9d46574f1757a9b96818899ace4b9') in 0.002464 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/Trucks/Materials/Tanker
+  artifactKey: Guid(4b3c9304f60ca0e4cb6b318d0ec48359) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Tanker using Guid(4b3c9304f60ca0e4cb6b318d0ec48359) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'a7bdebc9a17525c476306731428f32c4') in 0.002303 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000317 seconds.
+  path: Assets/Trucks/Materials/YelloTanker/head.mat
+  artifactKey: Guid(03e1ada0ae004964dbad9f20235c8a2c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/YelloTanker/head.mat using Guid(03e1ada0ae004964dbad9f20235c8a2c) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '106c98a74f3ba8c765fbbcb6d508054d') in 0.005386 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/Trucks/Models/dumper.fbx
+  artifactKey: Guid(f6b166d18c492744a9baa48898301a45) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Models/dumper.fbx using Guid(f6b166d18c492744a9baa48898301a45) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'fd6597ef48990ddae5c46ca5d2337e4b') in 0.007715 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/Trucks/Materials/Dumper/body.mat
+  artifactKey: Guid(f5321cbd10603e8409dd4987ae8f58ec) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Dumper/body.mat using Guid(f5321cbd10603e8409dd4987ae8f58ec) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '07f7b106a31738c55ea024f12321bd8d') in 0.002994 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Trucks/Textures/Tanker/truck_tank.png
+  artifactKey: Guid(35ca676184303a24b92f0f3488443eac) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker/truck_tank.png using Guid(35ca676184303a24b92f0f3488443eac) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c98c5c668f3b24d15390e782e6727387') in 0.002903 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/Trucks/Textures/Tanker/truck_head_uvs.png
+  artifactKey: Guid(354137b221945a14f97e89c4b3f8da9d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Tanker/truck_head_uvs.png using Guid(354137b221945a14f97e89c4b3f8da9d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '6727a5775abfb8631426cf2c21357f6b') in 0.003404 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Trucks/Prefabs/Dumper.prefab
+  artifactKey: Guid(417479e5060c1f943934af173eea3229) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Prefabs/Dumper.prefab using Guid(417479e5060c1f943934af173eea3229) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'cfd8f0c846fd1625de98b01ff168c69b') in 0.003094 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Trucks/Textures/Dumper/truck_tank color.png
+  artifactKey: Guid(c4ef82f14e25ecd4abd8950df7f7ed62) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper/truck_tank color.png using Guid(c4ef82f14e25ecd4abd8950df7f7ed62) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '4cf1769aaee56eca7491c0c1fe44dc09') in 0.003538 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Trucks/Textures/Dumper/truck_tank.png
+  artifactKey: Guid(abac0eeaed7074146b5881e8495a8f2a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Dumper/truck_tank.png using Guid(abac0eeaed7074146b5881e8495a8f2a) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'be582d24b3979ad44395d9f778710faa') in 0.002928 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000314 seconds.
+  path: Assets/Trucks/Materials/Dumper
+  artifactKey: Guid(ae76105a340c15543987340b5e5f3b81) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/Dumper using Guid(ae76105a340c15543987340b5e5f3b81) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '3ec35a101c25d19e5f8d5e743fa59ac8') in 0.002599 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Trucks/Textures/Cargo/truck_tyres.png
+  artifactKey: Guid(fd400a2890023fc4fa9bb49aaf9f6810) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo/truck_tyres.png using Guid(fd400a2890023fc4fa9bb49aaf9f6810) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'a1315c89f673432451d46fde9ef6518b') in 0.005313 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Trucks/Prefabs/YellowTanker.prefab
+  artifactKey: Guid(cc8eb93690a63be449a406207cbc120d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Prefabs/YellowTanker.prefab using Guid(cc8eb93690a63be449a406207cbc120d) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'cdbc972019853dbe5c70b4b68550e316') in 0.002941 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Trucks/Textures/Cargo/truck_tyres_uvs.png
+  artifactKey: Guid(f592b3239138890449405f33630d636e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/Cargo/truck_tyres_uvs.png using Guid(f592b3239138890449405f33630d636e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'bcd33d5db8d94ccb274fbc61ec23151f') in 0.002925 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Trucks/Textures
+  artifactKey: Guid(b00aa2fa84bf13a40b4b301e87c3fdea) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures using Guid(b00aa2fa84bf13a40b4b301e87c3fdea) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: 'c2a6f704cd74a2573e927ee1c992f7f3') in 0.002582 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Trucks/Textures/YellowTanker
+  artifactKey: Guid(520d83cfa6ef7704dbb0a516d4a2396e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Textures/YellowTanker using Guid(520d83cfa6ef7704dbb0a516d4a2396e) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '4cd0ec14f6d6d0f964f66011e33af079') in 0.002492 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/Trucks/Materials/YelloTanker/tyre.mat
+  artifactKey: Guid(8a2f5ca9068bded438bbda034e3a4852) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)
+Start importing Assets/Trucks/Materials/YelloTanker/tyre.mat using Guid(8a2f5ca9068bded438bbda034e3a4852) Importer(2089858483,934ff659095e30574adcf32a4c2f97b5)  -> (artifact id: '7eab87eb38441db04e10222dd385bbec') in 0.002905 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.060762 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.757 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1781ms)
+		BeginReloadAssembly (179ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (58ms)
+		EndReloadAssembly (1542ms)
+			LoadAssemblies (153ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (361ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (755ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (628ms)
+				ProcessInitializeOnLoadMethodAttributes (60ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.11 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2910 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 429.8 MB.
+System memory in use after: 429.9 MB.
+
+Unloading 177 unused Assets to reduce memory usage. Loaded Objects now: 3532.
+Total: 5.781215 ms (FindLiveObjects: 0.225651 ms CreateObjectMapping: 0.123575 ms MarkObjects: 5.116381 ms  DeleteObjects: 0.314860 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.055266 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.07 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.373 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1373ms)
+		BeginReloadAssembly (112ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (44ms)
+		EndReloadAssembly (1203ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (337ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (67ms)
+			SetupLoadedEditorAssemblies (579ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (58ms)
+				ProcessInitializeOnLoadAttributes (460ms)
+				ProcessInitializeOnLoadMethodAttributes (53ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.09 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2906 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 430.3 MB.
+System memory in use after: 430.5 MB.
+
+Unloading 176 unused Assets to reduce memory usage. Loaded Objects now: 3534.
+Total: 5.853917 ms (FindLiveObjects: 0.244449 ms CreateObjectMapping: 0.132969 ms MarkObjects: 5.290396 ms  DeleteObjects: 0.185202 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.164066 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.16 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.940 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1949ms)
+		BeginReloadAssembly (244ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (109ms)
+		EndReloadAssembly (1642ms)
+			LoadAssemblies (283ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (383ms)
+			ReleaseScriptCaches (5ms)
+			RebuildScriptCaches (71ms)
+			SetupLoadedEditorAssemblies (763ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (61ms)
+				ProcessInitializeOnLoadAttributes (640ms)
+				ProcessInitializeOnLoadMethodAttributes (54ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.07 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2906 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 431.0 MB.
+System memory in use after: 431.2 MB.
+
+Unloading 176 unused Assets to reduce memory usage. Loaded Objects now: 3536.
+Total: 20.494587 ms (FindLiveObjects: 0.255735 ms CreateObjectMapping: 0.129174 ms MarkObjects: 4.916554 ms  DeleteObjects: 15.192298 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.022321 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.371 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1371ms)
+		BeginReloadAssembly (112ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (46ms)
+		EndReloadAssembly (1198ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (350ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (70ms)
+			SetupLoadedEditorAssemblies (572ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (60ms)
+				ProcessInitializeOnLoadAttributes (451ms)
+				ProcessInitializeOnLoadMethodAttributes (53ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.14 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2906 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 431.7 MB.
+System memory in use after: 431.9 MB.
+
+Unloading 176 unused Assets to reduce memory usage. Loaded Objects now: 3538.
+Total: 6.187510 ms (FindLiveObjects: 0.249826 ms CreateObjectMapping: 0.129026 ms MarkObjects: 5.479144 ms  DeleteObjects: 0.328537 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.075387 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.17 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.686 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1702ms)
+		BeginReloadAssembly (163ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (50ms)
+		EndReloadAssembly (1480ms)
+			LoadAssemblies (208ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (344ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (692ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (60ms)
+				ProcessInitializeOnLoadAttributes (571ms)
+				ProcessInitializeOnLoadMethodAttributes (54ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2906 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 432.3 MB.
+System memory in use after: 432.5 MB.
+
+Unloading 176 unused Assets to reduce memory usage. Loaded Objects now: 3540.
+Total: 5.573080 ms (FindLiveObjects: 0.237944 ms CreateObjectMapping: 0.136686 ms MarkObjects: 5.023555 ms  DeleteObjects: 0.173898 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.159371 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.09 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.518 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1519ms)
+		BeginReloadAssembly (143ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (47ms)
+		EndReloadAssembly (1315ms)
+			LoadAssemblies (141ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (357ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (71ms)
+			SetupLoadedEditorAssemblies (598ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (478ms)
+				ProcessInitializeOnLoadMethodAttributes (54ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2906 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 433.0 MB.
+System memory in use after: 433.2 MB.
+
+Unloading 176 unused Assets to reduce memory usage. Loaded Objects now: 3542.
+Total: 5.602647 ms (FindLiveObjects: 0.229628 ms CreateObjectMapping: 0.127938 ms MarkObjects: 5.074196 ms  DeleteObjects: 0.169979 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.069884 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.526 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1527ms)
+		BeginReloadAssembly (152ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (44ms)
+		EndReloadAssembly (1315ms)
+			LoadAssemblies (128ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (352ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (68ms)
+			SetupLoadedEditorAssemblies (629ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (483ms)
+				ProcessInitializeOnLoadMethodAttributes (69ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524288) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.19 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2906 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 433.6 MB.
+System memory in use after: 433.8 MB.
+
+Unloading 176 unused Assets to reduce memory usage. Loaded Objects now: 3544.
+Total: 5.705864 ms (FindLiveObjects: 0.235622 ms CreateObjectMapping: 0.119819 ms MarkObjects: 5.065688 ms  DeleteObjects: 0.284013 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
