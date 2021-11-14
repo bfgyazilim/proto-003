@@ -13,10 +13,14 @@ public class DialogueManager : MonoBehaviour
     public Transform target;
     private Queue<string> sentences;
 
+    public Dialogue dialogue;
+
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        // Start own dialogue in Dialog manager for central management for now
+        StartDialogue(dialogue);
     }
 
     public void StartDialogue(Dialogue dialogue)

@@ -34,12 +34,12 @@ public class ColorChanger : MonoBehaviour
                 // UI Manager registers to the Floor Trigger to give visual feedback
                 // but not always give some randomness
                 rand = UnityEngine.Random.Range(0, 100);
-                if (rand == 17)
+                if (rand > 17 && rand < 21)
                 {
                     OnFloorTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
                     // Trigger OnVolumeTrigger Event
                     OnFloorTrigger?.Invoke();
-                    AudioManager.instance.PlaySFX(1);
+                    AudioManager.instance.PlaySFX(0);
                 }
             }
             else if(target.gameObject.tag == "floor")
@@ -58,6 +58,7 @@ public class ColorChanger : MonoBehaviour
                 // Decrease number of tiles (in the first run, otherwise If collides with the same tile more than once, will count more times!!!)
                 GameManager.instance.HandleMissionProgress((int)missionType);
             }
+            AudioManager.instance.PlaySFX(4);
         }
     }
 

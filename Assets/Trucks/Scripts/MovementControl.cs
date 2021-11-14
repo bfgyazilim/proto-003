@@ -13,7 +13,7 @@ public class MovementControl : MonoBehaviour {
 
 	void start()
 	{
-		m_rigidbody = GetComponent<Rigidbody>();
+		m_rigidbody = GetComponent<Rigidbody>();		
 		m_rigidbody.centerOfMass = centerOfMass.localPosition;
 	}
 	

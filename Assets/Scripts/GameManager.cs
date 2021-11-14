@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     int[] buildCost;
     bool resourcesSufficient;
+    [SerializeField]
+    float waitAfterMissionCompleteInterval;
 
     public enum MissionType
     {
@@ -110,11 +112,32 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// At scene start, make a camera zoom effect
+    /// </summary>
+    /// <param name="f"></param>
+    /// <returns></returns>
+    IEnumerator WaitAtStartForCameraEffectFinish(float f)
+    {
+        FixedOffsetCamera(10);
+        yield return new WaitForSeconds(f);
+        Debug.Log("Got Camera effects, lets try deoffsetting back!");
+        DeOffsetCamera();
+    }
+
+    /// <summary>
     /// Change Follow Offset of Camera to zoom in
     /// </summary>
     public void OffsetCamera()
     {
         vcam.GetComponentInChildren<CinemachineFramingTransposer>().m_TrackedObjectOffset.y = camOffsetY;
+    }
+
+    /// <summary>
+    /// Change Follow Offset of Camera to zoom in
+    /// </summary>
+    public void FixedOffsetCamera(float y)
+    {
+        vcam.GetComponentInChildren<CinemachineFramingTransposer>().m_TrackedObjectOffset.y = y;
     }
 
     /// <summary>
@@ -322,6 +345,8 @@ public class GameManager : MonoBehaviour
             if (remainingTasks[missionNo] == 0)
             {
                 // Trigger OnMissionComplete Event
+                StartCoroutine(WaitAtStartForCameraEffectFinish(waitAfterMissionCompleteInterval));
+                // Invoke Unity Event for inspector handling stuff...
                 OnMissionComplete[missionNo].Invoke();
                 Debug.Log("Mission " + missionNo + "  Complete");
             }

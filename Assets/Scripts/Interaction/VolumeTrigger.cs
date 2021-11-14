@@ -38,20 +38,22 @@ public class VolumeTrigger : MonoBehaviour
             // Invoke for editor setup of gameobjects on and off             
             //OnVolumeTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
             // Mission complete triggered, so GameManager knows about the game state, and Updates
-            OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
-            OnVolumeTrigger?.Invoke((int)missionType);
+            //OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
+            //OnVolumeTrigger?.Invoke((int)missionType);
+
+            //// Trigger OnVolumeTrigger Unity Event for ADDITIONAL editor setup of gameobjects            
+            OnVolumeEnterEvent.Invoke();
 
             // If you have enough resources for this mission
             if(GameManager.instance.GetMissionStatus())
             {
                 if(missionType == GameManager.MissionType.MISSION3)
                 {
+                    OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
+                    OnVolumeTrigger?.Invoke((int)missionType);
                     float unitOffsetX = 0, unitOffsetY = -0.5f, unitOffsetZ = 3;
                     WorldController.instance.GenerateBlocks(transform.position.x + unitOffsetX, transform.position.y + unitOffsetY, transform.position.z + unitOffsetZ);
                 }
-                //// Trigger OnVolumeTrigger Unity Event for ADDITIONAL editor setup of gameobjects            
-                    OnVolumeEnterEvent.Invoke();
-
                 //Player.instance.ChangePlayerState(state);
                 Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
 

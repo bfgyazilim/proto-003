@@ -438,13 +438,6 @@ public class Player : MonoBehaviour
         }
         else if (other.gameObject.tag == "DropPlane")
         {
-            if (collectedAmount >= 3)
-            {
-                // Mission complete triggered, so GameManager knows about the game state, and Updates
-                OnMissionComplete += GameManager.instance.HandleMissionComplete;
-                OnMissionComplete?.Invoke(GameManager.MissionType.MISSION2);
-                //helicopter.GetComponent<Animator>().enabled = true;
-            }
             // Change animation back to normal
             Player.instance.ChangePlayerState(Player.PlayerStateType.IDLE);
 
@@ -461,20 +454,17 @@ public class Player : MonoBehaviour
                 attachedObject = null;
                 // Decrease number of tasks remaining to complete the current mission
                 GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.MISSION2);
+
+                if (collectedAmount >= 3)
+                {
+                    // Mission complete triggered, so GameManager knows about the game state, and Updates
+                    OnMissionComplete += GameManager.instance.HandleMissionComplete;
+                    OnMissionComplete?.Invoke(GameManager.MissionType.MISSION2);
+                }
             }
+
             Debug.Log("Player Triggered OnTriggerEnter->DropPlane");
         }
-        //else if (other.gameObject.tag == "Concrete")
-        //{            
-            //float unitOffsetX = -5, unitOffsetY = 0, unitOffsetZ =1;
-            //WorldController.instance.GenerateBlocks(other.transform.position.x + unitOffsetX, other.transform.position.y + unitOffsetY, other.transform.position.z + unitOffsetZ);
-            //Debug.Log("Player collided with: " + other.gameObject.name);
-            //// Mission complete triggered, so GameManager knows about the game state, and Updates
-            //OnMissionComplete += GameManager.instance.HandleMissionComplete;
-            //OnMissionComplete?.Invoke((int)GameManager.MissionType.BUILDHOUSE);
-            //// Decrease number of tasks remaining to complete the current mission
-            //GameManager.instance.HandleMissionProgress((int)GameManager.MissionType.BUILDHOUSE);
-        //}
     }
 
     /*
@@ -561,8 +551,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(f);
 
         // open rewardUI
-        App_Initialize.instance.rewardMenuUI.SetActive(true);
-        App_Initialize.instance.inGameUI.SetActive(false);
         // Show how many coins collected in this level +XXX
         currentScoreUI.text = "+" + Score.instance.score.ToString();
     }
@@ -574,8 +562,6 @@ public class Player : MonoBehaviour
     IEnumerator WaitAndLoad()
     {
         yield return new WaitForSeconds(2f);
-
-        App_Initialize.instance.RestartGame();
     }
 
     // new functions here

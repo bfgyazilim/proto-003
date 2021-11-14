@@ -296,6 +296,6 @@ public class UIManager : MonoBehaviour
     public void SlideMissionMenu(int x, int y)
     {
         
-        missionMenu.DOAnchorPos(new Vector2(x, y), 0.25f).SetDelay(1.05f);        
+        missionMenu.DOAnchorPos(new Vector2(x, y), 0.25f).SetDelay(0.65f);        
     }
 }
