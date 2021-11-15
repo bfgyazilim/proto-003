@@ -54,8 +54,14 @@ public class VolumeTrigger : MonoBehaviour
                     float unitOffsetX = 0, unitOffsetY = -0.5f, unitOffsetZ = 3;
                     WorldController.instance.GenerateBlocks(transform.position.x + unitOffsetX, transform.position.y + unitOffsetY, transform.position.z + unitOffsetZ);
                 }
-                //Player.instance.ChangePlayerState(state);
-                Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
+                if (missionType == GameManager.MissionType.MISSION5 || missionType == GameManager.MissionType.MISSION9)
+                {
+                    // Bridge mission
+                    OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
+                    OnVolumeTrigger?.Invoke((int)missionType);
+                }
+                    //Player.instance.ChangePlayerState(state);
+                    Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
 
                 // Test for Mission08 Camera Offset - From GameManager
                 GameManager.instance.OffsetCamera();

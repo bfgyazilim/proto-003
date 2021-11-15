@@ -212,12 +212,18 @@ public class GameManager : MonoBehaviour
             lastActiveTimelineIndex = -1;
             */
         }
-
+        // SDK INTEGRATION START HERE /////////////////////////////////////////////////////////////
 #if (!UNITY_EDITOR)
+
+        // The method OnGameStarted has to be called every time a new level starts. 
+        // As parameter, you have to give the number of the level that is starting (1, 2, 3, etc...)
+        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(level);
+
         // Set Up Voodoo Tiny Sauce at Start!
-        TinySauce.OnGameStarted();
+        //TinySauce.OnGameStarted();
         //TinySauce.OnGameStarted(levelNumber: level.ToString());
 #endif
+        // SDK INTEGRATION END HERE /////////////////////////////////////////////////////////////
 
         // Set the active level remaining enemy on less or more than levelCount levels
         // If more than levelCount, it will repeat levels, so the remaining enemies to match that
@@ -349,6 +355,15 @@ public class GameManager : MonoBehaviour
                 // Invoke Unity Event for inspector handling stuff...
                 OnMissionComplete[missionNo].Invoke();
                 Debug.Log("Mission " + missionNo + "  Complete");
+
+#if (!UNITY_EDITOR)
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
+
+        // Set Up Voodoo Tiny Sauce Game Progress!
+        //TinySauce.OnGameFinished(UIManager.instance.GetCoinsInGame());
+        //TinySauce.OnGameFinished(levelNumber: GameManager.instance.GetLevelNo().ToString(), false, Score.instance.score);
+
+#endif
             }
         }
     }
@@ -500,8 +515,10 @@ public class GameManager : MonoBehaviour
     {
         // If you want to track if the user was able to finish the level of the game
 #if (!UNITY_EDITOR)
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(false);
+
         // Set Up Voodoo Tiny Sauce Game Progress!
-        TinySauce.OnGameFinished(UIManager.instance.GetCoinsInGame());
+        //TinySauce.OnGameFinished(UIManager.instance.GetCoinsInGame());
         //TinySauce.OnGameFinished(levelNumber: GameManager.instance.GetLevelNo().ToString(), false, Score.instance.score);
 
 #endif
@@ -543,7 +560,7 @@ public class GameManager : MonoBehaviour
 
 #if (!UNITY_EDITOR)
             // TinySauce send level and score values
-            TinySauce.OnGameFinished(true, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
+            //TinySauce.OnGameFinished(true, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
 #endif
             //reloads the scene scene if WIN
             SceneManager.LoadScene(GetLevelScene());
@@ -559,7 +576,7 @@ public class GameManager : MonoBehaviour
 
 #if (!UNITY_EDITOR)
             // TinySauce send level and score values
-            TinySauce.OnGameFinished(false, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
+            //TinySauce.OnGameFinished(false, UIManager.instance.GetCoinsInGame(), levelNumber: level.ToString());
 #endif
 
             // Ah, I failed, reload the scene again (Same Scene in this prototype)
