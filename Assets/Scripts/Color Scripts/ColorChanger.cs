@@ -17,6 +17,11 @@ public class ColorChanger : MonoBehaviour
     float splashTimeInterval = 0.1f;
     int rand;
 
+    private void OnEnable()
+    {
+        OnFloorTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
+    }
+
     void OnCollisionEnter(Collision target)
     {
         if (target.gameObject.tag != "Player")
@@ -36,7 +41,6 @@ public class ColorChanger : MonoBehaviour
                 rand = UnityEngine.Random.Range(0, 100);
                 if (rand > 17 && rand < 21)
                 {
-                    OnFloorTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
                     // Trigger OnVolumeTrigger Event
                     OnFloorTrigger?.Invoke();
                     AudioManager.instance.PlaySFX(0);

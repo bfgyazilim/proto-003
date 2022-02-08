@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
 
         // The method OnGameStarted has to be called every time a new level starts. 
         // As parameter, you have to give the number of the level that is starting (1, 2, 3, etc...)
-        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(level);
+        //YsoCorp.GameUtils.YCManager.instance.OnGameStarted(level);
 
         // Set Up Voodoo Tiny Sauce at Start!
         //TinySauce.OnGameStarted();
@@ -357,7 +357,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Mission " + missionNo + "  Complete");
 
 #if (!UNITY_EDITOR)
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
+        //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
 
         // Set Up Voodoo Tiny Sauce Game Progress!
         //TinySauce.OnGameFinished(UIManager.instance.GetCoinsInGame());
@@ -515,7 +515,7 @@ public class GameManager : MonoBehaviour
     {
         // If you want to track if the user was able to finish the level of the game
 #if (!UNITY_EDITOR)
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(false);
+        //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(false);
 
         // Set Up Voodoo Tiny Sauce Game Progress!
         //TinySauce.OnGameFinished(UIManager.instance.GetCoinsInGame());
