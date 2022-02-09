@@ -29,9 +29,11 @@ public class Unit : MonoBehaviour
 	int m_CurrentWaypointIndex;
 	bool died;
 
+	public static GameObject controlledBy;
+
 	/// <summary>
-    /// 
-    /// </summary>
+	/// 
+	/// </summary>
 	void Awake ()
 	{
 		navMeshAgent = GetComponent<NavMeshAgent>();
@@ -67,6 +69,10 @@ public class Unit : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		// If it is controlled by other object to Lerp into it's position like (chair) , give the rest of the control to them!
+		if (controlledBy != null)
+			return;
+
 		// If reached the level end point, stop the prisoner...
 		if (prepareLevelEnding)
 		{
@@ -101,6 +107,11 @@ public class Unit : MonoBehaviour
 			{
 				m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
 				navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+				animator.SetTrigger("SitClap");
+			}
+			else
+            {
+				//animator.SetTrigger("Walking");
 			}
 		}
 	}
