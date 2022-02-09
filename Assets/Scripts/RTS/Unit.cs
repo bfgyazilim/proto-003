@@ -29,7 +29,11 @@ public class Unit : MonoBehaviour
 	int m_CurrentWaypointIndex;
 	bool died;
 
-	public static GameObject controlledBy;
+	public GameObject anchor;
+	public GameObject controlledBy;
+	bool isWalkingTowards = false;
+	bool sittingOn = false;
+	public GameObject character;
 
 	/// <summary>
 	/// 
@@ -59,8 +63,16 @@ public class Unit : MonoBehaviour
 		// Initialize navmesh
 		navMeshAgent.SetDestination(waypoints[0].position);
 		// Set states for the rigidbody to true, and colliders for the ragdoll to false
-		SetRigidbodyState(true);
-		SetColliderState(false);
+		//SetRigidbodyState(true);
+		//SetColliderState(false);
+	}
+
+	/// <summary>
+    /// 
+    /// </summary>
+	private void FixedUpdate()
+	{
+		AnimLerp();
 	}
 
 	/// <summary>
@@ -69,10 +81,6 @@ public class Unit : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		// If it is controlled by other object to Lerp into it's position like (chair) , give the rest of the control to them!
-		if (controlledBy != null)
-			return;
-
 		// If reached the level end point, stop the prisoner...
 		if (prepareLevelEnding)
 		{
@@ -103,16 +111,70 @@ public class Unit : MonoBehaviour
 		}
 		else
         {
-			if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
-			{
-				m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
-				navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
-				animator.SetTrigger("SitClap");
-			}
+			if(controlledBy == null)
+            {
+				if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+				{
+					m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+					navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+					// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
+					Debug.Log("Control given to anchor");
+					navMeshAgent.isStopped = true;
+					navMeshAgent.velocity = Vector3.zero;
+					controlledBy = anchor;			
+				}
+            }
 			else
             {
+				Debug.Log("Control in anchor");
+				character.transform.rotation = anchor.transform.rotation;
+				AutoWalkTowards();
 				//animator.SetTrigger("Walking");
 			}
+		}
+	}
+
+	private void AutoWalkTowards()
+	{
+
+		Vector3 targetDir;
+		targetDir = new Vector3(anchor.transform.position.x - character.transform.position.x, 0.0f, anchor.transform.position.z - character.transform.position.z);
+		Quaternion rot = Quaternion.LookRotation(targetDir);
+		character.transform.rotation = Quaternion.Slerp(character.transform.rotation, rot, 0.05f);
+		// character.transform.Translate(Vector3.forward * 0.01f);
+
+		Debug.Log(Vector3.Distance(character.transform.position, anchor.transform.position));
+		if (Vector3.Distance(character.transform.position, anchor.transform.position) < 0.8f)
+		{
+
+			print("Less than 0.6f");
+			//animator.SetBool("isSitting", true);
+			//animator.SetBool("isWalking", false);
+			animator.SetTrigger("SitClap");
+
+			character.transform.rotation = anchor.transform.rotation;
+
+			isWalkingTowards = false;
+			sittingOn = true;
+		}
+	}
+
+	void AnimLerp()
+	{
+
+		if (!sittingOn) return;
+
+		if (Vector3.Distance(character.transform.position, anchor.transform.position) > 0.1f)
+		{
+
+			character.transform.rotation = Quaternion.Lerp(character.transform.rotation, anchor.transform.rotation, Time.deltaTime * 0.5f);
+			character.transform.position = Vector3.Lerp(character.transform.position, anchor.transform.position, Time.deltaTime * 0.5f);
+		}
+		else
+		{
+
+			character.transform.rotation = anchor.transform.rotation;
+			character.transform.position = anchor.transform.position;
 		}
 	}
 
