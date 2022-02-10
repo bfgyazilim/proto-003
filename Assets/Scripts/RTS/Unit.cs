@@ -34,6 +34,8 @@ public class Unit : MonoBehaviour
 	bool isWalkingTowards = false;
 	bool sittingOn = false;
 	public GameObject character;
+	[SerializeField] float lerpSpeed = 0.5f;
+
 
 	/// <summary>
 	/// 
@@ -167,8 +169,8 @@ public class Unit : MonoBehaviour
 		if (Vector3.Distance(character.transform.position, anchor.transform.position) > 0.1f)
 		{
 
-			character.transform.rotation = Quaternion.Lerp(character.transform.rotation, anchor.transform.rotation, Time.deltaTime * 0.5f);
-			character.transform.position = Vector3.Lerp(character.transform.position, anchor.transform.position, Time.deltaTime * 0.5f);
+			character.transform.rotation = Quaternion.Lerp(character.transform.rotation, anchor.transform.rotation, Time.deltaTime * lerpSpeed);
+			character.transform.position = Vector3.Lerp(character.transform.position, anchor.transform.position, Time.deltaTime * lerpSpeed);
 		}
 		else
 		{
