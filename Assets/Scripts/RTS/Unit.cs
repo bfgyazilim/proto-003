@@ -62,31 +62,15 @@ public class Unit : MonoBehaviour
 		//Set some defaults, including the default state
 		//SetSelected(false);
 		//Guard();
-
+		GoToAndSit(waypoints[0].position);
 		// Initialize navmesh
-		navMeshAgent.SetDestination(waypoints[0].position);
+		//navMeshAgent.SetDestination(waypoints[0].position);
 		// Set states for the rigidbody to true, and colliders for the ragdoll to false
 		//SetRigidbodyState(true);
 		//SetColliderState(false);
 	}
 
-	/// <summary>
-	/// Get out to the next Waypoint and wait!
-	/// </summary>
-	public void GoToExit()
-    {
-		if (!redirectedToLastWaypoint)
-		{
-			controlledBy = null;
-			navMeshAgent.SetDestination(waypoints[1].position);
-			// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
-			Debug.Log("Going  to exit, " + m_CurrentWaypointIndex);
-			navMeshAgent.isStopped = false;
-			sittingOn = false;
-			redirectedToLastWaypoint = true;
-			animator.SetTrigger("Walking");
-		}
-	}
+
 
 	/// <summary>
 	/// 
@@ -97,109 +81,8 @@ public class Unit : MonoBehaviour
 	}
 
 	/// <summary>
-	/// 
-	/// </summary>
-	// Update is called once per frame
-	void Update()
-	{
-		// If reached the level end point, stop the prisoner...
-		if (prepareLevelEnding)
-		{
-			if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance + 1f)
-			{
-				//navMeshAgent.isStopped = true;
-
-				// edit
-				targetOfAttack = null;
-				isReady = false;
-
-				navMeshAgent.isStopped = true;
-				navMeshAgent.velocity = Vector3.zero;
-				// end edit
-
-
-				animator.SetBool("isWalking", false);
-				animator.SetTrigger("Chicken");
-				//Debug.Log("SetTrigger - Chicken called on Boy1");
-				prepareLevelEnding = false;
-			}
-			else
-			{
-				//Debug.Log("SetTrigger - Dance NOT called on Boy1");
-
-				//navMeshAgent.speed += .5f;
-			}
-		}
-		else
-        {
-			if(controlledBy == null)
-            {
-				if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && m_CurrentWaypointIndex != 1)
-				{
-					m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
-					navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
-					// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
-					Debug.Log("Control given to anchor " + m_CurrentWaypointIndex);
-					navMeshAgent.isStopped = true;
-					navMeshAgent.velocity = Vector3.zero;
-					controlledBy = anchor;			
-				}
-            }
-			else
-            {
-				Debug.Log("Control in anchor");
-				character.transform.rotation = anchor.transform.rotation;
-				AutoWalkTowards();
-				//animator.SetTrigger("Walking");
-			}
-		}
-	}
-
-	private void AutoWalkTowards()
-	{
-
-		Vector3 targetDir;
-		targetDir = new Vector3(anchor.transform.position.x - character.transform.position.x, 0.0f, anchor.transform.position.z - character.transform.position.z);
-		Quaternion rot = Quaternion.LookRotation(targetDir);
-		character.transform.rotation = Quaternion.Slerp(character.transform.rotation, rot, 0.05f);
-		// character.transform.Translate(Vector3.forward * 0.01f);
-
-		Debug.Log(Vector3.Distance(character.transform.position, anchor.transform.position));
-		if (Vector3.Distance(character.transform.position, anchor.transform.position) < 0.8f)
-		{
-
-			print("Less than 0.6f");
-			//animator.SetBool("isSitting", true);
-			//animator.SetBool("isWalking", false);
-			animator.SetTrigger("SitClap");
-
-			character.transform.rotation = anchor.transform.rotation;
-
-			isWalkingTowards = false;
-			sittingOn = true;
-		}
-	}
-
-	void AnimLerp()
-	{
-
-		if (!sittingOn) return;
-
-		if (Vector3.Distance(character.transform.position, anchor.transform.position) > 0.1f)
-		{
-
-			character.transform.rotation = Quaternion.Lerp(character.transform.rotation, anchor.transform.rotation, Time.deltaTime * lerpSpeed);
-			character.transform.position = Vector3.Lerp(character.transform.position, anchor.transform.position, Time.deltaTime * lerpSpeed);
-		}
-		else
-		{
-
-			character.transform.rotation = anchor.transform.rotation;
-			character.transform.position = anchor.transform.position;
-		}
-	}
-
-	/*
+    /// Handle State Machine
+    /// </summary>
 	void Update()
 	{
 		//Little hack to give time to the NavMesh agent to set its destination.
@@ -212,6 +95,26 @@ public class Unit : MonoBehaviour
 
 		switch(state)
 		{
+			case UnitState.MovingToSpotSit:
+				if (controlledBy == null)
+				{
+					if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+					{
+						// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
+						Debug.Log("Control given to anchor " + m_CurrentWaypointIndex);
+						navMeshAgent.isStopped = true;
+						navMeshAgent.velocity = Vector3.zero;
+						controlledBy = anchor;
+					}
+				}
+				else
+				{
+					Debug.Log("Control in anchor");
+					character.transform.rotation = anchor.transform.rotation;
+					AutoWalkTowards();
+				}
+				break;
+
 			case UnitState.MovingToSpotIdle:
 				if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance + .1f)
 				{
@@ -274,11 +177,112 @@ public class Unit : MonoBehaviour
 				break;
 		}
 
-		float navMeshAgentSpeed = navMeshAgent.velocity.magnitude;
-		animator.SetFloat("Speed", navMeshAgentSpeed * .05f);
+		//float navMeshAgentSpeed = navMeshAgent.velocity.magnitude;
+		//animator.SetFloat("Speed", navMeshAgentSpeed * .05f);
+	}
+	/*
+	/// <summary>
+	/// 
+	/// </summary>
+	// Update is called once per frame
+	void Update()
+	{
+		// If reached the level end point, stop the prisoner...
+		if (prepareLevelEnding)
+		{
+			if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance + 1f)
+			{
+				//navMeshAgent.isStopped = true;
+
+				// edit
+				targetOfAttack = null;
+				isReady = false;
+
+				navMeshAgent.isStopped = true;
+				navMeshAgent.velocity = Vector3.zero;
+				// end edit
+
+
+				animator.SetBool("isWalking", false);
+				animator.SetTrigger("Chicken");
+				//Debug.Log("SetTrigger - Chicken called on Boy1");
+				prepareLevelEnding = false;
+			}
+			else
+			{
+				//Debug.Log("SetTrigger - Dance NOT called on Boy1");
+
+				//navMeshAgent.speed += .5f;
+			}
+		}
+		else
+        {
+			if(controlledBy == null)
+            {
+				if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && m_CurrentWaypointIndex != 1)
+				{
+					m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+					navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+					// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
+					Debug.Log("Control given to anchor " + m_CurrentWaypointIndex);
+					navMeshAgent.isStopped = true;
+					navMeshAgent.velocity = Vector3.zero;
+					controlledBy = anchor;			
+				}
+            }
+			else
+            {
+				Debug.Log("Control in anchor");
+				character.transform.rotation = anchor.transform.rotation;
+				AutoWalkTowards();
+				//animator.SetTrigger("Walking");
+			}
+		}
 	}
 	*/
-	
+	private void AutoWalkTowards()
+	{
+
+		Vector3 targetDir;
+		targetDir = new Vector3(anchor.transform.position.x - character.transform.position.x, 0.0f, anchor.transform.position.z - character.transform.position.z);
+		Quaternion rot = Quaternion.LookRotation(targetDir);
+		character.transform.rotation = Quaternion.Slerp(character.transform.rotation, rot, 0.05f);
+		// character.transform.Translate(Vector3.forward * 0.01f);
+
+		Debug.Log(Vector3.Distance(character.transform.position, anchor.transform.position));
+		if (Vector3.Distance(character.transform.position, anchor.transform.position) < 0.8f)
+		{
+
+			print("Less than 0.6f");
+			//animator.SetBool("isSitting", true);
+			animator.SetBool("isWalking", false);
+			animator.SetTrigger("SitClap");
+
+			character.transform.rotation = anchor.transform.rotation;
+
+			isWalkingTowards = false;
+			sittingOn = true;
+		}
+	}
+
+	void AnimLerp()
+	{
+
+		if (!sittingOn) return;
+
+		if (Vector3.Distance(character.transform.position, anchor.transform.position) > 0.1f)
+		{
+
+			character.transform.rotation = Quaternion.Lerp(character.transform.rotation, anchor.transform.rotation, Time.deltaTime * lerpSpeed);
+			character.transform.position = Vector3.Lerp(character.transform.position, anchor.transform.position, Time.deltaTime * lerpSpeed);
+		}
+		else
+		{
+
+			character.transform.rotation = anchor.transform.rotation;
+			character.transform.position = anchor.transform.position;
+		}
+	}
 
 	public void ExecuteCommand(AICommand c)
 	{
@@ -311,7 +315,37 @@ public class Unit : MonoBehaviour
 				break;
 		}
 	}
-		
+
+	/// <summary>
+	/// Get out to the next Waypoint and wait!
+	/// </summary>
+	public void GoToExit()
+	{
+		state = UnitState.MoveToExit;
+		controlledBy = null;
+		navMeshAgent.SetDestination(waypoints[1].position);
+		// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
+		Debug.Log("Going  to exit, " + m_CurrentWaypointIndex);
+		navMeshAgent.isStopped = false;
+		sittingOn = false;
+		redirectedToLastWaypoint = true;
+		animator.SetBool("isWalking", true);
+	}
+
+	//move to a position and be idle
+	private void GoToAndSit(Vector3 location)
+	{
+		state = UnitState.MovingToSpotSit;
+		targetOfAttack = null;
+		isReady = true;
+
+		navMeshAgent.isStopped = false;
+		navMeshAgent.SetDestination(location);
+		animator.SetBool("isWalking", true);
+
+		Debug.Log("GoToAndSit called");
+	}
+
 	//move to a position and be idle
 	private void GoToAndIdle(Vector3 location)
 	{
@@ -530,6 +564,8 @@ public class Unit : MonoBehaviour
 		MovingToTarget,
 		MovingToSpotIdle,
 		MovingToSpotGuard,
+		MovingToSpotSit,
+		MoveToExit,
 		Dead,
 	}
 
