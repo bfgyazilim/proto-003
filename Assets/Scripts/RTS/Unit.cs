@@ -33,9 +33,10 @@ public class Unit : MonoBehaviour
 	public GameObject controlledBy;
 	bool isWalkingTowards = false;
 	bool sittingOn = false;
+	bool redirectedToLastWaypoint;
 	public GameObject character;
 	[SerializeField] float lerpSpeed = 0.5f;
-
+	public GameObject panel;
 
 	/// <summary>
 	/// 
@@ -70,8 +71,26 @@ public class Unit : MonoBehaviour
 	}
 
 	/// <summary>
-    /// 
-    /// </summary>
+	/// Get out to the next Waypoint and wait!
+	/// </summary>
+	public void GoToExit()
+    {
+		if (!redirectedToLastWaypoint)
+		{
+			controlledBy = null;
+			navMeshAgent.SetDestination(waypoints[1].position);
+			// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
+			Debug.Log("Going  to exit, " + m_CurrentWaypointIndex);
+			navMeshAgent.isStopped = false;
+			sittingOn = false;
+			redirectedToLastWaypoint = true;
+			animator.SetTrigger("Walking");
+		}
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
 	private void FixedUpdate()
 	{
 		AnimLerp();
@@ -115,12 +134,12 @@ public class Unit : MonoBehaviour
         {
 			if(controlledBy == null)
             {
-				if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+				if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && m_CurrentWaypointIndex != 1)
 				{
 					m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
 					navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
 					// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
-					Debug.Log("Control given to anchor");
+					Debug.Log("Control given to anchor " + m_CurrentWaypointIndex);
 					navMeshAgent.isStopped = true;
 					navMeshAgent.velocity = Vector3.zero;
 					controlledBy = anchor;			
@@ -259,6 +278,7 @@ public class Unit : MonoBehaviour
 		animator.SetFloat("Speed", navMeshAgentSpeed * .05f);
 	}
 	*/
+	
 
 	public void ExecuteCommand(AICommand c)
 	{
@@ -303,7 +323,7 @@ public class Unit : MonoBehaviour
 		navMeshAgent.SetDestination(location);
 
 		prepareLevelEnding = true;
-		Debug.Log("GoToAndIdle called from Timeline");
+		Debug.Log("GoToAndIdle called");
 	}
 
 	//move to a position and be guarding
