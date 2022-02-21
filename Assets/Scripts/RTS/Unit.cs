@@ -38,6 +38,9 @@ public class Unit : MonoBehaviour
 	[SerializeField] float lerpSpeed = 0.5f;
 	public GameObject panel;
 
+	// Events to notify other objects
+	public UnityEvent onProgressionStatusEvent;
+
 	/// <summary>
 	/// 
 	/// </summary>
@@ -95,6 +98,14 @@ public class Unit : MonoBehaviour
 
 		switch(state)
 		{
+			case UnitState.MoveToExit:
+				if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance + .1f)
+				{
+					Debug.Log("MoveToExit state in Update called");
+					GoToAndSit(waypoints[0].position);
+				}
+				break;
+
 			case UnitState.MovingToSpotSit:
 				if (controlledBy == null)
 				{
@@ -104,7 +115,7 @@ public class Unit : MonoBehaviour
 						Debug.Log("Control given to anchor " + m_CurrentWaypointIndex);
 						navMeshAgent.isStopped = true;
 						navMeshAgent.velocity = Vector3.zero;
-						controlledBy = anchor;
+						controlledBy = anchor;						
 					}
 				}
 				else
@@ -249,7 +260,7 @@ public class Unit : MonoBehaviour
 		character.transform.rotation = Quaternion.Slerp(character.transform.rotation, rot, 0.05f);
 		// character.transform.Translate(Vector3.forward * 0.01f);
 
-		Debug.Log(Vector3.Distance(character.transform.position, anchor.transform.position));
+		//Debug.Log(Vector3.Distance(character.transform.position, anchor.transform.position));
 		if (Vector3.Distance(character.transform.position, anchor.transform.position) < 0.8f)
 		{
 
@@ -262,6 +273,8 @@ public class Unit : MonoBehaviour
 
 			isWalkingTowards = false;
 			sittingOn = true;
+			// Sitting now, broadcast an event message, so that others can take actions accordingly!!!
+			onProgressionStatusEvent.Invoke();
 		}
 	}
 
@@ -323,7 +336,7 @@ public class Unit : MonoBehaviour
 	{
 		state = UnitState.MoveToExit;
 		controlledBy = null;
-		navMeshAgent.SetDestination(waypoints[1].position);
+		navMeshAgent.SetDestination(waypoints[2].position);
 		// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
 		Debug.Log("Going  to exit, " + m_CurrentWaypointIndex);
 		navMeshAgent.isStopped = false;
@@ -347,7 +360,7 @@ public class Unit : MonoBehaviour
 	}
 
 	//move to a position and be idle
-	private void GoToAndIdle(Vector3 location)
+	public void GoToAndIdle(Vector3 location)
 	{
 		state = UnitState.MovingToSpotIdle;
 		targetOfAttack = null;
@@ -355,9 +368,25 @@ public class Unit : MonoBehaviour
 
 		navMeshAgent.isStopped = false;
 		navMeshAgent.SetDestination(location);
-
-		prepareLevelEnding = true;
+		
 		Debug.Log("GoToAndIdle called");
+	}
+
+	//move to a position and be idle
+	public void GoToAndWaitThenGoToNext()
+	{
+		state = UnitState.MovingToSpotIdle;
+		targetOfAttack = null;
+		isReady = false;
+
+		navMeshAgent.isStopped = false;
+		sittingOn = false;
+		animator.SetBool("isWalking", true);
+
+		// Go to Desk
+		navMeshAgent.SetDestination(waypoints[1].position);
+
+		Debug.Log("GoToAndWaitThenGoToNext called");
 	}
 
 	//move to a position and be guarding
@@ -380,6 +409,9 @@ public class Unit : MonoBehaviour
 
 		navMeshAgent.isStopped = true;
 		navMeshAgent.velocity = Vector3.zero;
+
+		animator.SetBool("isWalking", false);
+		animator.SetBool("isIdle", true);
 	}
 
 	//stop but watch for enemies nearby
@@ -427,6 +459,15 @@ public class Unit : MonoBehaviour
 		{
 			Guard();
 		}
+	}
+
+	/// <summary>
+    /// Unit waits at the spot for the given time
+    /// </summary>
+    /// <returns></returns>
+	private IEnumerator WaitAtSpot()
+    {
+		yield return new WaitForSeconds(3f);
 	}
 
 	//the single blows

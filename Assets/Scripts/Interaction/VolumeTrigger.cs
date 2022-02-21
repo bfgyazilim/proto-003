@@ -17,19 +17,6 @@ public class VolumeTrigger : MonoBehaviour
     // for the response in their ways!!!
     public event Action<int> OnVolumeTrigger;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other)
     {
         //if (other.gameObject.tag == "Crate" && other.gameObject.name == "Player")
@@ -69,8 +56,6 @@ public class VolumeTrigger : MonoBehaviour
             Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "Player State: " + Player.instance.state);
         }
     }
-
-
 
     void OnTriggerExit(Collider other)
     {

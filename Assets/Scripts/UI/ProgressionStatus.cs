@@ -9,7 +9,7 @@ public class ProgressionStatus : MonoBehaviour
     public Image progressionImage;
     public Text timerObj;
     public float totalTime = 20;
-
+    private bool triggeredBefore;
     public UnityEvent onProgressionStatusEvent;
 
     // Start is called before the first frame update
@@ -31,6 +31,8 @@ public class ProgressionStatus : MonoBehaviour
         {
             timerObj.text = "0";
             onProgressionStatusEvent.Invoke();
+            totalTime = 20;
+            progressionImage.fillAmount = 1;
         }
     }
 }
