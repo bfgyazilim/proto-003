@@ -616,14 +616,14 @@ public class Player : MonoBehaviour
         // Get First Child (Handler), and Instantiate the new Crate in it as sub-object
         go = Instantiate(crate[index], transform.GetChild(0), false);
 
-        float newY = childCount * offset;
+        float newY = 1.67f + (childCount * offset);
 
         if (hit)
         {
             hitCount++;
             hit = false;
         }
-        go.transform.localPosition = new Vector3(0, newY + (hitCount * offset), 0);
+        go.transform.localPosition = new Vector3(-0.89f, newY + (hitCount * offset), 0);
         //Debug.Log(go.transform.localPosition);        
     }
 
@@ -655,17 +655,27 @@ public class Player : MonoBehaviour
         UIManager.instance.DecreasePlanks(count);
     }
 
+    /// <summary>
+    /// Detach pickup object from the player to the given location in the panel transform in the inspector
+    /// </summary>
+    /// <param name="t"></param>
     void DestackAnimation(Transform t)
     {
         Sequence spriteAnimation;
 
         spriteAnimation = DOTween.Sequence();
-        
+
+        spriteAnimation.Append(t.DOMove(panel.position, 0.5f)
+            .SetEase(Ease.OutSine));            
+
+        /*
         spriteAnimation.Append(t.DOMove(panel.position, 0.5f)
             .SetEase(Ease.OutSine))
             .OnComplete(() => Destroy(t.gameObject));
-
+        */
     }
+
+
 
     ///// <summary>
     ///// Destack from player backpack one by one
