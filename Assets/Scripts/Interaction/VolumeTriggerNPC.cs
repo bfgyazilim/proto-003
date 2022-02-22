@@ -20,7 +20,7 @@ public class VolumeTriggerNPC : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //if (other.gameObject.tag == "Crate" && other.gameObject.name == "Player")
-        if (other.gameObject.name == "Npc")
+        if (other.gameObject.tag == "Npc")
         {
             // Invoke for editor setup of gameobjects on and off             
             //OnVolumeTrigger += UIManager.instance.inGameView.ShowFeedbackTextGeneric;
@@ -32,11 +32,11 @@ public class VolumeTriggerNPC : MonoBehaviour
             OnVolumeEnterEvent.Invoke();
 
             // If you have enough resources for this mission
-            if(GameManager.instance.GetMissionStatus())
-            {
-                // Test for Mission08 Camera Offset - From GameManager
-                //GameManager.instance.OffsetCamera();
-            }
+            //if(GameManager.instance.GetMissionStatus())
+            //{
+            //    // Test for Mission08 Camera Offset - From GameManager
+            //    //GameManager.instance.OffsetCamera();
+            //}
             Debug.Log("VolumeTrigger collided with: " + other.gameObject.name + "NPC State: ");
         }
     }
@@ -44,7 +44,7 @@ public class VolumeTriggerNPC : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         //if (other.gameObject.tag == "Crate" && other.gameObject.name == "Player")
-        if (other.gameObject.name == "Npc")
+        if (other.gameObject.tag == "Npc")
         {
             //// UI Manager registers to the OnDie event via inGameView Canvas to
             //// show feedback on screen...

@@ -6,10 +6,15 @@ public class SpawnObject : MonoBehaviour
 {
     public GameObject spawnObject;
 
+    [SerializeField]
+    int objectCount = 5;
+
     // Start is called before the first frame update
     void OnEnable()
     {
-        Instantiate(spawnObject, transform.position, transform.rotation);     
-    }
-    
+        for (int i = 0; i < objectCount; i++)
+        {
+            Instantiate(spawnObject, transform.position, transform.rotation);
+        }
+    }    
 }

@@ -40,6 +40,7 @@ public class Unit : MonoBehaviour
 
 	// Events to notify other objects
 	public UnityEvent onProgressionStatusEvent;
+	private bool hasItem;
 
 	/// <summary>
 	/// 
@@ -123,6 +124,15 @@ public class Unit : MonoBehaviour
 					Debug.Log("Control in anchor");
 					character.transform.rotation = anchor.transform.rotation;
 					AutoWalkTowards();
+				}
+				break;
+
+			case UnitState.SittingAndWaiting:
+				if(hasItem)
+                {
+					state = UnitState.SittingAndWorking;
+					// Sitting now, broadcast an event message, so that others can take actions accordingly!!!
+					onProgressionStatusEvent.Invoke();
 				}
 				break;
 
@@ -274,9 +284,11 @@ public class Unit : MonoBehaviour
 			isWalkingTowards = false;
 			sittingOn = true;
 			// Sitting now, broadcast an event message, so that others can take actions accordingly!!!
-			onProgressionStatusEvent.Invoke();
+			//onProgressionStatusEvent.Invoke();
+			state = UnitState.SittingAndWaiting;
 		}
 	}
+	
 
 	void AnimLerp()
 	{
@@ -388,6 +400,25 @@ public class Unit : MonoBehaviour
 
 		Debug.Log("GoToAndWaitThenGoToNext called");
 	}
+
+	/// <summary>
+    /// Change the Unit state from the inspector
+    /// </summary>
+    /// <param name="newState"></param>
+	public void ChangeState(UnitState newState)
+    {
+		state = newState;
+    }
+
+	/// <summary>
+    /// Set the unit If has a new item associated
+    /// </summary>
+    /// <param name="hasSomeItem"></param>
+	public void SetHasItem(bool hasSomeItem)
+    {
+		hasItem = hasSomeItem;
+		state = UnitState.SittingAndWaiting;
+    }
 
 	//move to a position and be guarding
 	private void GoToAndGuard(Vector3 location)
@@ -607,6 +638,8 @@ public class Unit : MonoBehaviour
 		MovingToSpotGuard,
 		MovingToSpotSit,
 		MoveToExit,
+		SittingAndWaiting,
+		SittingAndWorking,
 		Dead,
 	}
 
