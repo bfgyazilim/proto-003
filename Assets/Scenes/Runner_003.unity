@@ -2420,7 +2420,7 @@ Transform:
   m_LocalScale: {x: 0.5000001, y: 0.304205, z: 0.29374006}
   m_Children: []
   m_Father: {fileID: 1606894418}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &260074040
 BoxCollider:
@@ -3251,6 +3251,36 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: f631d4d326a4a4c3c935841f1f2889ff, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e8be5922cb21e342941785c27bbd38d, type: 3}
+--- !u!1 &369140940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369140941}
+  m_Layer: 0
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &369140941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369140940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1606894418}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &377200280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14051,7 +14081,7 @@ PrefabInstance:
       objectReference: {fileID: 994588266}
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -14068,7 +14098,7 @@ PrefabInstance:
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 369140941}
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -14083,7 +14113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
+      value: DetachChildren
       objectReference: {fileID: 0}
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -14091,7 +14121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -14107,7 +14137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 879383907, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1458381815, guid: 3a2f7e013a36740b8a092e814f0ba09c, type: 3}
       propertyPath: panel
@@ -16791,6 +16821,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1159475011}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &994711049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 994711050}
+  m_Layer: 0
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &994711050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994711049}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.1656423, y: 0, z: 2.7538414}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 877843847}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &996567766
 PrefabInstance:
@@ -29890,11 +29950,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 684002311}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: HandleDeStacking
-        m_Mode: 3
+        m_MethodName: HandleStackingToOther
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1543628443}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -31632,6 +31692,12 @@ Transform:
   m_Father: {fileID: 1458086972}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1543628443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1844930292423774, guid: 991e8973513e2ad408232c1afeb3a9df,
+    type: 3}
+  m_PrefabInstance: {fileID: 1606894417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1544415538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42269,7 +42335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1606894418}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1943784984
 MonoBehaviour:
@@ -44897,6 +44963,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
+      propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 613851796}
@@ -44913,6 +44983,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 621855284188060506}
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
+      propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 369140941}
+    - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -44922,6 +44996,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
+      propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
@@ -44941,6 +45019,10 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
+      propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: set_parent
+      objectReference: {fileID: 0}
+    - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
@@ -44957,11 +45039,19 @@ PrefabInstance:
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
+      propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
+      propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
@@ -44975,6 +45065,10 @@ PrefabInstance:
     - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 718616669, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
+      propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2021716846, guid: afd08d920ad204378b0e90c0833af4d9, type: 3}
       propertyPath: onProgressionStatusEvent.m_PersistentCalls.m_Calls.Array.size

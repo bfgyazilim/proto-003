@@ -7,6 +7,7 @@ public class Collectible : MonoBehaviour
     // Collector and other classes listen to this FX, and UI
     // for the response in their ways!!!
     public event Action<Collectible> OnPickup;
+    public event Action<Collectible> OnDrop;
 
     // Random capital letter of a city in the world
     //public string capitalText;
@@ -33,7 +34,6 @@ public class Collectible : MonoBehaviour
             {            
                 OnPickup += Player.instance.HandleStacking;
             }
-
 
             // Trigger OnPickup Event
             OnPickup?.Invoke(this);

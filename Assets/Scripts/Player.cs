@@ -37,8 +37,6 @@ public class Player : MonoBehaviour
     public float playerSpeed = 3.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f * 2f;
-
-
     public bool playerWin;
     public bool levelFailed, levelFinished, levelStarted;
 
@@ -653,6 +651,30 @@ public class Player : MonoBehaviour
 
         // Decrease the resources from UI 
         UIManager.instance.DecreasePlanks(count);
+    }
+
+    /// <summary>
+    /// Destack from player backpack one by how many in a loop
+    /// </summary>
+    public void HandleStackingToOther(GameObject obj)
+    {
+
+        int childCount = transform.GetChild(0).childCount;
+
+        if (childCount != 0)
+        {
+            if (transform.GetChild(0).GetChild(0) != null)
+            {
+                Transform go = transform.GetChild(0).GetChild(childCount - 1);
+                //go.parent = null;
+                go.parent = obj.transform.GetChild(0);
+                // Tween here to ground
+                DestackAnimation(go);
+
+                Debug.Log("Detached child: " + go.gameObject.name);
+                //go.gameObject.SetActive(false);                    
+            }
+        }       
     }
 
     /// <summary>
