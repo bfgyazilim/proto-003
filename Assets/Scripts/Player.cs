@@ -654,7 +654,8 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// Destack from player backpack one by how many in a loop
+    /// Give the last item to the other GameObject
+    /// With DoTween Animation (DestackAnimation)
     /// </summary>
     public void HandleStackingToOther(GameObject obj)
     {

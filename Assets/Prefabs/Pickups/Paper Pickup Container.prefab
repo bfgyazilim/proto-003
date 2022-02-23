@@ -86,9 +86,7 @@ GameObject:
   - component: {fileID: 2661551708722703391}
   - component: {fileID: 4408041980408108088}
   - component: {fileID: 6076447032162618912}
-  - component: {fileID: 8783350754373332009}
   - component: {fileID: 7241876210698479758}
-  - component: {fileID: 2719260540638485928}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Crate
@@ -160,19 +158,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8783350754373332009
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8396825650835212671}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7241876210698479758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,15 +171,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 20
---- !u!114 &2719260540638485928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8396825650835212671}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9df9cd16b8b4a9491f3f39ce6552a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
