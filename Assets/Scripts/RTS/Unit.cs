@@ -119,6 +119,10 @@ public class Unit : MonoBehaviour
 						navMeshAgent.velocity = Vector3.zero;
 						controlledBy = anchor;						
 					}
+					else
+                    {
+						Debug.Log("Still moving to spot");
+                    }
 				}
 				else
 				{
@@ -366,7 +370,8 @@ public class Unit : MonoBehaviour
 
 		navMeshAgent.isStopped = false;
 		sittingOn = false;
-		
+		hasItem = false;
+
 		animator.SetBool("isWalkingArmsUp", true);
 		animator.SetBool("isWalking", false);
 		animator.SetBool("isSittingAndWorking", false);
@@ -392,8 +397,9 @@ public class Unit : MonoBehaviour
     /// <param name="hasSomeItem"></param>
 	public void SetHasItem(bool hasSomeItem)
     {
+		// If there is NOT already an item that is processed bu the Unit, set to processing.
+		if(!hasItem)
 		hasItem = hasSomeItem;
-		state = UnitState.SittingAndWaiting;
     }
 
 	//move to a position and be guarding

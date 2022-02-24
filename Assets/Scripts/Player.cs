@@ -699,10 +699,10 @@ public class Player : MonoBehaviour
     /// </summary>
     public void HandleStackingToOther(GameObject obj)
     {
-
         int childCount = transform.GetChild(0).childCount;
 
-        if (childCount != 0)
+        // If other GameObject does NOT have any items in Holder, give-em (else there is in processing, wait to be zeroed!!!)
+        if (childCount != 0 && obj.transform.GetChild(0).childCount == 0)
         {
             if (transform.GetChild(0).GetChild(0) != null)
             {

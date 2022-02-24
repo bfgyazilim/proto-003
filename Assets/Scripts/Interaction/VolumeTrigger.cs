@@ -34,18 +34,12 @@ public class VolumeTrigger : MonoBehaviour
             // If you have enough resources for this mission
             if(GameManager.instance.GetMissionStatus())
             {
-                if(missionType == GameManager.MissionType.MISSION3)
+                if(missionType == GameManager.MissionType.MISSION0)
                 {
                     OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
                     OnVolumeTrigger?.Invoke((int)missionType);
-                    float unitOffsetX = 0, unitOffsetY = -0.5f, unitOffsetZ = 3;
-                    WorldController.instance.GenerateBlocks(transform.position.x + unitOffsetX, transform.position.y + unitOffsetY, transform.position.z + unitOffsetZ);
-                }
-                if (missionType == GameManager.MissionType.MISSION5 || missionType == GameManager.MissionType.MISSION9)
-                {
-                    // Bridge mission
-                    OnVolumeTrigger += GameManager.instance.HandleMissionProgress;
-                    OnVolumeTrigger?.Invoke((int)missionType);
+                    //float unitOffsetX = 0, unitOffsetY = -0.5f, unitOffsetZ = 3;
+                    //WorldController.instance.GenerateBlocks(transform.position.x + unitOffsetX, transform.position.y + unitOffsetY, transform.position.z + unitOffsetZ);
                 }
                     //Player.instance.ChangePlayerState(state);
                     Player.instance.ChangePlayerState(Player.PlayerStateType.JOGBOX);
