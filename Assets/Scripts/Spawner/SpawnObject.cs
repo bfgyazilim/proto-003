@@ -9,12 +9,16 @@ public class SpawnObject : MonoBehaviour
     [SerializeField]
     int objectCount = 5;
 
+    [SerializeField]
+    float destroyAfterInterval = 0.2f;
+
     // Start is called before the first frame update
     void OnEnable()
     {
         for (int i = 0; i < objectCount; i++)
         {
-            Instantiate(spawnObject, transform.position, transform.rotation);
+           GameObject go = Instantiate(spawnObject, transform.position, transform.rotation);
+           Destroy(go, destroyAfterInterval);
         }
     }    
 }

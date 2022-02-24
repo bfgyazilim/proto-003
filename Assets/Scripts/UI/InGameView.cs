@@ -90,6 +90,18 @@ public class InGameView : MonoBehaviour
     [Range(1, 10)]
     private float missionDelayAmount;
 
+    [Header("Panel Variables")]
+    // UI Related, Money earning variables
+    [SerializeField]
+    GameObject banknoteUI;
+
+    [SerializeField]
+    GameObject plankUI;
+
+    [SerializeField]
+    GameObject jewelUI;
+    [SerializeField]
+    GameObject panelB, panelP, panelJ;
 
     // Start is called before the first frame update
     void Start()
@@ -288,6 +300,64 @@ public class InGameView : MonoBehaviour
         Debug.Log("ShowFeedbackTextForCollectible called");
         AudioManager.instance.PlaySFX(0);
         StartCoroutine(MoveTextInTime());
+    }
+
+    /// <summary>
+    /// Method for generating the UI version of the collectibles, and moving them to UI Panel with DoTween Animation
+    /// </summary>
+    public void ShowCollectingToUIAnimation(int index, Vector3 position)
+    {
+        AudioManager.instance.PlaySFX(0);
+
+        // Banknote
+        if(index == 0)
+        {
+            // Destroy the banknote, and instantiate a 2D UI icon version of it at the player's transform
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(position), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 20, position.y, position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x - 60, position.y - 50, position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 30, position.y + 50, position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 40, position.y, position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x - 40, position.y - 80, position.z), panelB.transform.rotation, panelB.transform);
+            Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 60, position.y + 80, position.z), panelB.transform.rotation, panelB.transform);
+        }
+        else if(index == 1)
+        {
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(position), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 20, position.y, position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x - 60, position.y - 50, position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 30, position.y + 50, position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 40, position.y, position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x - 40, position.y - 80, position.z), panelP.transform.rotation, panelP.transform);
+            Instantiate(plankUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 60, position.y + 80, position.z), panelP.transform.rotation, panelP.transform);
+        }
+        else if(index == 2)
+        {
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(position), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 20, position.y, position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x - 60, position.y - 50, position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 30, position.y + 50, position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 40, position.y, position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x - 40, position.y - 80, position.z), panelJ.transform.rotation, panelJ.transform);
+            Instantiate(jewelUI, Camera.main.WorldToScreenPoint(position) + new Vector3(position.x + 60, position.y + 80, position.z), panelJ.transform.rotation, panelB.transform);
+        }
+    }
+
+    /// <summary>
+    /// Method for generating the UI version of the collectibles, and moving them to UI Panel with DoTween Animation
+    /// </summary>
+    public void ShowCollectingBanknoteToUIAnimation(Transform t)
+    {
+        AudioManager.instance.PlaySFX(0);
+        // Banknote
+        // Destroy the banknote, and instantiate a 2D UI icon version of it at the player's transform
+        Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(t.position), panelB.transform.rotation, panelB.transform);
+        Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(t.position) + new Vector3(t.position.x + 20, t.position.y, t.position.z), panelB.transform.rotation, panelB.transform);
+        Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(t.position) + new Vector3(t.position.x - 60, t.position.y - 50, t.position.z), panelB.transform.rotation, panelB.transform);
+        Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(t.position) + new Vector3(t.position.x + 30, t.position.y + 50, t.position.z), panelB.transform.rotation, panelB.transform);
+        Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(t.position) + new Vector3(t.position.x + 40, t.position.y, t.position.z), panelB.transform.rotation, panelB.transform);
+        Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(t.position) + new Vector3(t.position.x - 40, t.position.y - 80, t.position.z), panelB.transform.rotation, panelB.transform);
+        Instantiate(banknoteUI, Camera.main.WorldToScreenPoint(t.position) + new Vector3(t.position.x + 60, t.position.y + 80, t.position.z), panelB.transform.rotation, panelB.transform);
     }
 
     /// <summary>
