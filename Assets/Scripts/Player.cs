@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
     GameObject go;
     [SerializeField]
     float offset;
+    bool haveItems;
 
     // Text stacking variables
     string temp;
@@ -177,6 +178,7 @@ public class Player : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
+        // If there is controller Input, start moving, else IDLE
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
@@ -215,13 +217,32 @@ public class Player : MonoBehaviour
         {
             case PlayerStateType.IDLE:
                 state = PlayerStateType.IDLE;
-                anim.SetBool("isWalking", false);
+                if (GetItemStatus())
+                {
+                    anim.SetBool("isIdle", false);
+                    anim.SetBool("isIdleArmsUp", true);
+                    anim.SetBool("isWalkingArmsUp", false);
+                }
+                else
+                {
+                    anim.SetBool("isIdleArmsUp", false);
+                    anim.SetBool("isIdle", true);
+                    anim.SetBool("isWalking", false);
+                }
                 break;
 
             case PlayerStateType.WALKING:
                 state = PlayerStateType.WALKING;
-                anim.SetBool("isWalking", true);
-                anim.SetBool("JogBox", false);
+                if(GetItemStatus())
+                {
+                    anim.SetBool("isWalkingArmsUp", true);
+                    anim.SetBool("isWalking", false);
+                }
+                else
+                {
+                    anim.SetBool("isWalking", true);
+                    anim.SetBool("isWalkingArmsUp", false);
+                }
                 break;
 
             case PlayerStateType.JOGBOX:
@@ -587,6 +608,25 @@ public class Player : MonoBehaviour
         transform.Rotate(new Vector3(90, 0, 30));
 
     }
+
+    /// <summary>
+    /// Check If there are items attached to the Object in (Holder)
+    /// </summary>
+    private bool GetItemStatus()
+    {
+        int childCount = transform.GetChild(0).childCount;
+        if(childCount > 0)
+        {
+            haveItems = true;
+        }
+        else
+        {
+            haveItems = false;
+        }
+
+        return haveItems;
+    }
+
     /// <summary>
     /// Handle the pickup logic in player
     /// </summary>

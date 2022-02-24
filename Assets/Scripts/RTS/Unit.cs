@@ -36,11 +36,12 @@ public class Unit : MonoBehaviour
 	bool redirectedToLastWaypoint;
 	public GameObject character;
 	[SerializeField] float lerpSpeed = 0.5f;
-	public GameObject panel;
+	//public GameObject panel;
 
 	// Events to notify other objects
 	public UnityEvent onProgressionStatusEvent;
 	private bool hasItem;
+	bool haveItems;
 
 	/// <summary>
 	/// 
@@ -136,10 +137,23 @@ public class Unit : MonoBehaviour
 				}
 				break;
 
+			case UnitState.SittingAndWorking:
+				animator.SetBool("isSittingAndThinking", false);
+				animator.SetBool("isSittingAndWorking", true);
+				break;
+
 			case UnitState.MovingToSpotIdle:
 				if(navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance + .1f)
 				{
 					Stop();
+				}
+				break;
+
+			case UnitState.MovingToSpotIdleArmsUp:
+				if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance + .1f)
+				{
+					StopArmsUp();
+
 				}
 				break;
 
@@ -201,66 +215,7 @@ public class Unit : MonoBehaviour
 		//float navMeshAgentSpeed = navMeshAgent.velocity.magnitude;
 		//animator.SetFloat("Speed", navMeshAgentSpeed * .05f);
 	}
-	/*
-	/// <summary>
-	/// 
-	/// </summary>
-	// Update is called once per frame
-	void Update()
-	{
-		// If reached the level end point, stop the prisoner...
-		if (prepareLevelEnding)
-		{
-			if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance + 1f)
-			{
-				//navMeshAgent.isStopped = true;
 
-				// edit
-				targetOfAttack = null;
-				isReady = false;
-
-				navMeshAgent.isStopped = true;
-				navMeshAgent.velocity = Vector3.zero;
-				// end edit
-
-
-				animator.SetBool("isWalking", false);
-				animator.SetTrigger("Chicken");
-				//Debug.Log("SetTrigger - Chicken called on Boy1");
-				prepareLevelEnding = false;
-			}
-			else
-			{
-				//Debug.Log("SetTrigger - Dance NOT called on Boy1");
-
-				//navMeshAgent.speed += .5f;
-			}
-		}
-		else
-        {
-			if(controlledBy == null)
-            {
-				if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance && m_CurrentWaypointIndex != 1)
-				{
-					m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
-					navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
-					// So close to walk in, give management of further adjusting (Lerp) position and rotation to the current Anchor point manually!
-					Debug.Log("Control given to anchor " + m_CurrentWaypointIndex);
-					navMeshAgent.isStopped = true;
-					navMeshAgent.velocity = Vector3.zero;
-					controlledBy = anchor;			
-				}
-            }
-			else
-            {
-				Debug.Log("Control in anchor");
-				character.transform.rotation = anchor.transform.rotation;
-				AutoWalkTowards();
-				//animator.SetTrigger("Walking");
-			}
-		}
-	}
-	*/
 	private void AutoWalkTowards()
 	{
 
@@ -277,7 +232,7 @@ public class Unit : MonoBehaviour
 			print("Less than 0.6f");
 			//animator.SetBool("isSitting", true);
 			animator.SetBool("isWalking", false);
-			animator.SetTrigger("SitClap");
+			animator.SetBool("isSittingAndThinking", true);
 
 			character.transform.rotation = anchor.transform.rotation;
 
@@ -342,6 +297,23 @@ public class Unit : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Check If there are items attached to the Object in (Holder)
+	/// </summary>
+	private bool GetItemStatus()
+	{
+		int childCount = transform.GetChild(0).childCount;
+		if (childCount > 0)
+		{
+			haveItems = true;
+		}
+		else
+		{
+			haveItems = false;
+		}
+
+		return haveItems;
+	}
+	/// <summary>
 	/// Get out to the next Waypoint and wait!
 	/// </summary>
 	public void GoToExit()
@@ -355,6 +327,7 @@ public class Unit : MonoBehaviour
 		sittingOn = false;
 		redirectedToLastWaypoint = true;
 		animator.SetBool("isWalking", true);
+		animator.SetBool("isIdleArmsUp", false);
 	}
 
 	//move to a position and be idle
@@ -387,13 +360,16 @@ public class Unit : MonoBehaviour
 	//move to a position and be idle
 	public void GoToAndWaitThenGoToNext()
 	{
-		state = UnitState.MovingToSpotIdle;
+		state = UnitState.MovingToSpotIdleArmsUp;
 		targetOfAttack = null;
 		isReady = false;
 
 		navMeshAgent.isStopped = false;
 		sittingOn = false;
-		animator.SetBool("isWalking", true);
+		
+		animator.SetBool("isWalkingArmsUp", true);
+		animator.SetBool("isWalking", false);
+		animator.SetBool("isSittingAndWorking", false);
 
 		// Go to Desk
 		navMeshAgent.SetDestination(waypoints[1].position);
@@ -442,7 +418,23 @@ public class Unit : MonoBehaviour
 		navMeshAgent.velocity = Vector3.zero;
 
 		animator.SetBool("isWalking", false);
+		animator.SetBool("isWalkingArmsUp", false);
 		animator.SetBool("isIdle", true);
+	}
+
+	//stop and stay Idle Arms Up
+	private void StopArmsUp()
+	{
+		state = UnitState.Idle;
+		targetOfAttack = null;
+		isReady = false;
+
+		navMeshAgent.isStopped = true;
+		navMeshAgent.velocity = Vector3.zero;
+
+		animator.SetBool("isWalking", false);
+		animator.SetBool("isWalkingArmsUp", false);
+		animator.SetBool("isIdleArmsUp", true);
 	}
 
 	//stop but watch for enemies nearby
@@ -635,6 +627,7 @@ public class Unit : MonoBehaviour
 		Attacking,
 		MovingToTarget,
 		MovingToSpotIdle,
+		MovingToSpotIdleArmsUp,
 		MovingToSpotGuard,
 		MovingToSpotSit,
 		MoveToExit,
