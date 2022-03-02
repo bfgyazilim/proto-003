@@ -36,10 +36,15 @@ namespace RoboRyanTron.Unite2017.Variables
         public FloatVariable MoveRate;
         public MoveAxis Horizontal = new MoveAxis(KeyCode.D, KeyCode.A);
         public MoveAxis Vertical = new MoveAxis(KeyCode.W, KeyCode.S);
+        public bool XZAxis;
 
         private void Update()
         {
-            Vector3 moveNormal = new Vector3(Horizontal, Vertical, 0.0f).normalized;
+            Vector3 moveNormal;
+            if(!XZAxis)
+                moveNormal = new Vector3(Horizontal, Vertical, 0.0f).normalized;
+            else
+                moveNormal = new Vector3(Horizontal, 0.0f, Vertical).normalized;
 
             transform.position += moveNormal*Time.deltaTime*MoveRate.Value;
         }
