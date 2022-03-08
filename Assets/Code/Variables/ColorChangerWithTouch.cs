@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RoboRyanTron.Unite2017.Variables;
 
 public class ColorChangerWithTouch : MonoBehaviour
 {
+    public StringVariable ThingName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,9 @@ public class ColorChangerWithTouch : MonoBehaviour
                 {
                     Color newColor = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
                     hit.collider.GetComponent<MeshRenderer>().material.color = newColor;
+                    // Store the name of the sekected object to the SO Variable as a StringVariable
+                    ThingName.Value = hit.collider.gameObject.name;
+                    Debug.Log("Changed color" + hit.collider.gameObject.name);
                 }
             }
         }
