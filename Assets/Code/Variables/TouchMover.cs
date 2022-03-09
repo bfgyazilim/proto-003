@@ -23,7 +23,7 @@ public class TouchMover : MonoBehaviour
     {
         if(direction.Value == "Up")
         {
-            targetPos += Vector3.up;
+            targetPos += Vector3.forward;
         }
         else if(direction.Value == "Left")
         {
@@ -35,8 +35,12 @@ public class TouchMover : MonoBehaviour
         }
         else if (direction.Value == "Down")
         {
-            targetPos += Vector3.down;
+            targetPos += Vector3.back;
         }
+
+        // Turn face to the target position
+        Debug.DrawLine(transform.position, targetPos);
+        transform.forward = Vector3.Normalize(targetPos - transform.position);
     }
 
     private void Update()
