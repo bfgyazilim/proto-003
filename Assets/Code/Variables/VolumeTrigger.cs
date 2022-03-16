@@ -12,13 +12,12 @@ namespace RoboRyanTron.Unite2017.Variables
 {
     public class VolumeTrigger : MonoBehaviour
     {
-        public AudioSource AudioSource;
-
         public UnityEvent TriggerEvent;
 
         private void OnTriggerEnter(Collider other)
         {
             TriggerEvent.Invoke();
+            Debug.Log("Volume Triggered");
         }
     }
 }
