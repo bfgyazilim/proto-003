@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Variables;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneCompletion : MonoBehaviour
@@ -16,6 +17,9 @@ public class SceneCompletion : MonoBehaviour
     public FloatReference ThreeStarScore;
 
     public Button nextButton;
+
+    public UnityEvent OnSceneCompleteEnabled;
+
 
     [SerializeField]
     Image starImage0, starImage1, starImage2;
@@ -41,6 +45,7 @@ public class SceneCompletion : MonoBehaviour
     public void CompleteLevel(float score)
     {
         panel.SetActive(true);
+        OnSceneCompleteEnabled.Invoke();
 
         if(score >= ThreeStarScore.Value)
         {
@@ -77,6 +82,7 @@ public class SceneCompletion : MonoBehaviour
     public void LoadLevel()
     {
         CurrentLevel.Value += 1;
+        Debug.Log("Load Level " + CurrentLevel.Value);
         SceneManager.LoadScene((int)CurrentLevel.Value);
     }
 
