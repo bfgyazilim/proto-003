@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Variables;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SceneCompletion : MonoBehaviour
 {
     public GameObject panel;
     public FloatVariable EarnedStars;
-    public FloatVariable Cash;
-
+    public FloatVariable LevelScore, Score;
+    public FloatVariable CurrentLevel;
     public FloatReference OneStarScore;
     public FloatReference TwoStarScore;
     public FloatReference ThreeStarScore;
+
+    public Button nextButton;
 
     [SerializeField]
     Image starImage0, starImage1, starImage2;
@@ -28,12 +31,11 @@ public class SceneCompletion : MonoBehaviour
     {
         
     }
-    public void CheckCash()
+    public void CheckLevelScore()
     {
-        if(Cash.Value > 10)
-        {
-            CompleteLevel(Cash.Value);
-        }
+        LevelScore.Value += 1;
+        if(LevelScore.Value > 10)
+        CompleteLevel(LevelScore.Value);
     }
 
     public void CompleteLevel(float score)
@@ -42,18 +44,46 @@ public class SceneCompletion : MonoBehaviour
 
         if(score >= ThreeStarScore.Value)
         {
-            // Enable StarImage0
+            // Enable All 3 Stars
             starImage2.gameObject.SetActive(true);
+            starImage1.gameObject.SetActive(true);
+            starImage0.gameObject.SetActive(true);
+            // Increment Level
+            CurrentLevel.Value += 1;
+            LevelScore.Value = 0;
+            // Activate Next button (we passed the level!!! wow aha!)
+            nextButton.gameObject.SetActive(true);
         }
         else if (score >= TwoStarScore.Value)
         {
             // Enable StarImage0
             starImage1.gameObject.SetActive(true);
+            starImage0.gameObject.SetActive(true);
         }
         if (score >= OneStarScore.Value)
         {
             // Enable StarImage0
             starImage0.gameObject.SetActive(true);
         }
+        else
+        {
+            // kick ass! you succeed
+            starImage2.gameObject.SetActive(false);
+            starImage1.gameObject.SetActive(false);
+            starImage0.gameObject.SetActive(false);
+        }
     }
+
+    public void LoadLevel()
+    {
+        CurrentLevel.Value += 1;
+        SceneManager.LoadScene((int)CurrentLevel.Value);
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    }
+
+
 }
