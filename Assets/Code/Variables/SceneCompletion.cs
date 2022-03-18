@@ -81,7 +81,6 @@ public class SceneCompletion : MonoBehaviour
 
     public void LoadLevel()
     {
-        CurrentLevel.Value += 1;
         Debug.Log("Load Level " + CurrentLevel.Value);
         SceneManager.LoadScene((int)CurrentLevel.Value);
     }
