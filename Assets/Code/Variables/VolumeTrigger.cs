@@ -16,8 +16,11 @@ namespace RoboRyanTron.Unite2017.Variables
 
         private void OnTriggerEnter(Collider other)
         {
-            TriggerEvent.Invoke();
-            Debug.Log("Volume Triggered");
+            if (other.tag == "Player")
+            {
+                TriggerEvent.Invoke();
+                Debug.Log("Volume Triggered");
+            }
         }
     }
 }
