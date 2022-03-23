@@ -23,8 +23,6 @@ public class Break : MonoBehaviour
 					hit.GetComponent<Rigidbody>().AddExplosionForce(power*collision.relativeVelocity.magnitude, explosionPos, radius, upwards);
 				}
 			}
-			// Glass break sound
-			AudioManager.instance.PlaySFX(6);
 		}
 	}
 }
