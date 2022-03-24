@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Break : MonoBehaviour 
 {
 	public Transform brokenObject;
 	public float magnitudeCol, radius, power, upwards;
+	public UnityEvent OnBreakEvent;
 
 	void OnCollisionEnter(Collision collision)
 	{
@@ -23,6 +25,8 @@ public class Break : MonoBehaviour
 					hit.GetComponent<Rigidbody>().AddExplosionForce(power*collision.relativeVelocity.magnitude, explosionPos, radius, upwards);
 				}
 			}
+
+			OnBreakEvent.Invoke();
 		}
 	}
 }

@@ -38,7 +38,7 @@ public class SceneCompletion : MonoBehaviour
     public void CheckLevelScore()
     {
         LevelScore.Value += 1;
-        if(LevelScore.Value > 10)
+        //if(LevelScore.Value > 10)
         CompleteLevel(LevelScore.Value);
     }
 
