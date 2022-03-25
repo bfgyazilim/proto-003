@@ -82,7 +82,14 @@ public class SceneCompletion : MonoBehaviour
     public void LoadLevel()
     {
         Debug.Log("Load Level " + CurrentLevel.Value);
-        SceneManager.LoadScene((int)CurrentLevel.Value);
+        if (CurrentLevel.Value  < 9)
+        {
+            SceneManager.LoadScene((int)CurrentLevel.Value);
+        }
+        else
+        {
+            SceneManager.LoadScene(Random.Range(0, 9));
+        }
     }
 
     public void ReloadLevel()
