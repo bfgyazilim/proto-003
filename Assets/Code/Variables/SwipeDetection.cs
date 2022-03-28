@@ -28,25 +28,25 @@ public class SwipeDetection : MonoBehaviour
         {
             if(Input.touches[0].position.y >= startPos.y + pixelDistToDetect)
             {
-                Debug.Log("Swipe up");
+                //Debug.Log("Swipe up");
                 SwipeDirection.Value = "Up";
                 SwipeUpEvent.Invoke();
             }
             else if (Input.touches[0].position.y <= startPos.y - pixelDistToDetect)
             {
-                Debug.Log("Swipe down");
+                //Debug.Log("Swipe down");
                 SwipeDirection.Value = "Down";
                 SwipeDownEvent.Invoke();
             }
             else if(Input.touches[0].position.x <= startPos.x - pixelDistToDetect)
             {
-                Debug.Log("Swipe left");
+                //Debug.Log("Swipe left");
                 SwipeDirection.Value = "Left";
                 SwipeLeftEvent.Invoke();
             }
             else if (Input.touches[0].position.x >= startPos.x + pixelDistToDetect)
             {
-                Debug.Log("Swipe right");
+                //Debug.Log("Swipe right");
                 SwipeDirection.Value = "Right";
                 SwipeRightEvent.Invoke();
             }
@@ -54,11 +54,10 @@ public class SwipeDetection : MonoBehaviour
 
         if(fingerDown && Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)
         {
-            Debug.Log("Swipe ended");
+            //Debug.Log("Swipe ended");
             fingerDown = false;
             SwipeEndedEvent.Invoke();
             SwipeDirection.Value = "none";
         }
     }
-
 }
