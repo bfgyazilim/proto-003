@@ -82,7 +82,7 @@ public class SceneCompletion : MonoBehaviour
     public void LoadLevel()
     {
         Debug.Log("Load Level " + CurrentLevel.Value);
-        if (CurrentLevel.Value  < 9)
+        if (CurrentLevel.Value  < 11)
         {
             SceneManager.LoadScene((int)CurrentLevel.Value);
         }
