@@ -18,6 +18,48 @@ public class SwipeDetection : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {            
+            fingerDown = true;
+        }
+
+        if (fingerDown)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                //Debug.Log("Swipe up");
+                SwipeDirection.Value = "Up";
+                SwipeUpEvent.Invoke();
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                //Debug.Log("Swipe down");
+                SwipeDirection.Value = "Down";
+                SwipeDownEvent.Invoke();
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                //Debug.Log("Swipe left");
+                SwipeDirection.Value = "Left";
+                SwipeLeftEvent.Invoke();
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                //Debug.Log("Swipe right");
+                SwipeDirection.Value = "Right";
+                SwipeRightEvent.Invoke();
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+        {
+            //Debug.Log("Swipe ended");
+            fingerDown = false;
+            SwipeEndedEvent.Invoke();
+            SwipeDirection.Value = "none";
+        }
+#else
         if(fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
             startPos = Input.touches[0].position;
@@ -59,5 +101,6 @@ public class SwipeDetection : MonoBehaviour
             SwipeEndedEvent.Invoke();
             SwipeDirection.Value = "none";
         }
+#endif
     }
 }
